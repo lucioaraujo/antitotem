@@ -1,0 +1,160 @@
+/* Antitotem — Objeto Sonoro — identidade própria do instrumento.
+   Paleta extraída do app real (src/app/Main.cpp, namespace material):
+   fundo quase-preto, âmbar/madeira como acento primário, vermelho como
+   acento raro de estado/aviso. Não compartilha a paleta do portal geral
+   RASGO (RASGO_WEBSITE/styles.css) por design — cada instrumento mantém
+   identidade visual própria (ver GOVERNANCA_E_TRANSVERSALIDADE.md §10). */
+/* Self-hosted, not named-system-font (RASGO sites rule, 26 ago. 2026):
+   "DejaVu Sans"/"DejaVu Sans Mono" are free (Bitstream Vera-derived) but
+   were only ever named here, never embedded - common on Linux, rarely
+   pre-installed on Windows/macOS, so the site rendered in a different
+   generic fallback font depending on the visitor's OS (same bug found live
+   on the Navalha 2 site the same day). Subset to Latin + common punctuation/
+   arrows actually used on this site. */
+@font-face { font-family: "DejaVu Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/dejavu-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "DejaVu Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/dejavu-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "DejaVu Sans Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/dejavu-sans-mono-400.woff2") format("woff2"); }
+@font-face { font-family: "DejaVu Sans Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/dejavu-sans-mono-700.woff2") format("woff2"); }
+
+:root {
+  --ink: #f3ecdf;
+  --muted: #b7ab9c;
+  --line: #3a2f27;
+  --surface: #171511;
+  --surface-high: #211c17;
+  --ground: #110d0e;
+  --amber: #ffca5c;
+  --board: #c98a2b;
+  --red: #dd2f37;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--ground);
+  font: 16px/1.6 "DejaVu Sans", system-ui, sans-serif;
+}
+a { color: var(--amber); }
+a:hover { color: var(--board); }
+.skip-link {
+  position: fixed; left: 1rem; top: -4rem; z-index: 20;
+  padding: .65rem .9rem; background: var(--amber); color: #171511;
+  font-weight: 700; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1.5rem; flex-wrap: wrap;
+  padding: 1rem clamp(1.2rem, 5vw, 4rem);
+  background: rgba(17, 13, 14, .94); border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.brand img { height: 2.1rem; width: auto; }
+.brand span { font: 700 1.1rem/1 "DejaVu Sans Mono", monospace; letter-spacing: .04em; color: var(--ink); }
+.brand span em { font-style: normal; color: var(--amber); }
+.header-nav { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.page-nav { display: flex; gap: 1.2rem; }
+.page-nav a { color: var(--muted); text-decoration: none; font-size: .85rem; }
+.page-nav a[aria-current="page"] { color: var(--amber); }
+.page-nav a:hover { color: var(--amber); }
+.lang-switch { display: flex; gap: .4rem; }
+.lang-switch a {
+  padding: .3rem .55rem; border: 1px solid var(--line); color: var(--muted);
+  text-decoration: none; font: .72rem "DejaVu Sans Mono", monospace; letter-spacing: .06em;
+}
+.lang-switch a[aria-current="true"] { color: var(--amber); border-color: var(--amber); }
+
+.hero { padding: clamp(3rem, 9vw, 7rem) clamp(1.2rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem); border-bottom: 1px solid var(--line); }
+.status-pill {
+  display: inline-block; padding: .3rem .7rem; margin-bottom: 1.2rem;
+  border: 1px solid var(--red); color: var(--red);
+  font: 700 .74rem/1.2 "DejaVu Sans Mono", monospace; letter-spacing: .1em; text-transform: uppercase;
+}
+.hero h1 { margin: 0 0 .8rem; font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -.03em; }
+.hero .lead { max-width: 640px; color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.25rem); margin: 0 0 1.6rem; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; color: var(--muted); font: .82rem "DejaVu Sans Mono", monospace; margin-bottom: 1.8rem; }
+.hero-meta b { color: var(--ink); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.button {
+  display: inline-block; padding: .65rem 1.1rem; border: 1px solid var(--line);
+  color: var(--ink); text-decoration: none; font-size: .88rem;
+}
+.button-primary { border-color: var(--amber); background: var(--amber); color: #171511; font-weight: 700; }
+.button-primary:hover { background: var(--board); border-color: var(--board); color: #171511; }
+.button:hover { border-color: var(--amber); color: var(--amber); }
+
+.section { padding: clamp(2.5rem, 7vw, 5rem) clamp(1.2rem, 8vw, 6rem); border-bottom: 1px solid var(--line); }
+.section h2 { margin: 0 0 1.2rem; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -.02em; }
+.section p { max-width: 720px; color: var(--muted); }
+.section p code, .section li code { background: var(--surface-high); border: 1px solid var(--line); padding: .1rem .35rem; font-size: .88em; color: var(--amber); }
+
+.req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.req-card { padding: 1.2rem; background: var(--surface); border: 1px solid var(--line); }
+.req-card h3 { margin: 0 0 .5rem; font-size: 1rem; color: var(--amber); font-family: "DejaVu Sans Mono", monospace; letter-spacing: .02em; }
+.req-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+.req-card ul { margin: .5rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .88rem; }
+
+pre {
+  background: var(--surface); border: 1px solid var(--line); padding: 1rem 1.2rem;
+  overflow-x: auto; font: .85rem/1.5 "DejaVu Sans Mono", monospace; color: var(--ink);
+}
+pre code { background: none; border: none; padding: 0; color: inherit; }
+
+.step { display: flex; gap: 1rem; margin-top: 1.6rem; }
+.step-index {
+  flex: none; width: 1.8rem; height: 1.8rem; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--amber); color: var(--amber); font: 700 .82rem "DejaVu Sans Mono", monospace;
+}
+.step-body { max-width: 620px; }
+.step-body h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.step-body p { margin: 0 0 .6rem; color: var(--muted); font-size: .92rem; }
+
+.note { border-left: 2px solid var(--red); padding: .1rem 0 .1rem 1rem; color: var(--muted); font-size: .88rem; max-width: 640px; }
+
+.section-dark { background: var(--surface); }
+
+.hero-art { border-bottom: 1px solid var(--line); }
+.hero-art img { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: cover; object-position: center 20%; }
+figure.shot { margin: 1.6rem 0 0; max-width: 900px; }
+figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+figure.shot figcaption { margin-top: .5rem; color: var(--muted); font: .78rem "DejaVu Sans Mono", monospace; }
+blockquote.manifesto {
+  margin: 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--amber);
+  max-width: 700px; font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-style: italic; color: var(--ink);
+}
+blockquote.manifesto cite { display: block; margin-top: .8rem; font: .78rem "DejaVu Sans Mono", monospace; font-style: normal; color: var(--muted); }
+.origin-list { list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 720px; }
+.origin-list li { display: flex; gap: 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.origin-list li:first-child { border-top: none; }
+.origin-list .year { flex: none; width: 3.6rem; color: var(--amber); font: 700 .85rem "DejaVu Sans Mono", monospace; }
+.origin-list p { margin: 0; color: var(--muted); font-size: .92rem; }
+.trait-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.trait-card { padding: 1.1rem; background: var(--surface); border: 1px solid var(--line); }
+.trait-card h3 { margin: 0 0 .5rem; font-size: .95rem; color: var(--amber); }
+.trait-card p { margin: 0 0 .5rem; color: var(--muted); font-size: .88rem; }
+.trait-card p:last-child { margin-bottom: 0; }
+.trait-card .then { font-style: italic; opacity: .78; }
+.trait-card .now { border-top: 1px solid var(--line); padding-top: .5rem; }
+.trait-card .now b { color: var(--ink); font-weight: 700; }
+.contact-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.4rem; }
+
+.site-footer {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  padding: 1.5rem clamp(1.2rem, 5vw, 4rem); color: var(--muted); font-size: .78rem;
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--amber); }
+
+@media (max-width: 640px) {
+  .site-header { flex-direction: column; align-items: flex-start; }
+  .step { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

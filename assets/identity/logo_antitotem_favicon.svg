@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20.833725mm"
+   height="11.51327mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="logo_antitotem_favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.54"
+     inkscape:cx="55.570292"
+     inkscape:cy="44.429708"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="1368"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.52335,-360.94903)">
+    <path
+       style="fill:#aa0000"
+       d="m 27.264988,403.15237 c -4.225094,-2.11476 -6.073145,-9.32737 -5.693115,-22.21921 0.369599,-12.53799 2.267954,-18.04776 6.643188,-19.28116 3.324855,-0.9373 62.774999,-0.9373 66.099851,0 4.55338,1.28362 5.950078,6.18132 5.950078,20.86475 0,17.54181 -1.771438,20.91641 -10.979715,20.91641 -3.03164,0 -4.755733,-0.64454 -6.565742,-2.45455 -2.192994,-2.19299 -2.454545,-3.2988 -2.454545,-10.37755 0,-5.52273 -0.418751,-8.27054 -1.38224,-9.07017 -0.949856,-0.78831 -6.658717,-1.06122 -18.25,-0.87244 -14.204803,0.23134 -16.86776,0.51152 -16.86776,1.77471 0,1.24318 2.532119,1.58561 14.789072,2 16.074522,0.54346 15.838892,0.45195 17.65634,6.85723 1.235057,4.35274 -1.062186,10.41931 -4.546708,12.00697 -3.594686,1.63785 -41.081332,1.51543 -44.398704,-0.14499 z"
+       id="path3120"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sscssssssssssss"
+       inkscape:export-filename="logo_antitotem_favicon.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+  </g>
+</svg>

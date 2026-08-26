@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Antitotem - Objeto Sonoro
+GenericName=Modular Sound Instrument
+Comment=Standalone CMOS/discrete-inspired modular sound object instrument
+Exec=antitotem
+Icon=antitotem
+Terminal=false
+Categories=AudioVideo;Audio;Music;

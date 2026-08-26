@@ -1,0 +1,21 @@
+# Local toolchains and build products
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Testing/
+compile_commands.json
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Test, runtime and editor residue
+*.log
+*.tmp
+*.part
+*~
+.DS_Store

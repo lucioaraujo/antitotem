@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Antitotem — Concept</title>
+<meta name="description" content="Antitotem : objet sonore autonome et multiplateforme pour créer de la musique, héritier d'une installation urbaine de 2012-2013 à Curitiba." />
+<link rel="icon" href="../assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../assets/identity/logo_antitotem_favicon.png" type="image/png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<div class="site-header">
+  <a class="brand" href="#top">
+    <img src="../assets/identity/logo_antitotem_novo.svg" alt="" />
+    <span>ANTI<em>TOTEM</em></span>
+  </a>
+  <div class="header-nav">
+    <nav class="page-nav" aria-label="Sections">
+      <a href="concept-fr.html" aria-current="page">Concept</a>
+      <a href="fr.html">Installation</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Langue">
+      <a href="concept.html">PT</a>
+      <a href="concept-en.html">EN</a>
+      <a href="concept-fr.html" aria-current="true">FR</a>
+      <a href="concept-es.html">ES</a>
+    </nav>
+  </div>
+</div>
+
+<main id="contenu">
+<header class="hero-art" id="top">
+  <img src="antitotem.png" alt="Illustration conceptuelle d'Antitotem : une figure en bois câblée de tubes et de fils, connectée à un panneau modulaire couvert de boutons et d'oscilloscopes." />
+</header>
+
+<section class="hero">
+  <span class="status-pill">Un objet sonore multiplateforme pour créer de la musique</span>
+  <h1>Concept</h1>
+  <p class="lead">Antitotem est aujourd'hui un instrument sonore autonome que n'importe qui peut
+    télécharger et utiliser pour composer, performer et enregistrer de la musique — cinq
+    oscillateurs, un séquenceur, un filtre, des effets et une capture audio/MIDI/MusicXML dans
+    un seul objet. Né comme installation urbaine de consoles dédiées, il en garde l'ADN, mais sa
+    forme actuelle est un instrument personnel de création musicale.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>L'instrument aujourd'hui</h2>
+  <p>Antitotem est un instrument autonome JUCE/C++20, pensé pour tourner sur n'importe quel
+    ordinateur — aujourd'hui disponible pour Linux (paquet <code>.deb</code> ou compilation
+    depuis les sources), avec Windows et macOS au programme. Ce n'est pas un plugin et il ne
+    dépend d'aucun DAW : il s'ouvre, sonne et enregistre seul.</p>
+  <p>On peut composer une pièce entière avec lui : cinq oscillateurs (continus, sub/horloge
+    divisée et hétérodyne), un scanner 16 pas, ADSR, VCF multimode, bruits et sample &amp; hold,
+    retours (reverb/phaser/flanger/résonateur), un mixeur avec mémoire, une dérive générative,
+    un oscilloscope L/R permanent, et un enregistrement direct en WAV, MIDI et MusicXML — la
+    pièce sort prête à être réécoutée, éditée dans un DAW, ou ouverte comme partition.</p>
+  <p><a class="button button-primary" href="fr.html">Prérequis et installation</a></p>
+  <figure class="shot">
+    <img src="antitotem_modo_principal.png" alt="Capture d'écran d'Antitotem — Objet Sonore en mode PRINCIPAL, montrant oscillateurs, VCF/ADSR, modulation, mixeur et connexion entre objets." />
+    <figcaption>Mode PRINCIPAL de l'instrument numérique actuel.</figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <h2>Caractéristiques</h2>
+  <p>Quatre traits définissaient les consoles urbaines de 2012-2013. Ils n'ont pas été
+    remplacés — ils nourrissent le concept du nouvel objet sonore, traduits pour un instrument
+    qui tient sur un ordinateur portable plutôt que dans un caisson de rue.</p>
+  <div class="trait-grid">
+    <div class="trait-card">
+      <h3>Objet sonore urbain</h3>
+      <p class="then">« Cinq objets sonores distincts, distribués dans les flux de la ville,
+        pas sur une scène fermée. »</p>
+      <p class="now"><b>Aujourd'hui :</b> toujours un objet sonore autonome, pas un plugin — il
+        s'ouvre et sonne aussitôt, enregistre sa propre sortie, ne dépend d'aucun hôte ni
+        d'aucun DAW pour exister.</p>
+    </div>
+    <div class="trait-card">
+      <h3>Perception de l'espace</h3>
+      <p class="then">« Suggère d'autres chemins, signale les environs, active la perception de
+        la matérialité du lieu habité ou parcouru. »</p>
+      <p class="now"><b>Aujourd'hui :</b> la DÉRIVE déplace les paramètres seule, dans des
+        limites conçues — jamais un hasard aveugle — et la chaîne ESPACE traite largeur et
+        panoramique comme un lieu à parcourir, pas un effet figé.</p>
+    </div>
+    <div class="trait-card">
+      <h3>Présence et absence</h3>
+      <p class="then">« Établit une présence par le son, comble des vides, met en évidence
+        l'absence — crée un dialogue plutôt qu'un simple signal. »</p>
+      <p class="now"><b>Aujourd'hui :</b> un oscilloscope L/R permanent à l'écran et un mixeur
+        avec connexion entre objets — l'instrument montre toujours ce qui sonne vraiment, pas
+        seulement ce qui a été programmé.</p>
+    </div>
+    <div class="trait-card">
+      <h3>Technologie réinventée</h3>
+      <p class="then">« Réinvente des technologies qui permettent l'interactivité et
+        élargissent les dynamiques spatio-temporelles, pas une technologie toute faite. »</p>
+      <p class="now"><b>Aujourd'hui :</b> le caractère des puces CMOS/discrètes originales
+        (40106, 8038, 4069UB) a été réécrit en code — pas une émulation, une réinvention du même
+        élan, maintenant en logiciel libre que n'importe qui peut télécharger et jouer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <h2>ADN — d'où ça vient</h2>
+  <p>Antitotem est né comme une œuvre d'art sonore pour l'espace urbain de Curitiba — des
+    consoles électroniques dédiées, installées à des points stratégiques de la ville, pas un
+    instrument de studio.</p>
+  <ul class="origin-list">
+    <li>
+      <span class="year">2012</span>
+      <p>Sélectionné dans l'appel à recherche et production en art numérique nº 090/12 de la
+        <strong>Fundação Cultural de Curitiba</strong> (Fondation Culturelle de Curitiba), avec
+        le soutien de la Mairie de Curitiba et du Fonds Municipal de Culture.</p>
+    </li>
+    <li>
+      <span class="year">2013</span>
+      <p>Cinq consoles matérielles auctoriales, modulaires, CMOS/discrètes ont été construites,
+        chacune installée à un point différent de la ville — avec exposition, atelier et
+        documentation vidéo des immersions.</p>
+    </li>
+    <li>
+      <span class="year">2026</span>
+      <p>Nouvelle phase : un instrument numérique (ce dépôt), inspiré de la pratique matérielle
+        des consoles originales, sans remplacer ni déplacer le fonds historique — désormais
+        tourné vers la création musicale personnelle, pas l'installation urbaine.</p>
+    </li>
+  </ul>
+  <blockquote class="manifesto" style="margin-top:1.6rem">
+    <p>« Par le biais d'instruments électroniques et de leurs signaux sonores, Antitotem
+    procure des expériences sensorielles élargissant la perception de l'espace que nous
+    habitons ou parcourons. Il suggère d'autres chemins, met en tension les trajets, signale les
+    environs, active la perception, crée des dialogues, établit une présence, comble des vides,
+    met en évidence l'absence. »</p>
+    <cite>Manifeste original du projet 2012-2013 (traduit du portugais),
+      <a href="http://antitotem.arquiviagem.net">antitotem.arquiviagem.net</a></cite>
+  </blockquote>
+  <p style="margin-top:1.4rem">Le site original du projet, avec l'exposition, l'atelier et les
+    archives des immersions à travers la ville, reste en ligne à
+    <a href="http://antitotem.arquiviagem.net">antitotem.arquiviagem.net</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Crédits</h2>
+  <p>Lúcio Araújo — conception, DSP, interface et tout le code de ce prototype. Construit sur le
+    framework JUCE (dépendance double licence AGPLv3/commerciale ; ce projet utilise la voie
+    AGPLv3), sous licence <strong>AGPLv3</strong> (voir <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">LICENSE</a>). Les schémas et images de
+    recherche cités dans la liste complète gardent leurs propres droits et ne sont pas
+    distribués avec ce dépôt — voir la
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">liste complète des sources et références techniques</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Contact</h2>
+  <p>Lúcio Araújo — auctorialité et développement.</p>
+  <div class="contact-row">
+    <a class="button button-primary" href="mailto:rasgo.instruments@gmail.com">rasgo.instruments@gmail.com</a>
+    <a class="button" href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a>
+    <a class="button" href="http://antitotem.arquiviagem.net">Site historique 2012-2013</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>Antitotem — Objet Sonore · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Crédits</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licence AGPLv3</a>
+  </nav>
+</footer>
+</body>
+</html>
