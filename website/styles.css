@@ -101,7 +101,8 @@ a:hover { color: var(--board); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 .button {
   display: inline-block; padding: .65rem 1.1rem; border: 1px solid var(--line);
-  color: var(--ink); text-decoration: none; font-size: .88rem;
+  color: var(--ink); text-decoration: none; font-size: .88rem; cursor: pointer;
+  font-family: inherit; background: none;
 }
 .button-primary { border-color: var(--amber); background: var(--amber); color: #171511; font-weight: 700; }
 .button-primary:hover { background: var(--board); border-color: var(--board); color: #171511; }
@@ -168,6 +169,20 @@ blockquote.manifesto cite { display: block; margin-top: .8rem; font: .78rem "Dej
 }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--amber); }
+
+/* Contact email: click-to-copy instead of a plain mailto: link, so the
+   visitor's OS doesn't launch a desktop mail client (e.g. Thunderbird) just
+   for looking up the address. Same pattern as the Navalha 2 and RASGO portal
+   sites. */
+.contact-dialog { width: min(100% - 40px, 380px); padding: 1.4rem; border: 1px solid var(--line); background: var(--surface-high); color: var(--ink); }
+.contact-dialog::backdrop { background: rgba(0, 0, 0, .72); backdrop-filter: blur(4px); }
+.contact-dialog h2 { margin: 0 0 .6rem; font-size: 1rem; letter-spacing: .06em; font-family: "DejaVu Sans Mono", monospace; }
+.contact-dialog p { margin-bottom: 0; color: var(--muted); font-size: .82rem; }
+.contact-dialog code { display: block; margin: .9rem 0 .8rem; padding: .65rem; border: 1px solid var(--line); background: var(--ground); color: var(--amber); font-size: .82rem; overflow-wrap: anywhere; }
+.contact-dialog .button { padding: .6rem .8rem; font-size: .78rem; cursor: pointer; }
+.contact-feedback { min-height: 1.3em; margin: .6rem 0 0; font-size: .76rem; color: var(--muted); }
+.dialog-close { position: absolute; top: .6rem; right: .7rem; border: 0; background: transparent; color: var(--muted); font-size: 1.7rem; line-height: 1; cursor: pointer; }
+.dialog-close:hover { color: var(--amber); }
 
 @media (max-width: 640px) {
   .site-header { flex-direction: column; align-items: flex-start; }

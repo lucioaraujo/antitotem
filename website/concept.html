@@ -8,6 +8,7 @@
 <link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
 <link rel="stylesheet" href="styles.css" />
+<script src="assets/contact.js" defer></script>
 </head>
 <body>
 <div class="rasgo-strip"><a href="https://rasgosound.arquiviagem.net/">RASGO — família de instrumentos e pesquisa sonora</a></div>
@@ -155,7 +156,7 @@
   <h2>Contato</h2>
   <p>Lúcio Araújo — autoria e desenvolvimento.</p>
   <div class="contact-row">
-    <a class="button button-primary" href="mailto:rasgo.instruments@gmail.com">rasgo.instruments@gmail.com</a>
+    <button type="button" class="button button-primary" data-contact-trigger>rasgo.instruments@gmail.com</button>
     <a class="button" href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a>
     <a class="button" href="http://antitotem.arquiviagem.net">Site histórico 2012-2013</a>
   </div>
@@ -170,5 +171,13 @@
     <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licença AGPLv3</a>
   </nav>
 </footer>
+<dialog class="contact-dialog" data-contact-dialog aria-labelledby="contact-title">
+  <button class="dialog-close" type="button" data-contact-close aria-label="Fechar janela de contato">×</button>
+  <h2 id="contact-title">CONTATO</h2>
+  <p>Copie o endereço de e-mail:</p>
+  <code data-contact-address></code>
+  <button class="button button-primary" type="button" data-contact-copy>Copiar e-mail</button>
+  <p class="contact-feedback" data-contact-feedback data-copied="E-mail copiado." data-fallback="Selecione e copie o endereço acima." aria-live="polite"></p>
+</dialog>
 </body>
 </html>
