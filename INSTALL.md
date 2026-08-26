@@ -10,9 +10,9 @@ Two languages, same content: [🇬🇧 English](#english) below, [🇧🇷 Portu
 
 Antitotem is a prototype under active investigation (`v0.1.0`). Linux, Windows and macOS
 installers are available from the
-[antitotem-v0.1.0 release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0)
-(the repository is private, so this requires a GitHub account with access). This guide
-also covers building from source and building/installing the `.deb` package yourself; see
+[v0.1.0 release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
+This guide also covers building from source and building/installing the `.deb` package
+yourself; see
 [Windows/macOS](#windowsmacos) below for that platform's current validation status.
 
 ### Requirements
@@ -127,9 +127,9 @@ licenses in [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md).
 
 Antitotem é um protótipo em investigação ativa (`v0.1.0`). Instaladores pra Linux,
 Windows e macOS estão disponíveis na
-[release antitotem-v0.1.0](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0)
-(o repositório é privado, então precisa de conta GitHub com acesso). Este guia também
-cobre compilar a partir do código-fonte e gerar/instalar o pacote `.deb` você mesmo; ver
+[release v0.1.0](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
+Este guia também cobre compilar a partir do código-fonte e gerar/instalar o pacote
+`.deb` você mesmo; ver
 [Windows/macOS](#windowsmacos-1) abaixo pro estado de validação atual dessas plataformas.
 
 ### Requisitos

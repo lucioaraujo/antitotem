@@ -46,8 +46,26 @@ a:hover { color: var(--board); }
 .skip-link:focus { top: 1rem; }
 :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
+/* Persistent umbrella strip above every instrument's own header (RASGO
+   family rule, 27 ago. 2026, "sempre haja um cabeçalho do portal rasgo,
+   que ele nunca deixe de existir, fixo") - the instrument's own header
+   sits right below as a sub-header, keeping its own identity untouched.
+   Deliberately neutral/minimal so it reads as a shared meta-layer, not a
+   second brand competing with the instrument's own palette. */
+.rasgo-strip {
+  position: sticky; top: 0; z-index: 11;
+  display: flex; align-items: center; justify-content: center;
+  padding: .4rem 1rem;
+  background: var(--ground); border-bottom: 1px solid var(--line);
+}
+.rasgo-strip a {
+  color: var(--muted); text-decoration: none;
+  font: 700 .68rem "DejaVu Sans Mono", monospace; letter-spacing: .1em; text-transform: uppercase;
+}
+.rasgo-strip a:hover { color: var(--amber); }
+
 .site-header {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 1.9rem; z-index: 10;
   display: flex; justify-content: space-between; align-items: center;
   gap: 1.5rem; flex-wrap: wrap;
   padding: 1rem clamp(1.2rem, 5vw, 4rem);

@@ -41,8 +41,7 @@ Downloads: [**Antitotem v0.1.0** release](https://github.com/lucioaraujo/antitot
 — Linux `.deb`, Windows `.exe` (NSIS) and macOS `.dmg` (DragNDrop), all
 built via CI on GitHub's own hosted runners. The Linux package has been
 installed and opened on real hardware; Windows/macOS build cleanly but
-have not been opened on real hardware yet. This repository is private, so
-the release link requires a GitHub account with access. See
+have not been opened on real hardware yet. See
 [`INSTALL.md`](INSTALL.md) for requirements, package installation and
 troubleshooting (EN/PT), and [`docs/TAREFAS.md`](docs/TAREFAS.md) for the
 full plan and current status.
@@ -116,8 +115,7 @@ Downloads: [**release Antitotem v0.1.0**](https://github.com/lucioaraujo/antitot
 — `.deb` Linux, `.exe` Windows (NSIS) e `.dmg` macOS (DragNDrop), todos
 gerados via CI nos runners hospedados pelo próprio GitHub. O pacote Linux
 já foi instalado e aberto de verdade; Windows/macOS compilam limpos mas
-ainda não foram abertos em hardware real. Este repositório é privado,
-então o link da release exige conta GitHub com acesso. Ver
+ainda não foram abertos em hardware real. Ver
 [`INSTALL.md`](INSTALL.md) para requisitos, instalação do pacote e
 solução de problemas (EN/PT), e [`docs/TAREFAS.md`](docs/TAREFAS.md) para
 o plano completo e o estado atual.
@@ -191,9 +189,8 @@ Téléchargements : [**release Antitotem v0.1.0**](https://github.com/lucioarauj
 — `.deb` Linux, `.exe` Windows (NSIS) et `.dmg` macOS (DragNDrop), tous
 générés via CI sur les runners hébergés par GitHub lui-même. Le paquet
 Linux a été installé et ouvert pour de vrai ; Windows/macOS compilent
-proprement mais n'ont pas encore été ouverts sur du matériel réel. Ce
-dépôt est privé, donc le lien de la release exige un compte GitHub avec
-accès. Voir [`INSTALL.md`](INSTALL.md) pour les prérequis, l'installation
+proprement mais n'ont pas encore été ouverts sur du matériel réel.
+Voir [`INSTALL.md`](INSTALL.md) pour les prérequis, l'installation
 du paquet et le dépannage (EN/PT), et [`docs/TAREFAS.md`](docs/TAREFAS.md)
 pour le plan complet et l'état actuel.
 
@@ -267,9 +264,8 @@ Descargas: [**release Antitotem v0.1.0**](https://github.com/lucioaraujo/antitot
 — `.deb` Linux, `.exe` Windows (NSIS) y `.dmg` macOS (DragNDrop), todos
 generados vía CI en los runners alojados por el propio GitHub. El paquete
 Linux ya fue instalado y abierto de verdad; Windows/macOS compilan limpio
-pero todavía no fueron abiertos en hardware real. Este repositorio es
-privado, así que el enlace de la release exige una cuenta de GitHub con
-acceso. Ver [`INSTALL.md`](INSTALL.md) para requisitos, instalación del
+pero todavía no fueron abiertos en hardware real.
+Ver [`INSTALL.md`](INSTALL.md) para requisitos, instalación del
 paquete y solución de problemas (EN/PT), y
 [`docs/TAREFAS.md`](docs/TAREFAS.md) para el plan completo y el estado
 actual.
