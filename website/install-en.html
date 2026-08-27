@@ -87,15 +87,16 @@
 
 <section class="section">
   <h2>Minimum requirements</h2>
-  <p>Antitotem currently runs from source; there is no published binary. The requirements below
-    cover both running a locally-built <code>.deb</code> package and compiling from scratch.</p>
+  <p>Antitotem already has ready-made installers for Linux, Windows and macOS (see Download,
+    at the top of the page). The requirements below cover both using one of those binaries and
+    compiling from source.</p>
   <div class="req-grid">
     <div class="req-card">
       <h3>System</h3>
       <p>Linux (tested on Debian/Ubuntu, amd64) — <code>.deb</code> package installed and
-        opened for real. Windows and macOS: build and installer already generated
-        automatically via CI, but not yet opened on real Windows/macOS hardware — see the note
-        below.</p>
+        opened for real. Windows (<code>.exe</code>) and macOS (<code>.dmg</code>): installers
+        built and tested via CI on real runners, but not yet opened on real Windows/macOS
+        hardware — see the note below.</p>
     </div>
     <div class="req-card">
       <h3>To build</h3>
@@ -123,6 +124,47 @@
   <div class="step">
     <span class="step-index">1</span>
     <div class="step-body">
+      <h3>Linux — <code>.deb</code> package</h3>
+      <pre><code>sudo dpkg -i antitotem-0.1.0-Linux.deb
+sudo apt-get install -f   # if any dependency is missing</code></pre>
+      <p>Once installed, run <code>antitotem</code> from a terminal, or look for "Antitotem -
+        Objeto Sonoro" in your application menu.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">2</span>
+    <div class="step-body">
+      <h3>Windows — <code>.exe</code> installer</h3>
+      <p>Run the downloaded installer and follow the wizard. Built and tested via CI on a
+        real Windows runner, but not yet opened on real Windows hardware — see the note
+        below.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">3</span>
+    <div class="step-body">
+      <h3>macOS — <code>.dmg</code> image</h3>
+      <p>Open the downloaded <code>.dmg</code> and drag Antitotem into Applications. Built
+        and tested via CI on a real macOS runner, but not yet opened on real macOS hardware —
+        see the note below.</p>
+    </div>
+  </div>
+
+  <p class="note">All three installers are built and tested via
+    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>;
+    Windows and macOS haven't been opened on real hardware of those platforms yet. Full guide,
+    with every detail and troubleshooting, in the
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Build from source</h2>
+  <p>An alternative for those who'd rather build it themselves than use the ready-made
+    installers:</p>
+
+  <div class="step">
+    <span class="step-index">1</span>
+    <div class="step-body">
       <h3>Get the code</h3>
       <p><code>git clone https://github.com/lucioaraujo/antitotem.git</code> and enter the
         directory.</p>
@@ -139,7 +181,7 @@
   <div class="step">
     <span class="step-index">3</span>
     <div class="step-body">
-      <h3>Or build the <code>.deb</code> package</h3>
+      <h3>Or build the <code>.deb</code> package yourself</h3>
       <pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
   -DANTITOTEM_JUCE_PATH=/path/to/JUCE
 cmake --build build --target AntitotemSimpleSequencerApp -j
@@ -149,13 +191,7 @@ sudo apt-get install -f   # if any dependency is missing</code></pre>
     </div>
   </div>
 
-  <p class="note">Windows (NSIS/<code>.exe</code>) and macOS (DragNDrop/<code>.dmg</code>):
-    already available for download in the
-    <a href="https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0">v0.1.0 release</a>,
-    alongside the Linux <code>.deb</code> — built and tested via
-    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>
-    on real Windows/macOS runners. The installers build cleanly, but haven't been opened on
-    real Windows or macOS hardware yet. Full guide, with every detail and troubleshooting, in the
+  <p class="note">Build requirements, core tests and troubleshooting in the
     <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
 </section>
 

@@ -87,15 +87,16 @@
 
 <section class="section">
   <h2>Requisitos mínimos</h2>
-  <p>Antitotem roda a partir do código-fonte hoje; não há binário publicado. Os requisitos
-    abaixo cobrem tanto rodar o pacote <code>.deb</code> construído localmente quanto compilar
-    do zero.</p>
+  <p>Antitotem já tem instaladores prontos pra Linux, Windows e macOS (veja Baixar, no topo da
+    página). Os requisitos abaixo cobrem tanto usar um desses binários quanto compilar a partir
+    do código-fonte.</p>
   <div class="req-grid">
     <div class="req-card">
       <h3>Sistema</h3>
       <p>Linux (testado em Debian/Ubuntu, amd64) — pacote <code>.deb</code> instalado e aberto
-        de verdade. Windows e macOS: build e instalador já gerados automaticamente via CI, mas
-        ainda não abertos num Windows/macOS real — ver nota abaixo.</p>
+        de verdade. Windows (<code>.exe</code>) e macOS (<code>.dmg</code>): instaladores
+        gerados e testados via CI em runners reais, mas ainda não abertos num Windows/macOS de
+        verdade — ver nota abaixo.</p>
     </div>
     <div class="req-card">
       <h3>Para compilar</h3>
@@ -123,6 +124,45 @@
   <div class="step">
     <span class="step-index">1</span>
     <div class="step-body">
+      <h3>Linux — pacote <code>.deb</code></h3>
+      <pre><code>sudo dpkg -i antitotem-0.1.0-Linux.deb
+sudo apt-get install -f   # se faltar alguma dependência</code></pre>
+      <p>Depois de instalado, rode <code>antitotem</code> no terminal, ou procure "Antitotem -
+        Objeto Sonoro" no menu de aplicativos.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">2</span>
+    <div class="step-body">
+      <h3>Windows — instalador <code>.exe</code></h3>
+      <p>Execute o instalador baixado e siga o assistente. Gerado e testado via CI num runner
+        Windows real, mas ainda não aberto num Windows de verdade — ver nota abaixo.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">3</span>
+    <div class="step-body">
+      <h3>macOS — imagem <code>.dmg</code></h3>
+      <p>Abra o <code>.dmg</code> baixado e arraste o Antitotem pra pasta Aplicativos. Gerado
+        e testado via CI num runner macOS real, mas ainda não aberto num macOS de verdade —
+        ver nota abaixo.</p>
+    </div>
+  </div>
+
+  <p class="note">Todos os três instaladores são gerados e testados via
+    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>;
+    Windows e macOS ainda não foram abertos em hardware de verdade dessas plataformas. Guia
+    completo, com todos os detalhes e solução de problemas, no
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Compilar do código-fonte</h2>
+  <p>Alternativa pra quem prefere compilar em vez de usar os instaladores prontos:</p>
+
+  <div class="step">
+    <span class="step-index">1</span>
+    <div class="step-body">
       <h3>Obter o código</h3>
       <p><code>git clone https://github.com/lucioaraujo/antitotem.git</code> e entre no
         diretório.</p>
@@ -139,7 +179,7 @@
   <div class="step">
     <span class="step-index">3</span>
     <div class="step-body">
-      <h3>Ou gerar o pacote <code>.deb</code></h3>
+      <h3>Ou gerar o pacote <code>.deb</code> você mesmo</h3>
       <pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
   -DANTITOTEM_JUCE_PATH=/caminho/para/JUCE
 cmake --build build --target AntitotemSimpleSequencerApp -j
@@ -149,13 +189,7 @@ sudo apt-get install -f   # se faltar alguma dependência</code></pre>
     </div>
   </div>
 
-  <p class="note">Windows (NSIS/<code>.exe</code>) e macOS (DragNDrop/<code>.dmg</code>): já
-    disponíveis pra download na
-    <a href="https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0">release v0.1.0</a>,
-    junto com o <code>.deb</code> do Linux — gerados e testados via
-    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>
-    em runners Windows/macOS reais. Os instaladores compilam limpos, mas ainda não foram
-    abertos num Windows ou macOS de verdade. Guia completo, com todos os detalhes e solução de problemas, no
+  <p class="note">Requisitos de build, testes do core e solução de problemas no
     <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
 </section>
 
