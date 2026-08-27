@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Antitotem — Objeto Sonoro</title>
-<meta name="description" content="Antitotem — Objeto Sonoro: instrumento standalone JUCE/C++, modular, inspirado em prática CMOS/discreta. Requisitos, instalação e build a partir do código-fonte." />
+<title>Antitotem — Conceito</title>
+<meta name="description" content="Antitotem: objeto sonoro standalone e multiplataforma pra criar música, com DNA de uma instalação urbana de 2012-2013 em Curitiba." />
 <link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
 <link rel="stylesheet" href="styles.css" />
+<script src="assets/contact.js" defer></script>
 </head>
 <body>
 <div class="rasgo-strip"><a href="https://rasgosound.arquiviagem.net/">RASGO — família de instrumentos e pesquisa sonora</a></div>
@@ -20,8 +21,8 @@
   </a>
   <div class="header-nav">
     <nav class="page-nav" aria-label="Seções">
-      <a href="concept.html">Conceito</a>
-      <a href="index.html" aria-current="page">Instalação</a>
+      <a href="index.html" aria-current="page">Conceito</a>
+      <a href="install.html">Instalação</a>
     </nav>
     <nav class="lang-switch" aria-label="Idioma">
       <a href="index.html" aria-current="true">PT</a>
@@ -33,166 +34,132 @@
 </div>
 
 <main id="conteudo">
-<header class="hero" id="top">
-  <span class="status-pill">Protótipo em investigação</span>
-  <h1>Objeto Sonoro</h1>
-  <p class="lead">Instrumento standalone JUCE/C++20, modular, precursor e patrono da família
-    RASGO. Cinco osciladores, scanner de 16 etapas, ADSR, VCF multimodo, ruídos e S&amp;H,
-    retornos, efeitos, mixer, osciloscópio permanente e gravação WAV/MIDI/MusicXML.</p>
-  <div class="hero-meta">
-    <span>Versão <b>v0.1.0</b></span>
-    <span>Licença <b>AGPLv3</b></span>
-    <span>Autoria <b>Lúcio Araújo</b></span>
-    <span>Origem <b>2013, hardware autoral</b></span>
-  </div>
-  <div class="hero-actions">
-    <a class="button button-primary" href="https://github.com/lucioaraujo/antitotem/tree/main">Código-fonte no GitHub</a>
-    <a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">Guia de instalação completo</a>
-    <a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licença</a>
-  </div>
+<header class="hero-art" id="top">
+  <img src="antitotem.png" alt="Ilustração conceitual do Antitotem: uma figura de madeira com fios e válvulas conectada a um painel modular repleto de knobs e osciloscópios." />
 </header>
 
-<section class="section downloads" id="baixar">
-  <h2>Baixar</h2>
-  <p>Versão v0.1.0 — escolha seu sistema, o download começa direto:</p>
-  <div class="download-grid">
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Linux.deb">
-      <span class="download-os">Linux</span>
-      <span class="download-format">pacote .deb</span>
-      <span class="download-cta">Baixar →</span>
-    </a>
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-win64.exe">
-      <span class="download-os">Windows</span>
-      <span class="download-format">instalador .exe</span>
-      <span class="download-cta">Baixar →</span>
-    </a>
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Darwin.dmg">
-      <span class="download-os">macOS</span>
-      <span class="download-format">imagem .dmg</span>
-      <span class="download-cta">Baixar →</span>
-    </a>
-  </div>
-  <p class="note">Windows e macOS: instaladores gerados e testados via GitHub Actions em
-    runners reais, mas ainda não abertos num Windows ou macOS de verdade. Guia completo,
-    requisitos e solução de problemas no
-    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+<section class="hero">
+  <span class="status-pill">Objeto sonoro para criar música, multiplataforma</span>
+  <h1>Conceito</h1>
+  <p class="lead">Antitotem é hoje um instrumento sonoro standalone que qualquer pessoa pode
+    baixar e usar para compor, performar e gravar música — cinco osciladores, sequenciador,
+    filtro, efeitos e captura de áudio/MIDI/MusicXML num objeto só. Nasceu como uma instalação
+    urbana de consoles dedicados; carrega esse DNA, mas sua forma atual é um instrumento pessoal
+    de criação musical.</p>
 </section>
 
-<section class="section">
+<section class="section section-dark">
+  <h2>O instrumento hoje</h2>
+  <p>Antitotem é um instrumento standalone JUCE/C++20, pensado para rodar em qualquer
+    computador — hoje disponível pra Linux (pacote <code>.deb</code> ou build do zero), com
+    Windows e macOS no roteiro. Não é plugin nem depende de uma DAW: abre, soa e grava sozinho.</p>
+  <p>Com ele dá pra compor uma peça inteira: cinco osciladores (contínuos, sub/clock dividido e
+    heteródino), scanner de 16 etapas, ADSR, VCF multimodo, ruídos e sample &amp; hold, retornos
+    (reverb/phaser/flanger/ressonador), mixer com memória, deriva generativa, osciloscópio L/R
+    permanente, e gravação direta em WAV, MIDI e MusicXML — a peça sai pronta pra ouvir de novo,
+    editar numa DAW, ou abrir numa partitura.</p>
+  <p><a class="button button-primary" href="install.html">Requisitos e instalação</a></p>
   <figure class="shot">
-    <img src="antitotem.png" alt="Ilustração conceitual do Antitotem: uma figura de madeira com fios e válvulas conectada a um painel modular repleto de knobs e osciloscópios." />
-    <figcaption>Antitotem — ilustração conceitual do objeto sonoro. Crédito na seção de créditos, logo abaixo.</figcaption>
+    <img src="antitotem_modo_principal.png" alt="Captura de tela do Antitotem — Objeto Sonoro rodando no modo PRINCIPAL, mostrando osciladores, VCF/ADSR, modulação, mixer e conexão entre objetos." />
+    <figcaption>Modo PRINCIPAL do instrumento digital atual.</figcaption>
   </figure>
 </section>
 
 <section class="section">
-  <h2>Requisitos mínimos</h2>
-  <p>Antitotem roda a partir do código-fonte hoje; não há binário publicado. Os requisitos
-    abaixo cobrem tanto rodar o pacote <code>.deb</code> construído localmente quanto compilar
-    do zero.</p>
-  <div class="req-grid">
-    <div class="req-card">
-      <h3>Sistema</h3>
-      <p>Linux (testado em Debian/Ubuntu, amd64) — pacote <code>.deb</code> instalado e aberto
-        de verdade. Windows e macOS: build e instalador já gerados automaticamente via CI, mas
-        ainda não abertos num Windows/macOS real — ver nota abaixo.</p>
+  <h2>Características</h2>
+  <p>Quatro traços definiam os consoles urbanos de 2012-2013. Eles não foram substituídos —
+    alimentam o conceito do novo objeto sonoro, traduzidos pra um instrumento que cabe num
+    laptop em vez de um gabinete de rua.</p>
+  <div class="trait-grid">
+    <div class="trait-card">
+      <h3>Objeto sonoro urbano</h3>
+      <p class="then">"Cinco objetos sonoros distintos, distribuídos nos fluxos da cidade, não
+        num palco fechado."</p>
+      <p class="now"><b>Hoje:</b> continua sendo um objeto sonoro autocontido, não um plugin —
+        abre e já soa, grava sua própria saída, não depende de host nem de DAW pra existir.</p>
     </div>
-    <div class="req-card">
-      <h3>Para compilar</h3>
-      <ul>
-        <li>CMake ≥ 3.22</li>
-        <li>Compilador C++20 (GCC/Clang)</li>
-        <li>Checkout local do <a href="https://github.com/juce-framework/JUCE">JUCE</a></li>
-        <li>Dispositivo de áudio (ALSA/PipeWire)</li>
-      </ul>
+    <div class="trait-card">
+      <h3>Percepção do espaço</h3>
+      <p class="then">"Sugere outros caminhos, sinaliza o entorno, ativa a percepção sobre a
+        materialidade do lugar habitado ou percorrido."</p>
+      <p class="now"><b>Hoje:</b> a DERIVA move parâmetros sozinha dentro de limites desenhados
+        — nunca aleatoriedade cega — e a cadeia ESPAÇO trabalha largura e pan como um lugar a
+        ser percorrido, não um efeito fixo.</p>
     </div>
-    <div class="req-card">
-      <h3>Para instalar o <code>.deb</code></h3>
-      <ul>
-        <li><code>libasound2</code>, <code>libfontconfig1</code>, <code>libfreetype6</code></li>
-        <li><code>libx11-6</code>, <code>libxext6</code>, <code>libxss1</code></li>
-        <li><code>libgio-2.0-0</code>, <code>libstdc++6</code>, <code>libc6</code></li>
-      </ul>
+    <div class="trait-card">
+      <h3>Presença e ausência</h3>
+      <p class="then">"Estabelece presença através do som, preenche lacunas, evidencia a
+        ausência — cria diálogo em vez de apenas emitir sinal."</p>
+      <p class="now"><b>Hoje:</b> osciloscópio L/R permanente na tela e mixer com conexão entre
+        objetos — o instrumento sempre mostra o que está soando de verdade, não só o que foi
+        programado.</p>
+    </div>
+    <div class="trait-card">
+      <h3>Tecnologia reinventada</h3>
+      <p class="then">"Reinventa tecnologias que possibilitam a interatividade e ampliam
+        dinâmicas espaço-temporais, não tecnologia pronta de prateleira."</p>
+      <p class="now"><b>Hoje:</b> o caráter dos chips CMOS/discretos originais (40106, 8038,
+        4069UB) foi reescrito em código — não emulação, reinvenção do mesmo impulso, agora como
+        software livre que qualquer pessoa pode baixar e tocar.</p>
     </div>
   </div>
 </section>
 
 <section class="section section-dark">
-  <h2>Instalação</h2>
-
-  <div class="step">
-    <span class="step-index">1</span>
-    <div class="step-body">
-      <h3>Obter o código</h3>
-      <p><code>git clone https://github.com/lucioaraujo/antitotem.git</code> e entre no
-        diretório.</p>
-    </div>
-  </div>
-  <div class="step">
-    <span class="step-index">2</span>
-    <div class="step-body">
-      <h3>Compilar e rodar direto</h3>
-      <p>Mais simples para uso imediato — compila e abre a versão atual:</p>
-      <pre><code>./run_antitotem.sh</code></pre>
-    </div>
-  </div>
-  <div class="step">
-    <span class="step-index">3</span>
-    <div class="step-body">
-      <h3>Ou gerar o pacote <code>.deb</code></h3>
-      <pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DANTITOTEM_JUCE_PATH=/caminho/para/JUCE
-cmake --build build --target AntitotemSimpleSequencerApp -j
-cd build &amp;&amp; cpack -G DEB
-sudo dpkg -i antitotem-0.1.0-Linux.deb
-sudo apt-get install -f   # se faltar alguma dependência</code></pre>
-    </div>
-  </div>
-
-  <p class="note">Windows (NSIS/<code>.exe</code>) e macOS (DragNDrop/<code>.dmg</code>): já
-    disponíveis pra download na
-    <a href="https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0">release v0.1.0</a>,
-    junto com o <code>.deb</code> do Linux — gerados e testados via
-    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>
-    em runners Windows/macOS reais. Os instaladores compilam limpos, mas ainda não foram
-    abertos num Windows ou macOS de verdade. Guia completo, com todos os detalhes e solução de problemas, no
-    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+  <h2>DNA — de onde vem</h2>
+  <p>Antitotem nasceu como uma obra de arte sonora para o espaço urbano de Curitiba — consoles
+    eletrônicos dedicados, instalados em pontos estratégicos da cidade, não um instrumento de
+    estúdio.</p>
+  <ul class="origin-list">
+    <li>
+      <span class="year">2012</span>
+      <p>Selecionado no edital de pesquisa e produção em arte digital nº 090/12 da
+        <strong>Fundação Cultural de Curitiba</strong>, com apoio da Prefeitura Municipal de
+        Curitiba e do Fundo Municipal de Cultura.</p>
+    </li>
+    <li>
+      <span class="year">2013</span>
+      <p>Construídos cinco consoles de hardware autoral, modulares, CMOS/discretos, cada um
+        instalado num ponto diferente da cidade — com exposição, oficina e documentação em
+        vídeo das imersões.</p>
+    </li>
+    <li>
+      <span class="year">2026</span>
+      <p>Nova fase: um instrumento digital (este repositório), inspirado na prática material
+        dos consoles originais, sem substituir ou mover o acervo histórico — agora voltado pra
+        criação musical pessoal, não instalação urbana.</p>
+    </li>
+  </ul>
+  <blockquote class="manifesto" style="margin-top:1.6rem">
+    <p>“Antitotem proporciona, por meio de instrumentos eletrônicos e seus sinais sonoros,
+    experiências sensoriais para ampliação da percepção acerca do espaço em que vivemos ou
+    circulamos. Sugere outros caminhos, tensiona rotas, sinaliza o entorno, ativa a percepção,
+    cria diálogos, estabelece presença, preenche lacunas, evidencia a ausência.”</p>
+    <cite>Manifesto original do projeto de 2012-2013, <a href="http://antitotem.arquiviagem.net">antitotem.arquiviagem.net</a></cite>
+  </blockquote>
+  <p style="margin-top:1.4rem">O site original do projeto, com a exposição, a oficina e os
+    registros das imersões pela cidade, continua no ar em
+    <a href="http://antitotem.arquiviagem.net">antitotem.arquiviagem.net</a>.</p>
 </section>
 
 <section class="section">
-  <h2>Proveniência</h2>
-  <p>Este diretório reúne o protótipo digital atual e a documentação de uma investigação
-    inspirada pela prática material do Antitotem original — instrumento de hardware autoral,
-    modular, CMOS/discreto, construído em 2013. O acervo histórico permanece separado e não é
-    substituído por este código.</p>
+  <h2>Créditos</h2>
+  <p>Lúcio Araújo — concepção, DSP, interface e todo o código deste protótipo. Construído sobre o
+    framework JUCE (dependência dual-licenciada AGPLv3/comercial; este projeto usa a via AGPLv3),
+    sob licença <strong>AGPLv3</strong> (ver <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">LICENSE</a>). Esquemas e imagens de pesquisa
+    citados na lista completa mantêm seus próprios direitos e não são distribuídos neste
+    repositório — ver a
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">lista completa de fontes e referências técnicas</a>.</p>
 </section>
 
-<section class="section" id="creditos">
-  <h2>Créditos</h2>
-  <div class="req-grid">
-    <div class="req-card">
-      <h3>Autoria</h3>
-      <p>Lúcio Araújo — concepção, DSP, interface e todo o código deste protótipo.</p>
-    </div>
-    <div class="req-card">
-      <h3>Origem</h3>
-      <p>Antitotem 2013: instalação sonora urbana selecionada pelo edital nº 090/12 (Pesquisa e
-        Produção em Arte Digital) da Fundação Cultural de Curitiba, com apoio do Fundo Municipal
-        de Cultura. Site do projeto original:
-        <a href="https://antitotem.arquiviagem.net/">antitotem.arquiviagem.net</a>.</p>
-    </div>
-    <div class="req-card">
-      <h3>Framework</h3>
-      <p>JUCE (áudio, GUI e app) — dependência dual-licenciada AGPLv3/comercial; este projeto usa
-        a via AGPLv3.</p>
-    </div>
-    <div class="req-card">
-      <h3>Licença</h3>
-      <p>Código sob AGPLv3 ou posterior. Esquemas e imagens de pesquisa citados na lista completa
-        mantêm seus próprios direitos e não são distribuídos neste repositório.</p>
-    </div>
+<section class="section">
+  <h2>Contato</h2>
+  <p>Lúcio Araújo — autoria e desenvolvimento.</p>
+  <div class="contact-row">
+    <button type="button" class="button button-primary" data-contact-trigger>rasgo.instruments@gmail.com</button>
+    <a class="button" href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a>
+    <a class="button" href="http://antitotem.arquiviagem.net">Site histórico 2012-2013</a>
   </div>
-  <p style="margin-top: 1.2rem;"><a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Lista completa de fontes e referências técnicas</a></p>
 </section>
 </main>
 
@@ -204,5 +171,13 @@ sudo apt-get install -f   # se faltar alguma dependência</code></pre>
     <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licença AGPLv3</a>
   </nav>
 </footer>
+<dialog class="contact-dialog" data-contact-dialog aria-labelledby="contact-title">
+  <button class="dialog-close" type="button" data-contact-close aria-label="Fechar janela de contato">×</button>
+  <h2 id="contact-title">CONTATO</h2>
+  <p>Copie o endereço de e-mail:</p>
+  <code data-contact-address></code>
+  <button class="button button-primary" type="button" data-contact-copy>Copiar e-mail</button>
+  <p class="contact-feedback" data-contact-feedback data-copied="E-mail copiado." data-fallback="Selecione e copie o endereço acima." aria-live="polite"></p>
+</dialog>
 </body>
 </html>

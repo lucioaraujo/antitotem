@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Antitotem — Sound Object</title>
+<meta name="description" content="Antitotem — Sound Object: standalone JUCE/C++ modular instrument, inspired by CMOS/discrete practice. Requirements, installation and build-from-source." />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgosound.arquiviagem.net/">RASGO — family of instruments and sound research</a></div>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="site-header">
+  <a class="brand" href="#top">
+    <img src="assets/identity/logo_antitotem_novo.svg" alt="" />
+    <span>ANTI<em>TOTEM</em></span>
+  </a>
+  <div class="header-nav">
+    <nav class="page-nav" aria-label="Sections">
+      <a href="en.html">Concept</a>
+      <a href="install-en.html" aria-current="page">Installation</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      <a href="install.html">PT</a>
+      <a href="install-en.html" aria-current="true">EN</a>
+      <a href="install-fr.html">FR</a>
+      <a href="install-es.html">ES</a>
+    </nav>
+  </div>
+</div>
+
+<main id="content">
+<header class="hero" id="top">
+  <span class="status-pill">Prototype under investigation</span>
+  <h1>Sound Object</h1>
+  <p class="lead">Standalone JUCE/C++20 modular instrument, precursor and patron of the RASGO
+    family. Five oscillators, 16-step scanner, ADSR, multimode VCF, noise and S&amp;H, feedback
+    sends, effects, mixer, permanent oscilloscope, and WAV/MIDI/MusicXML recording.</p>
+  <div class="hero-meta">
+    <span>Version <b>v0.1.0</b></span>
+    <span>License <b>AGPLv3</b></span>
+    <span>Author <b>Lúcio Araújo</b></span>
+    <span>Origin <b>2013, authorial hardware</b></span>
+  </div>
+  <div class="hero-actions">
+    <a class="button button-primary" href="https://github.com/lucioaraujo/antitotem/tree/main">Source on GitHub</a>
+    <a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">Full installation guide</a>
+    <a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">License</a>
+  </div>
+</header>
+
+<section class="section downloads" id="download">
+  <h2>Download</h2>
+  <p>Version v0.1.0 — pick your system, the download starts right away:</p>
+  <div class="download-grid">
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Linux.deb">
+      <span class="download-os">Linux</span>
+      <span class="download-format">.deb package</span>
+      <span class="download-cta">Download →</span>
+    </a>
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-win64.exe">
+      <span class="download-os">Windows</span>
+      <span class="download-format">.exe installer</span>
+      <span class="download-cta">Download →</span>
+    </a>
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Darwin.dmg">
+      <span class="download-os">macOS</span>
+      <span class="download-format">.dmg image</span>
+      <span class="download-cta">Download →</span>
+    </a>
+  </div>
+  <p class="note">Windows and macOS: installers built and tested via GitHub Actions on
+    real runners, but not yet opened on real Windows or macOS hardware. Full guide,
+    requirements and troubleshooting in the
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+</section>
+
+<section class="section">
+  <figure class="shot">
+    <img src="antitotem.png" alt="Conceptual illustration of Antitotem: a wooden figure wired with tubes and cables, connected to a modular panel full of knobs and oscilloscopes." />
+    <figcaption>Antitotem — conceptual illustration of the sound object. Credit in the Credits section below.</figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <h2>Minimum requirements</h2>
+  <p>Antitotem currently runs from source; there is no published binary. The requirements below
+    cover both running a locally-built <code>.deb</code> package and compiling from scratch.</p>
+  <div class="req-grid">
+    <div class="req-card">
+      <h3>System</h3>
+      <p>Linux (tested on Debian/Ubuntu, amd64) — <code>.deb</code> package installed and
+        opened for real. Windows and macOS: build and installer already generated
+        automatically via CI, but not yet opened on real Windows/macOS hardware — see the note
+        below.</p>
+    </div>
+    <div class="req-card">
+      <h3>To build</h3>
+      <ul>
+        <li>CMake ≥ 3.22</li>
+        <li>C++20 compiler (GCC/Clang)</li>
+        <li>Local checkout of <a href="https://github.com/juce-framework/JUCE">JUCE</a></li>
+        <li>Audio device (ALSA/PipeWire)</li>
+      </ul>
+    </div>
+    <div class="req-card">
+      <h3>To install the <code>.deb</code></h3>
+      <ul>
+        <li><code>libasound2</code>, <code>libfontconfig1</code>, <code>libfreetype6</code></li>
+        <li><code>libx11-6</code>, <code>libxext6</code>, <code>libxss1</code></li>
+        <li><code>libgio-2.0-0</code>, <code>libstdc++6</code>, <code>libc6</code></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <h2>Installation</h2>
+
+  <div class="step">
+    <span class="step-index">1</span>
+    <div class="step-body">
+      <h3>Get the code</h3>
+      <p><code>git clone https://github.com/lucioaraujo/antitotem.git</code> and enter the
+        directory.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">2</span>
+    <div class="step-body">
+      <h3>Build and run directly</h3>
+      <p>Simplest path for immediate use — builds and opens the current version:</p>
+      <pre><code>./run_antitotem.sh</code></pre>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-index">3</span>
+    <div class="step-body">
+      <h3>Or build the <code>.deb</code> package</h3>
+      <pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+  -DANTITOTEM_JUCE_PATH=/path/to/JUCE
+cmake --build build --target AntitotemSimpleSequencerApp -j
+cd build &amp;&amp; cpack -G DEB
+sudo dpkg -i antitotem-0.1.0-Linux.deb
+sudo apt-get install -f   # if any dependency is missing</code></pre>
+    </div>
+  </div>
+
+  <p class="note">Windows (NSIS/<code>.exe</code>) and macOS (DragNDrop/<code>.dmg</code>):
+    already available for download in the
+    <a href="https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0">v0.1.0 release</a>,
+    alongside the Linux <code>.deb</code> — built and tested via
+    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a>
+    on real Windows/macOS runners. The installers build cleanly, but haven't been opened on
+    real Windows or macOS hardware yet. Full guide, with every detail and troubleshooting, in the
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+</section>
+
+<section class="section" id="credits">
+  <h2>Credits</h2>
+  <div class="req-grid">
+    <div class="req-card">
+      <h3>Authorship</h3>
+      <p>Lúcio Araújo — concept, DSP, interface and all of this prototype's code.</p>
+    </div>
+    <div class="req-card">
+      <h3>Origin</h3>
+      <p>Antitotem 2013: urban sound installation selected under grant nº 090/12 (Research and
+        Production in Digital Art) from Fundação Cultural de Curitiba, supported by the
+        Municipal Culture Fund. Original project site:
+        <a href="https://antitotem.arquiviagem.net/">antitotem.arquiviagem.net</a>.</p>
+    </div>
+    <div class="req-card">
+      <h3>Framework</h3>
+      <p>JUCE (audio, GUI and app) — dual-licensed AGPLv3/commercial dependency; this project
+        uses the AGPLv3 path.</p>
+    </div>
+    <div class="req-card">
+      <h3>License</h3>
+      <p>Code under AGPLv3 or later. Research schematics and images cited in the full list keep
+        their own rights and are not distributed with this repository.</p>
+    </div>
+  </div>
+  <p style="margin-top: 1.2rem;"><a class="button" href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Full list of sources and technical references</a></p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>Antitotem — Sound Object · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Credits</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">AGPLv3 License</a>
+  </nav>
+</footer>
+</body>
+</html>
