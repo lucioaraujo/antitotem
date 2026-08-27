@@ -159,11 +159,6 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 figure.shot { margin: 1.6rem 0 0; max-width: 900px; }
 figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
 figure.shot figcaption { margin-top: .5rem; color: var(--muted); font: .78rem "DejaVu Sans Mono", monospace; }
-blockquote.manifesto {
-  margin: 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--amber);
-  max-width: 700px; font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-style: italic; color: var(--ink);
-}
-blockquote.manifesto cite { display: block; margin-top: .8rem; font: .78rem "DejaVu Sans Mono", monospace; font-style: normal; color: var(--muted); }
 .origin-list { list-style: none; margin: 1.5rem 0 0; padding: 0; max-width: 720px; }
 .origin-list li { display: flex; gap: 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
 .origin-list li:first-child { border-top: none; }
