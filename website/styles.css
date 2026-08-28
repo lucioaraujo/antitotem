@@ -72,8 +72,8 @@ a:hover { color: var(--board); }
   background: rgba(17, 13, 14, .94); border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
-.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-.brand img { height: 2.1rem; width: auto; }
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; max-width: 100%; min-width: 0; }
+.brand img { display: block; height: auto; width: auto; max-height: 2.1rem; max-width: 100%; }
 .brand span { font: 700 1.1rem/1 "DejaVu Sans Mono", monospace; letter-spacing: .04em; color: var(--ink); }
 .brand span em { font-style: normal; color: var(--amber); }
 .header-nav { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
@@ -195,6 +195,14 @@ figure.shot figcaption { margin-top: .5rem; color: var(--muted); font: .78rem "D
 .dialog-close { position: absolute; top: .6rem; right: .7rem; border: 0; background: transparent; color: var(--muted); font-size: 1.7rem; line-height: 1; cursor: pointer; }
 .dialog-close:hover { color: var(--amber); }
 
+@media (max-width: 480px) {
+  /* The logo image already spells out "ANTITOTEM" - the adjacent text span
+     is a redundant accessible-name fallback that only has room to show a
+     stray first letter once the image itself takes up most of a narrow
+     screen's width. aria-label on .brand (added in the HTML) keeps the
+     accessible name intact once this is hidden. */
+  .brand span { display: none; }
+}
 @media (max-width: 640px) {
   .site-header { flex-direction: column; align-items: flex-start; }
   .step { flex-direction: column; }
