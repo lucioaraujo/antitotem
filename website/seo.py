@@ -14,6 +14,8 @@ SITE = {
     },
     # github.io/antitotem/ não é raiz de domínio: robots.txt seria ignorado.
     "raiz_do_dominio": False,
+    # Search Console, propriedade https://lucioaraujo.github.io/antitotem/
+    "google_verificacao": "MM4BJtOhpV7eceoH4I73LRqX8u9zjQOd6o98Ljgjr_0",
 }
 
 VERSAO = "0.1.0"
@@ -130,6 +132,11 @@ def bloco(pagina, grupo, titulo, descricao):
         if p is not pagina:
             L.append('<meta property="og:locale:alternate" content="%s">' % OG_LOCALE[p["lang"]])
     L.append('<meta name="twitter:card" content="summary_large_image">')
+    # Verificação do Google Search Console (propriedade "prefixo do URL"):
+    # o Google só procura a tag na página inicial.
+    if SITE.get("google_verificacao") and pagina["url"] == "":
+        L.append('<meta name="google-site-verification" content="%s">'
+                 % a(SITE["google_verificacao"]))
     L.append(json_ld(dados_estruturados(pagina, descricao)))
     L.append(FIM)
     return L
