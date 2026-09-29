@@ -36,3 +36,19 @@ embutidas, nunca só citadas pelo nome esperando que estejam instaladas.
 - Módulos de software são estudos autorais, não reconstruções.
 - Objeto Sonoro 5 permanece núcleo histórico.
 - PT é fonte canônica; EN/FR/ES já implementados na página atual.
+
+## Metadados de busca e compartilhamento — `seo.py`
+
+Desde 29 set. 2026. Em cada página, um bloco entre `<!-- SEO:INICIO -->` e
+`<!-- SEO:FIM -->` antes de `</head>`: canonical, hreflang entre os idiomas,
+Open Graph/Twitter (prévia ao compartilhar) e JSON-LD schema.org (o que o site
+é, para buscadores e IAs). Título e descrição são lidos da própria página.
+Gera também `sitemap.xml`. **Não editar o bloco à mão:** mudar a
+configuração no topo de `seo.py` e rodar `python3 seo.py`
+(`--verificar` só confere). A imagem de compartilhamento é `assets/og-antitotem.jpg`,
+1200×630, derivada da versão commitada de `antitotem_modo_principal.png` (a cópia de
+trabalho tinha uma captura mais nova ainda não commitada; ao commitá-la,
+regerar esta derivada). O mesmo `seo.py` existe nos sites de toda a família
+RASGO; só a configuração muda.
+
+Ao lançar versão nova, atualizar `VERSAO` no `seo.py`.
