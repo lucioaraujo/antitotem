@@ -80,11 +80,9 @@ Araújo's personal archive — see
 [`docs/IDEIA_BREADBOARD.md`](docs/IDEIA_BREADBOARD.md) for the planned
 future use context.
 
-Current institutional references:
-
-- [Instrument strategy](../RASGO_DOCUMENTATION/architecture/ESTRATEGIA_INSTRUMENTOS.md)
-- [Archive catalog](../RASGO_DOCUMENTATION/arquivo/CATALOGO_DE_ACERVOS.md)
-- [Master panel](../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
+Antitotem is part of the RASGO family of instruments:
+[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · website:
+[lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
 
@@ -152,11 +150,9 @@ A fotografia do **SDIY RASGO Breadboard Prototype Synth** pertence ao arquivo
 pessoal de Lúcio Araújo — ver [`docs/IDEIA_BREADBOARD.md`](docs/IDEIA_BREADBOARD.md)
 para o contexto de uso futuro planejado.
 
-Referências institucionais atuais:
-
-- [Estratégia dos instrumentos](../RASGO_DOCUMENTATION/architecture/ESTRATEGIA_INSTRUMENTOS.md)
-- [Catálogo do acervo](../RASGO_DOCUMENTATION/arquivo/CATALOGO_DE_ACERVOS.md)
-- [Painel mestre](../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
+O Antitotem faz parte da família de instrumentos RASGO:
+[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · site:
+[lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
 
@@ -229,11 +225,9 @@ aux archives personnelles de Lúcio Araújo — voir
 [`docs/IDEIA_BREADBOARD.md`](docs/IDEIA_BREADBOARD.md) pour le contexte
 d'usage futur prévu.
 
-Références institutionnelles actuelles :
-
-- [Stratégie des instruments](../RASGO_DOCUMENTATION/architecture/ESTRATEGIA_INSTRUMENTOS.md)
-- [Catalogue du fonds](../RASGO_DOCUMENTATION/arquivo/CATALOGO_DE_ACERVOS.md)
-- [Panneau maître](../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
+Antitotem fait partie de la famille d'instruments RASGO :
+[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · site :
+[lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
 
@@ -303,8 +297,6 @@ archivo personal de Lúcio Araújo — ver
 [`docs/IDEIA_BREADBOARD.md`](docs/IDEIA_BREADBOARD.md) para el contexto de
 uso futuro planeado.
 
-Referencias institucionales actuales:
-
-- [Estrategia de los instrumentos](../RASGO_DOCUMENTATION/architecture/ESTRATEGIA_INSTRUMENTOS.md)
-- [Catálogo del acervo](../RASGO_DOCUMENTATION/arquivo/CATALOGO_DE_ACERVOS.md)
-- [Panel maestro](../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
+Antitotem forma parte de la familia de instrumentos RASGO:
+[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · sitio:
+[lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
