@@ -81,7 +81,7 @@ Araújo's personal archive — see
 future use context.
 
 Antitotem is part of the RASGO family of instruments:
-[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · website:
+[rasgoinstruments.arquiviagem.net](https://rasgoinstruments.arquiviagem.net/) · website:
 [lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
@@ -151,7 +151,7 @@ pessoal de Lúcio Araújo — ver [`docs/IDEIA_BREADBOARD.md`](docs/IDEIA_BREADB
 para o contexto de uso futuro planejado.
 
 O Antitotem faz parte da família de instrumentos RASGO:
-[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · site:
+[rasgoinstruments.arquiviagem.net](https://rasgoinstruments.arquiviagem.net/) · site:
 [lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
@@ -226,7 +226,7 @@ aux archives personnelles de Lúcio Araújo — voir
 d'usage futur prévu.
 
 Antitotem fait partie de la famille d'instruments RASGO :
-[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · site :
+[rasgoinstruments.arquiviagem.net](https://rasgoinstruments.arquiviagem.net/) · site :
 [lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
 
 ---
@@ -298,5 +298,5 @@ archivo personal de Lúcio Araújo — ver
 uso futuro planeado.
 
 Antitotem forma parte de la familia de instrumentos RASGO:
-[rasgosound.arquiviagem.net](https://rasgosound.arquiviagem.net/) · sitio:
+[rasgoinstruments.arquiviagem.net](https://rasgoinstruments.arquiviagem.net/) · sitio:
 [lucioaraujo.github.io/antitotem](https://lucioaraujo.github.io/antitotem/).
