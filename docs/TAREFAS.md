@@ -651,3 +651,51 @@ final do arquivo.)*
   TUTORIAL, resta avaliar se ainda vale a pena como conceito separado.
 
 *(Histórico: as três seções "Exploração futura" do arquivo original.)*
+
+## 6 out. 2026 — distribuição multiplataforma (v0.1.1)
+
+Aplicação do padrão RASGO (`RASGO_DOCUMENTATION/PADRAO_DISTRIBUICAO_MULTIPLATAFORMA.md`),
+que nasceu da v0.1.4 do Rasgo Modular. A pedido do autor: "faça a mesma
+coisa no navalha 2 e no antitotem".
+
+**Defeitos achados nos pacotes publicados da v0.1.0** (inspecionados direto
+nos arquivos):
+
+- o `.exe` dependia do Visual C++ Redistributable (`MSVCP140`/`VCRUNTIME140`)
+  e não abre num Windows sem ele;
+- o `.dmg` era **só arm64** e não selado;
+- o `.deb` exigia `libgio-2.0-0`, nome que não existe no Debian 12 nem no
+  Ubuntu 22.04/24.04.
+
+**Correções** (branch `v0.1.1-distribuicao`):
+
+- runtime estático, com uma guarda na CI (`dumpbin`);
+- "Executar" no fim do instalador;
+- `.zip` portátil;
+- `.app` selado ad-hoc, com as duas fatias conferidas;
+- `.deb` no `ubuntu-22.04`, com as alternativas `libglib2.0-0t64 | libglib2.0-0 | libgio-2.0-0`;
+- AppImage e `.tar.gz` (`packaging/linux/`, scripts genéricos e idênticos aos
+  do Navalha 2);
+- teste de abertura em Debian 12, Ubuntu 24.04, Fedora e Arch, que confere o
+  processo vivo e a janela "Antitotem";
+- JUCE 9.0.3;
+- release automática a partir de tags;
+- CI só em tag, PR ou disparo manual, e não mais a cada push no `main`.
+
+**Documentação:**
+
+- INSTALL com passo a passo (EN/PT) e requisitos **medidos** em 6 out.: o
+  app inteiro usa cerca de 60 % de um núcleo do i5-6500 e 45 MB;
+- páginas de instalação do site geradas por `website/instalacao.py`, nas 4
+  línguas, com 6 pacotes. Elas só vão ao ar com a v0.1.1 final.
+
+**Validação:** CI 37392293252 toda verde. Pacotes finais inspecionados: sem
+DLL do Visual C++, `.app` com `_CodeSignature` e as duas fatias assinadas,
+`Depends` do `.deb` correto. Teste local no Mint: AppImage aberto com a
+janela encontrada, e o som saindo na saída muda.
+
+**Publicado:** `v0.1.1-rc1`, como pré-release. **Pendente:**
+
+- o autor testar em Windows e macOS reais;
+- depois, a v0.1.1 final: tag, juntar ao `main` para o site ir ao ar, e o
+  README.
