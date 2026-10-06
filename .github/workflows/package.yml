@@ -1,29 +1,60 @@
 name: Antitotem — build & package
 
-# Builds the Antitotem standalone instrument and generates a platform
-# package on each of GitHub's own hosted runners - real Windows and macOS
-# toolchains, no local Windows/Mac machine needed. Adapted from the
-# workflow that lived in the rasgo-instruments monorepo when this project
-# was extracted into its own public repository (27 ago. 2026).
-
+# Builds the Antitotem standalone instrument and generates platform packages
+# on GitHub's hosted runners - real Windows and macOS toolchains, no local
+# Windows/Mac machine needed. Adapted from the workflow that lived in the
+# rasgo-instruments monorepo when this project was extracted into its own
+# public repository (27 ago. 2026).
+#
+# Since 6 Oct. 2026 it follows the RASGO multiplatform distribution
+# standard (RASGO_DOCUMENTATION/PADRAO_DISTRIBUICAO_MULTIPLATAFORMA.md in
+# the monorepo), born from Rasgo Modular v0.1.4:
+#   - Windows: static VC++ runtime (CMakeLists.txt) + a step that FAILS if
+#     the .exe depends on the VC++ Redistributable again; NSIS installer +
+#     portable .zip. v0.1.0 did depend on it and does not open on a Windows
+#     without that package.
+#   - macOS: Universal 2 (checked) and the whole .app sealed ad-hoc (both
+#     slices checked). v0.1.0 was arm64-only and unsealed.
+#   - Linux: .deb built on ubuntu-22.04 (runs on 2022+ distributions), plus
+#     AppImage and .tar.gz, all launch-tested in containers of Debian 12,
+#     Ubuntu 24.04, Fedora and Arch before any release.
+#   - JUCE pinned to a tag; a GitHub release is created from `v*` tags
+#     (a tag with a hyphen, e.g. v0.1.1-rc1, is a pre-release).
+#
+# Triggers: tags, pull requests and the manual button. Not every push to
+# main (it was until 6 Oct. 2026): routine validation is local; CI runs
+# when packages matter. Public repository, so standard runners are free.
 on:
   push:
-    branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   package:
+    name: package (${{ matrix.os }}, ${{ matrix.generator }})
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
+          # ubuntu-22.04, NOT latest: a .deb inherits the library versions
+          # of the machine that built it (latest gave `libasound2t64`, which
+          # does not exist on Ubuntu 22.04). Built on 22.04 it runs on 22.04+.
+          - os: ubuntu-22.04
             generator: DEB
-            artifact-glob: build/*.deb
+            artifact-glob: |
+              build/*.deb
+              build/*.AppImage
+              build/*.tar.gz
           - os: windows-latest
             generator: NSIS
-            artifact-glob: build/*.exe
+            artifact-glob: |
+              build/*.exe
+              build/*.zip
           - os: macos-latest
             generator: DragNDrop
             artifact-glob: build/*.dmg
@@ -32,17 +63,16 @@ jobs:
       - name: Checkout Antitotem
         uses: actions/checkout@v4
 
+      # JUCE is not versioned in this repository (same policy as the rest of
+      # the RASGO family). Pinned to a tag: `master` changes every day and
+      # makes a release irreproducible.
       - name: Checkout JUCE
         uses: actions/checkout@v4
         with:
           repository: juce-framework/JUCE
-          ref: master
+          ref: '9.0.3'
           path: JUCE-checkout
 
-      # JUCE's own documented Linux build dependencies (audio, GUI, font,
-      # network, webview) - trimmed of nothing, since a missing dev package
-      # fails CMake configure with a hard-to-read error. Windows (MSVC) and
-      # macOS (Xcode) runners already ship everything JUCE needs.
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
         run: |
@@ -53,11 +83,12 @@ jobs:
             libfreetype6-dev libfontconfig1-dev \
             libx11-dev libxcomposite-dev libxcursor-dev libxext-dev \
             libxinerama-dev libxrandr-dev libxrender-dev \
-            libwebkit2gtk-4.1-dev libgtk-3-dev \
+            libgtk-3-dev \
             libglu1-mesa-dev mesa-common-dev
+          # WebKit changed its name between Ubuntu versions
+          sudo apt-get install -y libwebkit2gtk-4.1-dev \
+            || sudo apt-get install -y libwebkit2gtk-4.0-dev
 
-      # makensis is not on the Windows runner's PATH by default; Chocolatey
-      # is preinstalled there.
       - name: Install NSIS (Windows)
         if: runner.os == 'Windows'
         run: choco install nsis -y
@@ -69,12 +100,8 @@ jobs:
           -DANTITOTEM_JUCE_PATH=${{ github.workspace }}/JUCE-checkout
 
       - name: Build
-        run: cmake --build build --target AntitotemSimpleSequencerApp --config Release --parallel
+        run: cmake --build build --target AntitotemSimpleSequencerApp --config Release --parallel 2
 
-      # No Mac available to test by hand, so this replaces that: fails the
-      # build if the .app isn't actually distributable (Universal 2
-      # architecture, a real deployment target, not the CI runner's own
-      # macOS version - see docs/TAREFAS.md for the bug this caught live).
       - name: Validate macOS app bundle
         if: runner.os == 'macOS'
         run: |
@@ -105,12 +132,55 @@ jobs:
           echo "--- plutil (Info.plist) ---"
           plutil -p "$APP/Contents/Info.plist"
 
-          echo "--- codesign (ad-hoc; no Developer ID/notarization in CI) ---"
-          codesign -dv "$APP" 2>&1 || echo "::warning::Not signed - fine for local testing, but real distribution needs a Developer ID + notarization or Gatekeeper will show an unidentified-developer warning on first launch"
+          # Seal the WHOLE bundle with an ad-hoc signature, both slices.
+          # Unsealed (only the linker's arm64 signature, as in v0.1.0), an
+          # Apple Silicon Mac tends to say "is damaged and can't be opened".
+          # Sealed, it is the ordinary unidentified-developer warning, which
+          # the user can clear in System Settings → Privacy & Security →
+          # "Open Anyway". Removing it entirely needs a paid Developer ID.
+          echo "--- codesign ad-hoc (whole bundle) ---"
+          codesign --force --deep --sign - "$APP"
+          codesign --verify --deep --strict --verbose=2 "$APP"
+          for arch in x86_64 arm64; do
+            codesign -dv --arch "$arch" "$APP" 2>&1 | grep -q "Signature=adhoc" \
+              || { echo "::error::$arch slice without ad-hoc signature"; exit 1; }
+          done
+          test -d "$APP/Contents/_CodeSignature" || { echo "::error::bundle not sealed"; exit 1; }
+          echo "ok: bundle sealed, both slices signed (ad-hoc)"
+
+      # The .exe must not depend on the Visual C++ Redistributable (v0.1.0
+      # did and does not open on a Windows without it; this runner has the
+      # package, so a launch here would never notice).
+      - name: Validate Windows runtime (static CRT)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Recurse -Path build -Filter 'Antitotem - Objeto Sonoro.exe' |
+                 Where-Object { $_.FullName -match 'Release' } | Select-Object -First 1
+          if (-not $exe) { throw 'Antitotem - Objeto Sonoro.exe not found' }
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $dumpbin = Get-ChildItem "$vs\VC\Tools\MSVC\*\bin\Hostx64\x64\dumpbin.exe" | Select-Object -First 1
+          if (-not $dumpbin) { throw 'dumpbin not found' }
+          $deps = & $dumpbin.FullName /dependents $exe.FullName
+          $deps
+          $bad = $deps | Select-String -Pattern 'VCRUNTIME|MSVCP|api-ms-win-crt'
+          if ($bad) { Write-Error "the .exe depends on the dynamic Visual C++ runtime: $bad"; exit 1 }
+          "ok: no dependency on the Visual C++ Redistributable"
 
       - name: Package
         working-directory: build
         run: cpack -G ${{ matrix.generator }} -C Release
+
+      - name: Portable .zip (Windows)
+        if: runner.os == 'Windows'
+        working-directory: build
+        run: cpack -G ZIP -C Release
+
+      # Same `cmake --install` tree as the .deb; linuxdeploy pinned by
+      # version and hash inside the script.
+      - name: AppImage and .tar.gz (Linux)
+        if: runner.os == 'Linux'
+        run: packaging/linux/empacotar.sh build build antitotem
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -118,3 +188,107 @@ jobs:
           name: antitotem-${{ matrix.os }}
           path: ${{ matrix.artifact-glob }}
           if-no-files-found: error
+
+  # ---- launch test: do the Linux packages open on other distributions? ----
+  # Each container installs only what an ordinary desktop already has, opens
+  # the app on a virtual screen without a sound card, and checks that it is
+  # still running after 20 s and that its window exists. On the two Debian
+  # family systems the .deb goes through apt, which also checks its declared
+  # dependencies.
+  arranque-linux:
+    needs: package
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ['debian:12', 'ubuntu:24.04', 'fedora:latest', 'archlinux:latest']
+    container: ${{ matrix.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download the Linux packages
+        uses: actions/download-artifact@v4
+        with:
+          name: antitotem-ubuntu-22.04
+          path: pkgs
+
+      - name: Install an ordinary desktop's basics (and the .deb where it fits)
+        run: |
+          set -eux
+          case "${{ matrix.image }}" in
+            debian:*|ubuntu:*)
+              export DEBIAN_FRONTEND=noninteractive
+              apt-get update
+              apt-get install -y ./pkgs/*.deb
+              apt-get install -y xvfb x11-utils libx11-6 libxext6 libxrandr2 \
+                libxcursor1 libxinerama1 libxrender1 libxss1 fonts-dejavu-core ;;
+            fedora:*)
+              dnf install -y xorg-x11-server-Xvfb xwininfo alsa-lib freetype fontconfig \
+                libX11 libXext libXrandr libXcursor libXinerama libXrender libXScrnSaver \
+                glib2 dejavu-sans-fonts ;;
+            archlinux:*)
+              pacman -Syu --noconfirm xorg-server-xvfb xorg-xwininfo alsa-lib freetype2 fontconfig \
+                libx11 libxext libxrandr libxcursor libxinerama libxrender libxss glib2 ttf-dejavu ;;
+          esac
+
+      - name: Open the installed .deb
+        if: startsWith(matrix.image, 'debian') || startsWith(matrix.image, 'ubuntu')
+        run: packaging/linux/testar-arranque.sh /usr/bin/antitotem "Antitotem"
+
+      - name: Open the AppImage
+        run: |
+          chmod +x pkgs/*.AppImage
+          packaging/linux/testar-arranque.sh "$(ls pkgs/*.AppImage)" "Antitotem"
+
+      - name: Open the .tar.gz
+        run: |
+          mkdir tgz && tar -xzf pkgs/*.tar.gz -C tgz
+          packaging/linux/testar-arranque.sh "$(ls tgz/*/bin/antitotem)" "Antitotem"
+
+  # ---- release: where a tag becomes something a musician can download ----
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [package, arranque-linux]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download all packages
+        uses: actions/download-artifact@v4
+        with:
+          path: pkgs
+
+      - name: Check what arrived
+        run: |
+          find pkgs -type f -print
+          for ext in deb AppImage tar.gz dmg exe zip; do
+            if ! find pkgs -type f -name "*.$ext" | grep -q .; then
+              echo "::error::no .$ext package among the artifacts"
+              exit 1
+            fi
+          done
+
+      - name: Create the release with the packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PRE=""
+          case "${GITHUB_REF_NAME}" in *-*) PRE="--prerelease" ;; esac
+          gh release create "${GITHUB_REF_NAME}" ${PRE} \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "Antitotem ${GITHUB_REF_NAME}" \
+            --verify-tag \
+            --notes "**Install:** step by step for Windows, macOS and each Linux distribution in [INSTALL.md](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/INSTALL.md#installing-step-by-step) — on first launch Windows and macOS show a security warning; it is expected and the guide says where to click. Linux: \`.deb\` for Ubuntu/Debian/Mint, AppImage or \`.tar.gz\` for other distributions (launch-tested on Debian 12, Ubuntu 24.04, Fedora and Arch).
+
+          **Stated limitation:** the Windows and macOS packages were built, packaged and checked by continuous integration (no dependency on the Visual C++ Redistributable; macOS bundle sealed, Universal 2) — not yet opened by the author on real Windows/macOS machines. The macOS package is ad-hoc signed, without Developer ID or notarisation.
+
+          ---
+
+          **Instalação:** passo a passo para Windows, macOS e cada distribuição Linux no [INSTALL.md](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/INSTALL.md#instalar-passo-a-passo) — na primeira abertura, Windows e macOS mostram um aviso de segurança; é esperado, e o guia diz onde clicar.
+
+          **Limitação declarada:** os pacotes de Windows e macOS foram construídos, empacotados e conferidos pela integração contínua (sem dependência do Visual C++ Redistributable; pacote macOS selado, Universal 2) — ainda não abertos pelo autor em máquinas reais." \
+            $(find pkgs -type f \( -name '*.deb' -o -name '*.AppImage' -o -name '*.tar.gz' -o -name '*.dmg' -o -name '*.exe' -o -name '*.zip' \))

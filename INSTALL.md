@@ -1,21 +1,99 @@
 # Antitotem — Installation Guide / Guia de Instalação
 
 Two languages, same content: [🇬🇧 English](#english) below, [🇧🇷 Português](#português) further down.
+**To install, start with [Installing, step by step](#installing-step-by-step) / [Instalar, passo a passo](#instalar-passo-a-passo).**
 
 ---
 
 ## English
 
+### Installing, step by step
+
+Packages for every system are on the
+[releases page](https://github.com/lucioaraujo/antitotem/releases) (the
+newest one is at the top). The security warnings below **are expected**:
+Antitotem is free software published without a paid code-signing
+certificate. They do not mean anything is wrong, and they only appear the
+first time.
+
+#### Windows
+
+1. Download `antitotem-<version>-win64.exe`.
+2. Open it. Windows shows a blue **"Windows protected your PC"** box: click
+   **"More info"**, then **"Run anyway"**.
+3. If Windows asks for administrator permission, click **"Yes"**.
+4. Click **"Next"** to the end; from v0.1.1 on, the last page has **"Run
+   Antitotem - Objeto Sonoro"** already ticked. It is then in the **Start
+   menu** and on the desktop.
+
+**Without installing** (from v0.1.1): unzip `antitotem-<version>-win64.zip`
+and open `Antitotem - Objeto Sonoro.exe`.
+
+**v0.1.0 and nothing happens**, or an error about `VCRUNTIME140.dll` or
+`MSVCP140.dll`: that version silently required the "Microsoft Visual C++
+Redistributable". Install it from
+<https://aka.ms/vs/17/release/vc_redist.x64.exe> and open Antitotem again.
+From v0.1.1 on, everything is inside the `.exe`.
+
+#### macOS
+
+1. Download `antitotem-<version>-Darwin.dmg`. From v0.1.1 on, it works on
+   both Intel and Apple Silicon Macs. v0.1.0 was Apple Silicon only.
+2. Open it and **drag Antitotem into Applications**.
+3. Open it. The first time, macOS says it **cannot verify the developer**,
+   because the app is not notarised by Apple, which needs a paid account.
+   Click **"OK"** or **"Done"**, **not** "Move to Trash".
+4. Go to **System Settings → Privacy & Security**, scroll to the security
+   section and click **"Open Anyway"** next to "Antitotem was blocked…".
+   Confirm with your password or Touch ID, then click **"Open"**. This is
+   only needed the first time.
+   - **On macOS 14 or earlier there is a shortcut:** right-click the app in
+     Finder, then **Open → Open**.
+
+**"Antitotem is damaged and can't be opened"** (v0.1.0): the file is not
+damaged. That version was not fully signed. Run this in Terminal, then open
+the app normally:
+
+```sh
+xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
+```
+
+#### Linux
+
+- **Ubuntu 22.04+, Debian 12+, Mint 21+:** double-click the `.deb`, or run
+  `sudo apt install ./antitotem-<version>-Linux.deb`. apt installs the
+  dependencies.
+- **Fedora, Arch, openSUSE and other distributions** (from v0.1.1): use
+  the **AppImage**. Make it executable (Properties → allow executing, or
+  `chmod +x`) and open it. Or use the **`.tar.gz`**: unpack it and run
+  `./install.sh`, which installs for your user only, without root
+  (`./install.sh --remove` undoes it).
+- **The window never opens, with no error:** the X11 libraries the app
+  loads at run time are missing (see "Requirements to build" below).
+
+### Minimum requirements to run
+
+| | |
+|---|---|
+| **Windows** | Windows 10 or 11, 64-bit |
+| **macOS** | Intel: macOS 10.13 or later. Apple Silicon: macOS 11 or later (Universal 2 from v0.1.1) |
+| **Linux** | x86-64 with glibc 2.35 or newer (2022+ distributions): `.deb` for the Debian family; AppImage or `.tar.gz` for the rest (launch-tested on Debian 12, Ubuntu 24.04, Fedora and Arch) |
+| **Processor** | 64-bit, two cores or more. **Measured** on an Intel Core i5-6500 (2015, 4 cores, 3.2 GHz): the whole app uses about 60% of one core; the sound engine alone 10–11% at 44.1/48 kHz (worst case, both objects fully patched — `CPU_BASELINE.md`) |
+| **Memory** | about 45 MB in use (measured); any computer with 4 GB is enough |
+| **Audio** | any system audio output |
+
+The operating-system minimums come from the build. The processor and memory
+figures were measured on the author's machine on 6 Oct. 2026; weaker
+machines have not been tested.
+
 ### Status
 
-Antitotem is a prototype under active investigation (`v0.1.0`). Linux, Windows and macOS
-installers are available from the
-[v0.1.0 release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
-This guide also covers building from source and building/installing the `.deb` package
-yourself; see
-[Windows/macOS](#windowsmacos) below for that platform's current validation status.
+Antitotem is a prototype under active investigation. Packages for Linux, Windows and
+macOS are on the [releases page](https://github.com/lucioaraujo/antitotem/releases)
+(how to install them: [step by step](#installing-step-by-step) above). The rest of this
+guide covers building from source and building the `.deb` yourself.
 
-### Requirements
+### Requirements to build
 
 | | |
 |---|---|
@@ -104,15 +182,13 @@ ctest --test-dir build-tests --output-on-failure
 
 ### Windows/macOS
 
-Download the NSIS `.exe` (Windows) or DragNDrop `.dmg` (macOS) from the
-[antitotem-v0.1.0 release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
-Both are built and tested via
-[GitHub Actions](https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml)
-on real Windows/macOS runners hosted by GitHub — no Windows or macOS machine is needed to
-build these. The installers are produced successfully, but **haven't been opened or tested
-on real Windows/macOS hardware yet**. If you have a Windows or macOS machine and want to
-help validate this, download the release asset above and report back whether it installs
-and opens.
+Installing: see [step by step](#installing-step-by-step) above. The Windows and macOS
+packages are built by
+[GitHub Actions](https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml),
+which since v0.1.1 also checks that the `.exe` does not depend on the Visual C++
+Redistributable and that the macOS bundle is Universal 2 and sealed. They **have not been
+opened by the author on real Windows/macOS machines yet**. If you have one, please report
+whether it installs and opens.
 
 ### License
 
@@ -123,16 +199,96 @@ licenses in [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md).
 
 ## Português
 
+### Instalar, passo a passo
+
+Os pacotes de cada sistema estão na
+[página de releases](https://github.com/lucioaraujo/antitotem/releases), com
+a mais nova no topo. Os avisos de segurança abaixo **são esperados**: o
+Antitotem é software livre, publicado sem certificado pago de assinatura
+digital. Eles não indicam defeito e só aparecem na primeira vez.
+
+#### Windows
+
+1. Baixe `antitotem-<versão>-win64.exe`.
+2. Abra-o. O Windows mostra a janela azul **"O Windows protegeu o
+   computador"**: clique em **"Mais informações"** e depois em
+   **"Executar assim mesmo"**.
+3. Se o Windows pedir permissão de administrador, clique em **"Sim"**.
+4. Clique em **"Avançar"** até o fim. A partir da v0.1.1, a última tela já
+   traz **"Executar o Antitotem - Objeto Sonoro"** marcado. Depois disso,
+   ele fica no **Menu Iniciar** e na área de trabalho.
+
+**Sem instalar** (a partir da v0.1.1): descompacte
+`antitotem-<versão>-win64.zip` e abra `Antitotem - Objeto Sonoro.exe`.
+
+**Se você tem a v0.1.0 e nada acontece ao abrir**, ou aparece um erro sobre
+`VCRUNTIME140.dll` ou `MSVCP140.dll`: essa versão exigia, sem avisar, o
+"Microsoft Visual C++ Redistributable". Instale-o pelo link da Microsoft
+(<https://aka.ms/vs/17/release/vc_redist.x64.exe>) e abra o Antitotem de
+novo. A partir da v0.1.1 isso não é mais necessário, porque tudo vai dentro
+do `.exe`.
+
+#### macOS
+
+1. Baixe `antitotem-<versão>-Darwin.dmg`. A partir da v0.1.1 o mesmo
+   arquivo serve para Mac Intel e Apple Silicon. A v0.1.0 era só para
+   Apple Silicon.
+2. Abra o `.dmg` e **arraste o Antitotem para a pasta Aplicativos**.
+3. Abra o app. Na primeira vez, o macOS avisa que **não pode verificar o
+   desenvolvedor**, porque o app não passou pela notarização da Apple, que
+   exige uma conta paga. Clique em **"OK"** ou **"Concluído"**. **Não**
+   clique em "Mover para o Lixo".
+4. Abra **Ajustes do Sistema → Privacidade e Segurança**, desça até a parte
+   de segurança e clique em **"Abrir Mesmo Assim"** ao lado de "Antitotem
+   foi bloqueado…". Confirme com sua senha ou Touch ID e clique em
+   **"Abrir"**. Isso só é preciso na primeira vez.
+   - **No macOS 14 ou anterior há um atalho:** clique no app com o botão
+     direito no Finder e escolha **Abrir → Abrir**.
+
+**"Antitotem está danificado e não pode ser aberto"** (v0.1.0): o arquivo
+não está danificado. Essa versão não tinha o pacote assinado por inteiro.
+Rode o comando abaixo no Terminal e depois abra o app normalmente:
+
+```sh
+xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
+```
+
+#### Linux
+
+- **Ubuntu 22.04+, Debian 12+ e Mint 21+:** dê dois cliques no `.deb` ou
+  rode `sudo apt install ./antitotem-<versão>-Linux.deb`. O apt instala as
+  dependências.
+- **Fedora, Arch, openSUSE e outras distribuições** (a partir da v0.1.1):
+  use o **AppImage**. Marque o arquivo como executável (propriedades →
+  permitir executar, ou `chmod +x`) e abra. Ou use o **`.tar.gz`**:
+  descompacte-o e rode `./install.sh`, que instala no seu usuário, sem
+  root. `./install.sh --remove` desfaz a instalação.
+- **A janela nunca abre e não aparece erro:** faltam as bibliotecas X11
+  que o app carrega ao rodar (ver "Requisitos para compilar", mais abaixo).
+
+### Requisitos mínimos para usar
+
+| | |
+|---|---|
+| **Windows** | Windows 10 ou 11, 64 bits |
+| **macOS** | Intel: macOS 10.13 ou posterior. Apple Silicon: macOS 11 ou posterior (Universal 2 a partir da v0.1.1) |
+| **Linux** | x86-64 com glibc 2.35 ou mais nova (distribuições de 2022 em diante): `.deb` para a família Debian; AppImage ou `.tar.gz` para as demais (testados na abertura em Debian 12, Ubuntu 24.04, Fedora e Arch) |
+| **Processador** | 64 bits, dois núcleos ou mais. **Medido** num Intel Core i5-6500 (2015, 4 núcleos, 3,2 GHz): o app inteiro usa cerca de 60% de um núcleo; o motor de som sozinho, 10–11% a 44,1/48 kHz (no pior caso, os dois objetos totalmente patchados; ver `CPU_BASELINE.md`) |
+| **Memória** | cerca de 45 MB em uso (medido); qualquer computador com 4 GB basta |
+| **Áudio** | qualquer saída de áudio do sistema |
+
+O mínimo de sistema operacional vem do build. Os números de processador e
+de memória foram medidos na máquina do autor em 6 out. 2026; máquinas mais
+fracas não foram testadas.
+
 ### Estado
 
-Antitotem é um protótipo em investigação ativa (`v0.1.0`). Instaladores pra Linux,
-Windows e macOS estão disponíveis na
-[release v0.1.0](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
-Este guia também cobre compilar a partir do código-fonte e gerar/instalar o pacote
-`.deb` você mesmo; ver
-[Windows/macOS](#windowsmacos-1) abaixo pro estado de validação atual dessas plataformas.
+O Antitotem é um protótipo em investigação ativa. Os pacotes para Linux, Windows e
+macOS estão na [página de releases](https://github.com/lucioaraujo/antitotem/releases),
+e como instalá-los está no [passo a passo](#instalar-passo-a-passo) acima. O resto deste
+guia trata de compilar a partir do código e de gerar o `.deb` você mesmo.
 
-### Requisitos
+### Requisitos para compilar
 
 | | |
 |---|---|
@@ -224,15 +380,13 @@ ctest --test-dir build-tests --output-on-failure
 
 ### Windows/macOS
 
-Baixe o `.exe` NSIS (Windows) ou o `.dmg` DragNDrop (macOS) na
-[release antitotem-v0.1.0](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0).
-Os dois são gerados e testados via
-[GitHub Actions](https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml)
-em runners Windows/macOS reais hospedados pelo GitHub — não precisa de máquina Windows
-nem macOS pra gerar esses builds. Os instaladores são produzidos com sucesso, mas
-**ainda não foram abertos nem testados num Windows/macOS de verdade**. Se você tem uma
-máquina Windows ou macOS e quer ajudar a validar isso, baixe o asset da release acima e
-relate se instala e abre.
+Para instalar, veja o [passo a passo](#instalar-passo-a-passo) acima. Os pacotes de
+Windows e macOS são gerados pelo
+[GitHub Actions](https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml).
+Desde a v0.1.1, a CI também confere que o `.exe` não depende do Visual C++
+Redistributable e que o pacote macOS é Universal 2 e selado. Eles **ainda não foram
+abertos pelo autor num Windows ou macOS de verdade**. Se você tiver uma dessas
+máquinas, conte se instala e abre.
 
 ### Licença
 

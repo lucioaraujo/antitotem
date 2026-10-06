@@ -1,5 +1,17 @@
 cmake_minimum_required(VERSION 3.22)
 
+# Windows: static Visual C++ runtime (/MT), built into the executable.
+# Without it `Antitotem - Objeto Sonoro.exe` (v0.1.0) required MSVCP140.dll /
+# VCRUNTIME140.dll / VCRUNTIME140_1.dll - the "Visual C++ Redistributable" -
+# which the NSIS installer does not ship: on a Windows without that package
+# the app does not open at all. CI never noticed because the GitHub runner
+# has it installed. Found 6 Oct. 2026 by listing the PE imports of the
+# published .exe (same defect as Rasgo Modular v0.1.3 and Navalha 2
+# v0.1.0). Global variable, set before any target (JUCE included); CI now
+# fails if those DLLs come back (package.yml). RASGO standard:
+# RASGO_DOCUMENTATION/PADRAO_DISTRIBUICAO_MULTIPLATAFORMA.md.
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
 # Must be set before project() to take effect (CMake/Apple requirement).
 # Same bug found and fixed on Navalha 2's macOS build the same day (26 ago.
 # 2026): the .dmg refused to open on the author's own Mac ("Impossible
@@ -17,7 +29,7 @@ if (APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build a Universal 2 binary" FORCE)
 endif()
 
-project(AntitotemObjetoSonoro VERSION 0.1.0 LANGUAGES C CXX)
+project(AntitotemObjetoSonoro VERSION 0.1.1 LANGUAGES C CXX)
 
 option(ANTITOTEM_BUILD_APP "Build the JUCE standalone instrument" ON)
 option(ANTITOTEM_BUILD_TESTS "Build deterministic core tests" ON)
@@ -112,7 +124,13 @@ if (ANTITOTEM_BUILD_APP AND ANTITOTEM_JUCE_PATH)
         # CPACK_DEBIAN_PACKAGE_SHLIBDEPS above won't catch them on its
         # own) - without them installed the window never opens. Declared
         # explicitly alongside the shlibdeps-detected ones.
-        set(CPACK_DEBIAN_PACKAGE_DEPENDS "libx11-6, libxext6, libxss1, libgio-2.0-0")
+        # libgio: the package is `libglib2.0-0` on Debian 12 / Ubuntu 22.04,
+        # `libglib2.0-0t64` on Ubuntu 24.04+ / Debian 13, and only newer
+        # distributions also have a separate `libgio-2.0-0`. Requiring that
+        # last name alone (as v0.1.0 did) made the .deb uninstallable on
+        # Debian 12 and Ubuntu 22.04/24.04 - hence the alternatives.
+        set(CPACK_DEBIAN_PACKAGE_DEPENDS
+            "libx11-6, libxext6, libxss1, libglib2.0-0t64 | libglib2.0-0 | libgio-2.0-0")
     elseif (CMAKE_SYSTEM_NAME STREQUAL "Windows")
         # NSIS chosen over WiX/MSI: ships preinstalled on GitHub's
         # windows-latest runner, no extra toolchain to install in CI.
@@ -136,6 +154,8 @@ if (ANTITOTEM_BUILD_APP AND ANTITOTEM_JUCE_PATH)
         set(CPACK_NSIS_MUI_ICON "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/antitotem.ico")
         set(CPACK_NSIS_MUI_UNIICON "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/antitotem.ico")
         set(CPACK_NSIS_INSTALLED_ICON_NAME "Antitotem - Objeto Sonoro.exe")
+        # last installer page: "Run Antitotem - Objeto Sonoro", already ticked
+        set(CPACK_NSIS_MUI_FINISHPAGE_RUN "Antitotem - Objeto Sonoro.exe")
     elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
         # DragNDrop (.dmg) needs no extra tooling beyond macOS's own
         # hdiutil, unlike the Bundle generator's productbuild dependency.

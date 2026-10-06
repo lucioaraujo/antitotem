@@ -70,6 +70,10 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
             DESTINATION share/icons/hicolor/scalable/apps
             RENAME antitotem.svg)
     endif()
+    # 256 px PNG too: menus that don't read SVG, and the AppImage icon
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/identity/icons/antitotem-icon-256.png"
+        DESTINATION share/icons/hicolor/256x256/apps
+        RENAME antitotem.png)
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     # Spaces in the exe name are normal on Windows (unlike Linux's
     # convention) - no RENAME needed, keep the JUCE PRODUCT_NAME as-is.
