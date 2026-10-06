@@ -205,7 +205,7 @@
     <span class="step-index">2</span>
     <div class="step-body">
       <h3>macOS</h3>
-      <ol><li>Abra o <code>.dmg</code> e arraste o Antitotem para <strong>Aplicativos</strong>.</li><li>Abra o app. O macOS avisa que não pode verificar o desenvolvedor: clique em <strong>"OK"</strong> (não em "Mover para o Lixo").</li><li>Em <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, clique em <strong>"Abrir Mesmo Assim"</strong>, confirme com a senha e clique em <strong>"Abrir"</strong>. Só na primeira vez. No macOS 14 ou anterior: botão direito no app → Abrir → Abrir.</li></ol><p>Se a v0.1.0 disser que o app "está danificado": no Terminal, <code>xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"</code>.</p>
+      <ol><li>Abra o <code>.dmg</code> e arraste o Antitotem para <strong>Aplicativos</strong>.</li><li>Abra o app. O macOS bloqueia o app dizendo que a Apple não pôde confirmar que ele está livre de software malicioso — não é defeito. Clique em <strong>"OK"</strong> (não em "Mover para o Lixo").</li><li>Em <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, clique em <strong>"Abrir Mesmo Assim"</strong>, confirme com a senha e clique em <strong>"Abrir"</strong>. Só na primeira vez. No macOS 14 ou anterior: botão direito no app → Abrir → Abrir.</li></ol><p>Se o botão não aparecer ou o bloqueio continuar, abra o Terminal (Aplicativos → Utilitários), cole <code>xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"</code> e aperte Enter; depois abra o app normalmente. Isso também resolve o "está danificado" da v0.1.0.</p>
     </div>
   </div>
   <div class="step">

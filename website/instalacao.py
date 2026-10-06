@@ -79,13 +79,11 @@ T = {
              "v0.1.1 isso não é mais necessário.</p>"),
             ("macOS",
              "<ol><li>Abra o <code>.dmg</code> e arraste o Antitotem para <strong>Aplicativos</strong>.</li>"
-             "<li>Abra o app. O macOS avisa que não pode verificar o desenvolvedor: clique em "
+             "<li>Abra o app. O macOS bloqueia o app dizendo que a Apple não pôde confirmar que ele está livre de software malicioso — não é defeito. Clique em "
              "<strong>\"OK\"</strong> (não em \"Mover para o Lixo\").</li><li>Em <strong>Ajustes do "
              "Sistema → Privacidade e Segurança</strong>, clique em <strong>\"Abrir Mesmo Assim\"</strong>, "
              "confirme com a senha e clique em <strong>\"Abrir\"</strong>. Só na primeira vez. No macOS 14 "
-             "ou anterior: botão direito no app → Abrir → Abrir.</li></ol><p>Se a v0.1.0 disser que o app "
-             "\"está danificado\": no Terminal, <code>xattr -dr com.apple.quarantine "
-             "\"/Applications/Antitotem - Objeto Sonoro.app\"</code>.</p>"),
+             "ou anterior: botão direito no app → Abrir → Abrir.</li></ol><p>Se o botão não aparecer ou o bloqueio continuar, abra o Terminal (Aplicativos → Utilitários), cole <code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto Sonoro.app\"</code> e aperte Enter; depois abra o app normalmente. Isso também resolve o \"está danificado\" da v0.1.0.</p>"),
             ("Linux",
              "<ul><li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+:</strong> dois cliques no "
              "<code>.deb</code>, ou <code>sudo apt install ./antitotem-{v}-Linux.deb</code>.</li>"
@@ -144,12 +142,11 @@ T = {
              "Redistributable</a> — no longer needed from v0.1.1 on.</p>"),
             ("macOS",
              "<ol><li>Open the <code>.dmg</code> and drag Antitotem into <strong>Applications</strong>.</li>"
-             "<li>Open the app. macOS says it cannot verify the developer: click <strong>\"OK\"</strong> "
+             "<li>Open the app. macOS blocks it, saying Apple could not confirm it is free of malicious software — not a defect. Click <strong>\"OK\"</strong> "
              "(not \"Move to Trash\").</li><li>In <strong>System Settings → Privacy & Security</strong>, "
              "click <strong>\"Open Anyway\"</strong>, confirm with your password and click "
              "<strong>\"Open\"</strong>. Only the first time. On macOS 14 or earlier: right-click the app → "
-             "Open → Open.</li></ol><p>If v0.1.0 says the app \"is damaged\": in Terminal, "
-             "<code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto Sonoro.app\"</code>.</p>"),
+             "Open → Open.</li></ol><p>If the button does not appear or the block remains, open Terminal (Applications → Utilities), paste <code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto Sonoro.app\"</code> and press Enter; then open the app normally. This also fixes v0.1.0's \"is damaged\".</p>"),
             ("Linux",
              "<ul><li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+:</strong> double-click the "
              "<code>.deb</code>, or <code>sudo apt install ./antitotem-{v}-Linux.deb</code>.</li>"
@@ -210,13 +207,11 @@ T = {
              "inutile à partir de la v0.1.1.</p>"),
             ("macOS",
              "<ol><li>Ouvrez le <code>.dmg</code> et glissez Antitotem dans <strong>Applications</strong>.</li>"
-             "<li>Ouvrez l’app. macOS indique ne pas pouvoir vérifier le développeur : cliquez sur "
+             "<li>Ouvrez l’app. macOS la bloque en disant qu’Apple n’a pas pu confirmer qu’elle ne contient pas de logiciel malveillant — ce n’est pas un défaut. Cliquez sur "
              "<strong>« OK »</strong> (pas « Placer dans la corbeille »).</li><li>Dans <strong>Réglages "
              "Système → Confidentialité et sécurité</strong>, cliquez sur <strong>« Ouvrir quand même »</strong>, "
              "confirmez avec votre mot de passe, puis <strong>« Ouvrir »</strong>. Seulement la première fois. "
-             "Sous macOS 14 ou antérieur : clic droit sur l’app → Ouvrir → Ouvrir.</li></ol><p>Si la v0.1.0 "
-             "dit que l’app « est endommagée » : dans le Terminal, <code>xattr -dr com.apple.quarantine "
-             "\"/Applications/Antitotem - Objeto Sonoro.app\"</code>.</p>"),
+             "Sous macOS 14 ou antérieur : clic droit sur l’app → Ouvrir → Ouvrir.</li></ol><p>Si le bouton n’apparaît pas ou si le blocage persiste, ouvrez le Terminal (Applications → Utilitaires), collez <code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto Sonoro.app\"</code> et appuyez sur Entrée ; ouvrez ensuite l’app normalement. Cela corrige aussi le « endommagée » de la v0.1.0.</p>"),
             ("Linux",
              "<ul><li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+ :</strong> double-cliquez sur le "
              "<code>.deb</code>, ou <code>sudo apt install ./antitotem-{v}-Linux.deb</code>.</li>"
@@ -275,13 +270,11 @@ T = {
              "falta.</p>"),
             ("macOS",
              "<ol><li>Abra el <code>.dmg</code> y arrastre Antitotem a <strong>Aplicaciones</strong>.</li>"
-             "<li>Abra la app. macOS avisa que no puede verificar al desarrollador: pulse "
+             "<li>Abra la app. macOS la bloquea diciendo que Apple no pudo confirmar que esté libre de software malicioso — no es un defecto. Pulse "
              "<strong>«OK»</strong> (no «Trasladar a la papelera»).</li><li>En <strong>Ajustes del Sistema → "
              "Privacidad y seguridad</strong>, pulse <strong>«Abrir igualmente»</strong>, confirme con su "
              "contraseña y pulse <strong>«Abrir»</strong>. Solo la primera vez. En macOS 14 o anterior: clic "
-             "derecho en la app → Abrir → Abrir.</li></ol><p>Si la v0.1.0 dice que la app «está dañada»: en "
-             "el Terminal, <code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto "
-             "Sonoro.app\"</code>.</p>"),
+             "derecho en la app → Abrir → Abrir.</li></ol><p>Si el botón no aparece o el bloqueo continúa, abra el Terminal (Aplicaciones → Utilidades), pegue <code>xattr -dr com.apple.quarantine \"/Applications/Antitotem - Objeto Sonoro.app\"</code> y pulse Intro; después abra la app normalmente. Esto también resuelve el «está dañada» de la v0.1.0.</p>"),
             ("Linux",
              "<ul><li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+:</strong> doble clic en el "
              "<code>.deb</code>, o <code>sudo apt install ./antitotem-{v}-Linux.deb</code>.</li>"

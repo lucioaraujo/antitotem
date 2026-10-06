@@ -205,7 +205,7 @@
     <span class="step-index">2</span>
     <div class="step-body">
       <h3>macOS</h3>
-      <ol><li>Open the <code>.dmg</code> and drag Antitotem into <strong>Applications</strong>.</li><li>Open the app. macOS says it cannot verify the developer: click <strong>"OK"</strong> (not "Move to Trash").</li><li>In <strong>System Settings → Privacy & Security</strong>, click <strong>"Open Anyway"</strong>, confirm with your password and click <strong>"Open"</strong>. Only the first time. On macOS 14 or earlier: right-click the app → Open → Open.</li></ol><p>If v0.1.0 says the app "is damaged": in Terminal, <code>xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"</code>.</p>
+      <ol><li>Open the <code>.dmg</code> and drag Antitotem into <strong>Applications</strong>.</li><li>Open the app. macOS blocks it, saying Apple could not confirm it is free of malicious software — not a defect. Click <strong>"OK"</strong> (not "Move to Trash").</li><li>In <strong>System Settings → Privacy & Security</strong>, click <strong>"Open Anyway"</strong>, confirm with your password and click <strong>"Open"</strong>. Only the first time. On macOS 14 or earlier: right-click the app → Open → Open.</li></ol><p>If the button does not appear or the block remains, open Terminal (Applications → Utilities), paste <code>xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"</code> and press Enter; then open the app normally. This also fixes v0.1.0's "is damaged".</p>
     </div>
   </div>
   <div class="step">

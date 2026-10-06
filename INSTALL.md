@@ -40,16 +40,32 @@ From v0.1.1 on, everything is inside the `.exe`.
 1. Download `antitotem-<version>-Darwin.dmg`. From v0.1.1 on, it works on
    both Intel and Apple Silicon Macs. v0.1.0 was Apple Silicon only.
 2. Open it and **drag Antitotem into Applications**.
-3. Open it. The first time, macOS says it **cannot verify the developer**,
-   because the app is not notarised by Apple, which needs a paid account.
-   Click **"OK"** or **"Done"**, **not** "Move to Trash".
-4. Go to **System Settings → Privacy & Security**, scroll to the security
-   section and click **"Open Anyway"** next to "Antitotem was blocked…".
-   Confirm with your password or Touch ID, then click **"Open"**. This is
-   only needed the first time.
-   - **On macOS 14 or earlier there is a shortcut:** right-click the app in
-     Finder, then **Open → Open**.
+3. Open it. The first time, macOS **blocks** the app with a message saying
+   **Apple could not confirm it is free of malicious software**. In French,
+   for example: *« Antitotem ne peut pas être ouvert. Apple n'a pas pu confirmer
+   que Antitotem ne contenait pas de logiciel malveillant. »*
+   - This is **not a defect or a virus**. macOS does it for every downloaded
+     app that has not been notarised by Apple, which requires a paid account.
+   - Click **"OK"** or **"Done"**, **not** "Move to Trash".
+4. Allow the app in one of two ways. You only need to do this once.
+   - **In System Settings:** go to **System Settings → Privacy & Security**,
+     scroll to the security section, click **"Open Anyway"**, confirm with
+     your password or Touch ID, and click **"Open"**. On macOS 14 or
+     earlier: right-click the app in Finder → **Open → Open**.
+   - **In Terminal**, if the button does not appear or the block remains:
+     1. Open **Terminal**. It is in Applications → Utilities, or press
+        Cmd + Space and type "Terminal".
+     2. Paste this line and press **Enter**:
 
+        ```sh
+        xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
+        ```
+
+        If nothing is printed after Enter, it worked.
+     3. Close Terminal and open the app normally.
+
+     The command only removes the "quarantine mark" macOS puts on every
+     downloaded file. It does not change the app.
 **"Antitotem is damaged and can't be opened"** (v0.1.0): the file is not
 damaged. That version was not fully signed. Run this in Terminal, then open
 the app normally:
@@ -234,20 +250,39 @@ do `.exe`.
    arquivo serve para Mac Intel e Apple Silicon. A v0.1.0 era só para
    Apple Silicon.
 2. Abra o `.dmg` e **arraste o Antitotem para a pasta Aplicativos**.
-3. Abra o app. Na primeira vez, o macOS avisa que **não pode verificar o
-   desenvolvedor**, porque o app não passou pela notarização da Apple, que
-   exige uma conta paga. Clique em **"OK"** ou **"Concluído"**. **Não**
-   clique em "Mover para o Lixo".
-4. Abra **Ajustes do Sistema → Privacidade e Segurança**, desça até a parte
-   de segurança e clique em **"Abrir Mesmo Assim"** ao lado de "Antitotem
-   foi bloqueado…". Confirme com sua senha ou Touch ID e clique em
-   **"Abrir"**. Isso só é preciso na primeira vez.
-   - **No macOS 14 ou anterior há um atalho:** clique no app com o botão
-     direito no Finder e escolha **Abrir → Abrir**.
+3. Abra o app. Na primeira vez, o macOS **bloqueia** o app e mostra uma
+   mensagem dizendo que **a Apple não pôde confirmar que ele está livre de
+   software malicioso**. Em francês, por exemplo: *« Antitotem ne peut pas être
+   ouvert. Apple n'a pas pu confirmer que Antitotem ne contenait pas de logiciel
+   malveillant. »*
+   - Isso **não indica defeito nem vírus**. O macOS faz isso com todo app
+     baixado que não passou pela notarização da Apple, que exige uma conta
+     paga.
+   - Clique em **"OK"** ou **"Concluído"**. **Não** clique em "Mover para o
+     Lixo".
+4. Libere o app de um destes dois jeitos. Basta fazer uma vez.
+   - **Pelos Ajustes:** abra **Ajustes do Sistema → Privacidade e
+     Segurança**, desça até a parte de segurança e clique em **"Abrir Mesmo
+     Assim"**. Confirme com sua senha ou Touch ID e clique em **"Abrir"**.
+     No macOS 14 ou anterior: clique no app com o botão direito no Finder e
+     escolha **Abrir → Abrir**.
+   - **Pelo Terminal**, se o botão não aparecer ou o bloqueio continuar:
+     1. Abra o **Terminal**. Ele fica em Aplicativos → Utilitários, ou use
+        Cmd + Espaço e digite "Terminal".
+     2. Cole a linha abaixo e aperte **Enter**:
 
+        ```sh
+        xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
+        ```
+
+        Se nada aparecer depois do Enter, deu certo.
+     3. Feche o Terminal e abra o app normalmente.
+
+     O comando só retira a "marca de quarentena" que o macOS põe em todo
+     arquivo baixado. Ele não altera o app.
 **"Antitotem está danificado e não pode ser aberto"** (v0.1.0): o arquivo
 não está danificado. Essa versão não tinha o pacote assinado por inteiro.
-Rode o comando abaixo no Terminal e depois abra o app normalmente:
+O comando do Terminal do passo 4 resolve:
 
 ```sh
 xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
