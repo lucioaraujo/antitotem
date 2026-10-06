@@ -150,6 +150,13 @@ if (ANTITOTEM_BUILD_APP AND ANTITOTEM_JUCE_PATH)
         # own embedded icon (ICON_BIG/ICON_SMALL on juce_add_gui_app, see
         # src/app/CMakeLists.txt) carries over to the shortcut automatically.
         set(CPACK_PACKAGE_EXECUTABLES "Antitotem - Objeto Sonoro" "Antitotem - Objeto Sonoro")
+        # O .exe fica na RAIZ da pasta instalada (DESTINATION .), mas o CPack
+        # cria os atalhos do Menu Iniciar e da área de trabalho (e o
+        # "Executar" da última tela) apontando para $INSTDIR\bin\ — o
+        # padrão dele quando esta variável falta. Resultado, visto num
+        # Windows 10 real em 7 out. 2026: o programa abria pela pasta e
+        # NÃO abria pelo menu. A CI agora confere o alvo de cada atalho.
+        set(CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
         set(CPACK_CREATE_DESKTOP_LINKS "Antitotem - Objeto Sonoro")
         set(CPACK_NSIS_MUI_ICON "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/antitotem.ico")
         set(CPACK_NSIS_MUI_UNIICON "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/antitotem.ico")
