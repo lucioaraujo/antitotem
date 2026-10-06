@@ -2,7 +2,7 @@
 """Rewrites the Download, Minimum requirements and Installation sections of
 the four install pages (install.html, install-en/fr/es.html) for a version.
 
-    python3 instalacao.py 0.1.1
+    python3 instalacao.py 0.1.2
 
 Why a script: three sections × four languages with the version written into
 every link. By hand, one page ends up pointing at the old release and nobody
@@ -76,7 +76,8 @@ T = {
              "área de trabalho.</li></ol><p>Sem instalar: descompacte o <code>.zip</code> e abra "
              "<code>Antitotem - Objeto Sonoro.exe</code>. Se você ainda tem a v0.1.0 e ela não abre, "
              "instale o <a href=\"{vc}\">Visual C++ Redistributable</a> da Microsoft — a partir da "
-             "v0.1.1 isso não é mais necessário.</p>"),
+             "v0.1.1 isso não é mais necessário. Se o atalho do Menu Iniciar da v0.1.0 ou v0.1.1 não abre o "
+             "programa, instale a v0.1.2 por cima.</p>"),
             ("macOS",
              "<ol><li>Abra o <code>.dmg</code> e arraste o Antitotem para <strong>Aplicativos</strong>.</li>"
              "<li>Abra o app. O macOS bloqueia o app dizendo que a Apple não pôde confirmar que ele está livre de software malicioso — não é defeito. Clique em "
@@ -136,7 +137,8 @@ T = {
              "the Start menu and on the desktop.</li></ol><p>Without installing: unzip the "
              "<code>.zip</code> and open <code>Antitotem - Objeto Sonoro.exe</code>. If you still have "
              "v0.1.0 and it does not open, install Microsoft's <a href=\"{vc}\">Visual C++ "
-             "Redistributable</a> — no longer needed from v0.1.1 on.</p>"),
+             "Redistributable</a> — no longer needed from v0.1.1 on. If the Start menu shortcut of v0.1.0 or "
+             "v0.1.1 does not open the program, install v0.1.2 over it.</p>"),
             ("macOS",
              "<ol><li>Open the <code>.dmg</code> and drag Antitotem into <strong>Applications</strong>.</li>"
              "<li>Open the app. macOS blocks it, saying Apple could not confirm it is free of malicious software — not a defect. Click <strong>\"OK\"</strong> "
@@ -198,7 +200,8 @@ T = {
              "et sur le bureau.</li></ol><p>Sans installer : décompressez le <code>.zip</code> et ouvrez "
              "<code>Antitotem - Objeto Sonoro.exe</code>. Si vous avez encore la v0.1.0 et qu’elle ne "
              "s’ouvre pas, installez le <a href=\"{vc}\">Visual C++ Redistributable</a> de Microsoft — "
-             "inutile à partir de la v0.1.1.</p>"),
+             "inutile à partir de la v0.1.1. Si le raccourci du menu Démarrer de la v0.1.0 ou v0.1.1 "
+             "n’ouvre pas le programme, installez la v0.1.2 par-dessus.</p>"),
             ("macOS",
              "<ol><li>Ouvrez le <code>.dmg</code> et glissez Antitotem dans <strong>Applications</strong>.</li>"
              "<li>Ouvrez l’app. macOS la bloque en disant qu’Apple n’a pas pu confirmer qu’elle ne contient pas de logiciel malveillant — ce n’est pas un défaut. Cliquez sur "
@@ -259,7 +262,8 @@ T = {
              "el menú Inicio y en el escritorio.</li></ol><p>Sin instalar: descomprima el <code>.zip</code> y "
              "abra <code>Antitotem - Objeto Sonoro.exe</code>. Si aún tiene la v0.1.0 y no abre, instale el "
              "<a href=\"{vc}\">Visual C++ Redistributable</a> de Microsoft — desde la v0.1.1 ya no hace "
-             "falta.</p>"),
+             "falta. Si el acceso directo del menú Inicio de la v0.1.0 o v0.1.1 no abre el programa, "
+             "instale la v0.1.2 encima.</p>"),
             ("macOS",
              "<ol><li>Abra el <code>.dmg</code> y arrastre Antitotem a <strong>Aplicaciones</strong>.</li>"
              "<li>Abra la app. macOS la bloquea diciendo que Apple no pudo confirmar que esté libre de software malicioso — no es un defecto. Pulse "

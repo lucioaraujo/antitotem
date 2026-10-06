@@ -29,7 +29,7 @@ if (APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build a Universal 2 binary" FORCE)
 endif()
 
-project(AntitotemObjetoSonoro VERSION 0.1.1 LANGUAGES C CXX)
+project(AntitotemObjetoSonoro VERSION 0.1.2 LANGUAGES C CXX)
 
 option(ANTITOTEM_BUILD_APP "Build the JUCE standalone instrument" ON)
 option(ANTITOTEM_BUILD_TESTS "Build deterministic core tests" ON)
