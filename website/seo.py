@@ -18,7 +18,7 @@ SITE = {
     "google_verificacao": "MM4BJtOhpV7eceoH4I73LRqX8u9zjQOd6o98Ljgjr_0",
 }
 
-VERSAO = "0.1.0"
+VERSAO = "0.1.1"
 
 GRUPOS = [
     [

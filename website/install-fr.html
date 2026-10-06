@@ -42,8 +42,8 @@
   "applicationCategory": "MultimediaApplication",
   "applicationSubCategory": "Synthesizer",
   "operatingSystem": "Linux, Windows, macOS",
-  "softwareVersion": "0.1.0",
-  "downloadUrl": "https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.0",
+  "softwareVersion": "0.1.1",
+  "downloadUrl": "https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.1",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -98,7 +98,7 @@
     RASGO. Cinq oscillateurs, scanner 16 pas, ADSR, VCF multimode, bruits et S&amp;H, retours,
     effets, mixeur, oscilloscope permanent et enregistrement WAV/MIDI/MusicXML.</p>
   <div class="hero-meta">
-    <span>Version <b>v0.1.0</b></span>
+    <span>Version <b>v0.1.1</b></span>
     <span>Licence <b>AGPLv3</b></span>
     <span>Auteur <b>Lúcio Araújo</b></span>
     <span>Origine <b>2013, matériel auctorial</b></span>
@@ -110,31 +110,45 @@
   </div>
 </header>
 
+<!-- INSTALACAO:DOWNLOAD:INICIO -->
 <section class="section downloads" id="telecharger">
   <h2>Télécharger</h2>
-  <p>Version v0.1.0 — choisissez votre système, le téléchargement démarre directement :</p>
+  <p>Version v0.1.1 — choisissez votre système ; le téléchargement démarre directement :</p>
   <div class="download-grid">
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Linux.deb">
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-Linux.deb">
       <span class="download-os">Linux</span>
-      <span class="download-format">paquet .deb</span>
+      <span class="download-format">paquet .deb (Ubuntu, Debian, Mint)</span>
       <span class="download-cta">Télécharger →</span>
     </a>
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-win64.exe">
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-linux-x86_64.AppImage">
+      <span class="download-os">Linux</span>
+      <span class="download-format">AppImage (toute distribution)</span>
+      <span class="download-cta">Télécharger →</span>
+    </a>
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-linux-x86_64.tar.gz">
+      <span class="download-os">Linux</span>
+      <span class="download-format">.tar.gz (sans root)</span>
+      <span class="download-cta">Télécharger →</span>
+    </a>
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-win64.exe">
       <span class="download-os">Windows</span>
-      <span class="download-format">installeur .exe</span>
+      <span class="download-format">installateur .exe</span>
       <span class="download-cta">Télécharger →</span>
     </a>
-    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.0/antitotem-0.1.0-Darwin.dmg">
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-win64.zip">
+      <span class="download-os">Windows</span>
+      <span class="download-format">.zip portable (sans installer)</span>
+      <span class="download-cta">Télécharger →</span>
+    </a>
+    <a class="download-card" href="https://github.com/lucioaraujo/antitotem/releases/download/v0.1.1/antitotem-0.1.1-Darwin.dmg">
       <span class="download-os">macOS</span>
-      <span class="download-format">image .dmg</span>
+      <span class="download-format">image .dmg (Intel et Apple Silicon)</span>
       <span class="download-cta">Télécharger →</span>
     </a>
   </div>
-  <p class="note">Windows et macOS : installeurs générés et testés via GitHub Actions sur
-    de vrais runners, mais pas encore ouverts sur un vrai Windows ou macOS. Guide complet,
-    prérequis et dépannage dans le
-    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+  <p class="note">Au premier lancement, Windows et macOS affichent un avertissement de sécurité : le programme est libre et n’a pas de certificat de signature payant. Ce n’est pas un défaut ; où cliquer se trouve dans <a href="#installation">Installation</a> ci-dessous. Toutes les versions, y compris de test : <a href="https://github.com/lucioaraujo/antitotem/releases">page des releases</a>.</p>
 </section>
+<!-- INSTALACAO:DOWNLOAD:FIM -->
 
 <section class="section">
   <figure class="shot">
@@ -143,77 +157,68 @@
   </figure>
 </section>
 
+<!-- INSTALACAO:REQUISITOS:INICIO -->
 <section class="section">
   <h2>Prérequis minimaux</h2>
-  <p>Antitotem a déjà des installeurs prêts pour Linux, Windows et macOS (voir Télécharger, en
-    haut de la page). Les prérequis ci-dessous couvrent aussi bien l'utilisation d'un de ces
-    binaires que la compilation depuis les sources.</p>
   <div class="req-grid">
     <div class="req-card">
       <h3>Système</h3>
-      <p>Linux (testé sur Debian/Ubuntu, amd64) — paquet <code>.deb</code> installé et ouvert
-        pour de vrai. Windows (<code>.exe</code>) et macOS (<code>.dmg</code>) : installeurs
-        générés et testés via CI sur de vrais runners, mais pas encore ouverts sur un vrai
-        Windows/macOS — voir la note ci-dessous.</p>
+      <p><strong>Windows</strong> 10 ou 11, 64 bits · <strong>macOS</strong> 10.13+ (Intel) ou 11+ (Apple Silicon), un seul paquet Universal 2 · <strong>Linux</strong> x86-64 avec glibc 2.35+ (distributions de 2022 et après).</p>
+    </div>
+    <div class="req-card">
+      <h3>Ordinateur (mesuré)</h3>
+      <p>Sur un Intel Core i5-6500 (2015, 4 cœurs, 3,2 GHz) : l’application entière utilise environ 60 % d’un cœur ; le moteur sonore seul 10–11 % à 44,1/48 kHz, au pire. Mémoire : environ 45 Mo. Tout ordinateur 64 bits à deux cœurs et 4 Go suffit ; les machines plus faibles n’ont pas été testées.</p>
     </div>
     <div class="req-card">
       <h3>Pour compiler</h3>
       <ul>
         <li>CMake ≥ 3.22</li>
         <li>Compilateur C++20 (GCC/Clang)</li>
-        <li>Copie locale de <a href="https://github.com/juce-framework/JUCE">JUCE</a></li>
-        <li>Périphérique audio (ALSA/PipeWire)</li>
+        <li>Un checkout local de <a href="https://github.com/juce-framework/JUCE">JUCE</a></li>
+        <li>Un périphérique audio (ALSA/PipeWire)</li>
       </ul>
     </div>
     <div class="req-card">
-      <h3>Pour installer le <code>.deb</code></h3>
+      <h3>Ce que demande le <code>.deb</code></h3>
       <ul>
         <li><code>libasound2</code>, <code>libfontconfig1</code>, <code>libfreetype6</code></li>
         <li><code>libx11-6</code>, <code>libxext6</code>, <code>libxss1</code></li>
-        <li><code>libgio-2.0-0</code>, <code>libstdc++6</code>, <code>libc6</code></li>
+        <li>GLib (<code>libglib2.0-0</code>), <code>libstdc++6</code>, <code>libc6</code></li>
       </ul>
     </div>
   </div>
 </section>
+<!-- INSTALACAO:REQUISITOS:FIM -->
 
-<section class="section section-dark">
+<!-- INSTALACAO:PASSOS:INICIO -->
+<section class="section section-dark" id="installation">
   <h2>Installation</h2>
 
   <div class="step">
     <span class="step-index">1</span>
     <div class="step-body">
-      <h3>Linux — paquet <code>.deb</code></h3>
-      <pre><code>sudo dpkg -i antitotem-0.1.0-Linux.deb
-sudo apt-get install -f   # si une dépendance manque</code></pre>
-      <p>Une fois installé, lancez <code>antitotem</code> depuis un terminal, ou cherchez
-        « Antitotem - Objeto Sonoro » dans votre menu d'applications.</p>
+      <h3>Windows</h3>
+      <ol><li>Ouvrez le <code>.exe</code>. Une fenêtre bleue <strong>« Windows a protégé votre ordinateur »</strong> apparaît : cliquez sur <strong>« Informations complémentaires »</strong>, puis <strong>« Exécuter quand même »</strong>.</li><li>Si l’autorisation d’administrateur est demandée, cliquez sur <strong>« Oui »</strong>.</li><li>« Suivant » jusqu’au bout ; la dernière page propose déjà <strong>« Lancer Antitotem »</strong>. Il est ensuite dans le menu Démarrer et sur le bureau.</li></ol><p>Sans installer : décompressez le <code>.zip</code> et ouvrez <code>Antitotem - Objeto Sonoro.exe</code>. Si vous avez encore la v0.1.0 et qu’elle ne s’ouvre pas, installez le <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">Visual C++ Redistributable</a> de Microsoft — inutile à partir de la v0.1.1.</p>
     </div>
   </div>
   <div class="step">
     <span class="step-index">2</span>
     <div class="step-body">
-      <h3>Windows — installeur <code>.exe</code></h3>
-      <p>Lancez l'installeur téléchargé et suivez l'assistant. Généré et testé via CI sur un
-        vrai runner Windows, mais pas encore ouvert sur un vrai Windows — voir la note
-        ci-dessous.</p>
+      <h3>macOS</h3>
+      <ol><li>Ouvrez le <code>.dmg</code> et glissez Antitotem dans <strong>Applications</strong>.</li><li>Ouvrez l’app. macOS indique ne pas pouvoir vérifier le développeur : cliquez sur <strong>« OK »</strong> (pas « Placer dans la corbeille »).</li><li>Dans <strong>Réglages Système → Confidentialité et sécurité</strong>, cliquez sur <strong>« Ouvrir quand même »</strong>, confirmez avec votre mot de passe, puis <strong>« Ouvrir »</strong>. Seulement la première fois. Sous macOS 14 ou antérieur : clic droit sur l’app → Ouvrir → Ouvrir.</li></ol><p>Si la v0.1.0 dit que l’app « est endommagée » : dans le Terminal, <code>xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"</code>.</p>
     </div>
   </div>
   <div class="step">
     <span class="step-index">3</span>
     <div class="step-body">
-      <h3>macOS — image <code>.dmg</code></h3>
-      <p>Ouvrez le <code>.dmg</code> téléchargé et glissez Antitotem dans Applications.
-        Généré et testé via CI sur un vrai runner macOS, mais pas encore ouvert sur un vrai
-        macOS — voir la note ci-dessous.</p>
+      <h3>Linux</h3>
+      <ul><li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+ :</strong> double-cliquez sur le <code>.deb</code>, ou <code>sudo apt install ./antitotem-0.1.1-Linux.deb</code>.</li><li><strong>Fedora, Arch, openSUSE et autres :</strong> l’<strong>AppImage</strong> (rendez-la exécutable et ouvrez-la) ou le <strong>.tar.gz</strong> (décompressez et lancez <code>./install.sh</code>, qui installe pour votre utilisateur, sans root).</li></ul><p>Les trois paquets Linux sont testés au lancement sur Debian 12, Ubuntu 24.04, Fedora et Arch avant chaque version.</p>
     </div>
   </div>
 
-  <p class="note">Les trois installeurs sont générés et testés via
-    <a href="https://github.com/lucioaraujo/antitotem/actions/workflows/package.yml">GitHub Actions</a> ;
-    Windows et macOS n'ont pas encore été ouverts sur du vrai matériel de ces plateformes.
-    Guide complet, avec tous les détails et le dépannage, dans le
-    <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+  <p class="note">Guide complet, avec prérequis et dépannage, dans <a href="https://github.com/lucioaraujo/antitotem/blob/main/INSTALL.md#installing-step-by-step">INSTALL.md</a> (anglais et portugais). Les paquets Windows et macOS sont construits et vérifiés par l’intégration continue (sans dépendance Visual C++ ; paquet macOS scellé) ; ils n’ont pas encore été ouverts par l’auteur sur de vraies machines de ces systèmes.</p>
 </section>
+<!-- INSTALACAO:PASSOS:FIM -->
 
 <section class="section">
   <h2>Compiler depuis les sources</h2>
