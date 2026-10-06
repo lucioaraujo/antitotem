@@ -45,9 +45,9 @@ T = {
                ("Windows", ".zip portátil (sem instalar)", "zip"),
                ("macOS", "imagem .dmg (Intel e Apple Silicon)", "dmg")],
         cta="Baixar →",
-        note=("Na primeira abertura, o Windows e o macOS mostram um aviso de segurança: o "
-              "programa é livre e não tem certificado pago de assinatura. Não é defeito; o que "
-              "clicar está em <a href=\"#instalacao\">Instalação</a>, logo abaixo. Todas as "
+        note=("Se, na primeira abertura, o Windows ou o macOS disser que o programa não pôde ser verificado "
+              "ou que pode conter software malicioso (ou mostrar uma mensagem parecida), não apague o arquivo: "
+              "siga os passos de <a href=\"#instalacao\">Instalação</a>, logo abaixo, para liberá-lo. Todas as "
               "versões, inclusive as de teste: <a href=\"{repo}/releases\">página de releases</a>."),
         sys_h="Sistema",
         sys=("<strong>Windows</strong> 10 ou 11, 64 bits · <strong>macOS</strong> 10.13+ (Intel) "
@@ -94,10 +94,7 @@ T = {
              "antes de cada versão.</p>"),
         ],
         inst_note=("Guia completo, com requisitos e solução de problemas, no "
-                   "<a href=\"{repo}/blob/main/INSTALL.md#instalar-passo-a-passo\">INSTALL.md</a>. "
-                   "Os pacotes de Windows e macOS são gerados e conferidos pela integração contínua "
-                   "(sem dependência do Visual C++; pacote macOS selado); ainda não foram abertos pelo "
-                   "autor em máquinas reais desses sistemas."),
+                   "<a href=\"{repo}/blob/main/INSTALL.md#instalar-passo-a-passo\">INSTALL.md</a>."),
     ),
     "install-en.html": dict(
         anchor="download", download="Download", req="Minimum requirements", inst="Installation",
@@ -109,9 +106,9 @@ T = {
                ("Windows", "portable .zip (no install)", "zip"),
                ("macOS", ".dmg image (Intel and Apple Silicon)", "dmg")],
         cta="Download →",
-        note=("On first launch, Windows and macOS show a security warning: the program is free "
-              "software without a paid code-signing certificate. It is not a defect; what to click "
-              "is in <a href=\"#installation\">Installation</a> below. All versions, including test "
+        note=("If, on first launch, Windows or macOS says the program could not be verified or may contain "
+              "malicious software (or shows a similar message), do not delete it: follow the steps in "
+              "<a href=\"#installation\">Installation</a> below to allow it. All versions, including test "
               "builds: <a href=\"{repo}/releases\">releases page</a>."),
         sys_h="System",
         sys=("<strong>Windows</strong> 10 or 11, 64-bit · <strong>macOS</strong> 10.13+ (Intel) or "
@@ -157,10 +154,7 @@ T = {
              "before every version.</p>"),
         ],
         inst_note=("Full guide, with requirements and troubleshooting, in "
-                   "<a href=\"{repo}/blob/main/INSTALL.md#installing-step-by-step\">INSTALL.md</a>. The "
-                   "Windows and macOS packages are built and checked by continuous integration (no "
-                   "Visual C++ dependency; macOS bundle sealed); they have not yet been opened by the "
-                   "author on real machines of those systems."),
+                   "<a href=\"{repo}/blob/main/INSTALL.md#installing-step-by-step\">INSTALL.md</a>."),
     ),
     "install-fr.html": dict(
         anchor="telecharger", download="Télécharger", req="Prérequis minimaux", inst="Installation",
@@ -172,10 +166,10 @@ T = {
                ("Windows", ".zip portable (sans installer)", "zip"),
                ("macOS", "image .dmg (Intel et Apple Silicon)", "dmg")],
         cta="Télécharger →",
-        note=("Au premier lancement, Windows et macOS affichent un avertissement de sécurité : le "
-              "programme est libre et n’a pas de certificat de signature payant. Ce n’est pas un "
-              "défaut ; où cliquer se trouve dans <a href=\"#installation\">Installation</a> "
-              "ci-dessous. Toutes les versions, y compris de test : "
+        note=("Si, au premier lancement, Windows ou macOS indique que le programme n’a pas pu être vérifié "
+              "ou qu’il pourrait contenir un logiciel malveillant (ou affiche un message semblable), ne le "
+              "supprimez pas : suivez les étapes de <a href=\"#installation\">Installation</a> ci-dessous "
+              "pour l’autoriser. Toutes les versions, y compris de test : "
               "<a href=\"{repo}/releases\">page des releases</a>."),
         sys_h="Système",
         sys=("<strong>Windows</strong> 10 ou 11, 64 bits · <strong>macOS</strong> 10.13+ (Intel) ou "
@@ -223,9 +217,7 @@ T = {
         ],
         inst_note=("Guide complet, avec prérequis et dépannage, dans "
                    "<a href=\"{repo}/blob/main/INSTALL.md#installing-step-by-step\">INSTALL.md</a> "
-                   "(anglais et portugais). Les paquets Windows et macOS sont construits et vérifiés par "
-                   "l’intégration continue (sans dépendance Visual C++ ; paquet macOS scellé) ; ils "
-                   "n’ont pas encore été ouverts par l’auteur sur de vraies machines de ces systèmes."),
+                   "(anglais et portugais)."),
     ),
     "install-es.html": dict(
         anchor="descargar", download="Descargar", req="Requisitos mínimos", inst="Instalación",
@@ -237,10 +229,10 @@ T = {
                ("Windows", ".zip portátil (sin instalar)", "zip"),
                ("macOS", "imagen .dmg (Intel y Apple Silicon)", "dmg")],
         cta="Descargar →",
-        note=("En la primera apertura, Windows y macOS muestran un aviso de seguridad: el programa "
-              "es libre y no tiene certificado de firma de pago. No es un defecto; qué pulsar está en "
-              "<a href=\"#instalacion\">Instalación</a>, más abajo. Todas las versiones, incluidas "
-              "las de prueba: <a href=\"{repo}/releases\">página de releases</a>."),
+        note=("Si, en la primera apertura, Windows o macOS dice que el programa no pudo verificarse o que "
+              "puede contener software malicioso (o muestra un mensaje parecido), no lo borre: siga los pasos "
+              "de <a href=\"#instalacion\">Instalación</a>, más abajo, para autorizarlo. Todas las versiones, "
+              "incluidas las de prueba: <a href=\"{repo}/releases\">página de releases</a>."),
         sys_h="Sistema",
         sys=("<strong>Windows</strong> 10 u 11, 64 bits · <strong>macOS</strong> 10.13+ (Intel) u "
              "11+ (Apple Silicon), un solo paquete Universal 2 · <strong>Linux</strong> x86-64 con "
@@ -286,9 +278,7 @@ T = {
         ],
         inst_note=("Guía completa, con requisitos y solución de problemas, en "
                    "<a href=\"{repo}/blob/main/INSTALL.md#installing-step-by-step\">INSTALL.md</a> "
-                   "(inglés y portugués). Los paquetes de Windows y macOS se generan y comprueban por "
-                   "integración continua (sin dependencia de Visual C++; paquete macOS sellado); el "
-                   "autor aún no los ha abierto en máquinas reales de esos sistemas."),
+                   "(inglés y portugués)."),
     ),
 }
 

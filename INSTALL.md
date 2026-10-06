@@ -11,10 +11,8 @@ Two languages, same content: [🇬🇧 English](#english) below, [🇧🇷 Portu
 
 Packages for every system are on the
 [releases page](https://github.com/lucioaraujo/antitotem/releases) (the
-newest one is at the top). The security warnings below **are expected**:
-Antitotem is free software published without a paid code-signing
-certificate. They do not mean anything is wrong, and they only appear the
-first time.
+newest one is at the top). The security warnings below **are expected**: they do not mean anything is
+wrong, and they only appear the first time.
 
 #### Windows
 
@@ -44,8 +42,10 @@ From v0.1.1 on, everything is inside the `.exe`.
    **Apple could not confirm it is free of malicious software**. In French,
    for example: *« Antitotem ne peut pas être ouvert. Apple n'a pas pu confirmer
    que Antitotem ne contenait pas de logiciel malveillant. »*
-   - This is **not a defect or a virus**. macOS does it for every downloaded
-     app that has not been notarised by Apple, which requires a paid account.
+   A similar message may appear instead, such as \"cannot verify the
+   developer\" or \"is damaged and can't be opened\". In every case, do the
+   same:
+   - This is **not a defect or a virus**.
    - Click **"OK"** or **"Done"**, **not** "Move to Trash".
 4. Allow the app in one of two ways. You only need to do this once.
    - **In System Settings:** go to **System Settings → Privacy & Security**,
@@ -66,14 +66,6 @@ From v0.1.1 on, everything is inside the `.exe`.
 
      The command only removes the "quarantine mark" macOS puts on every
      downloaded file. It does not change the app.
-**"Antitotem is damaged and can't be opened"** (v0.1.0): the file is not
-damaged. That version was not fully signed. Run this in Terminal, then open
-the app normally:
-
-```sh
-xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
-```
-
 #### Linux
 
 - **Ubuntu 22.04+, Debian 12+, Mint 21+:** double-click the `.deb`, or run
@@ -219,9 +211,8 @@ licenses in [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md).
 
 Os pacotes de cada sistema estão na
 [página de releases](https://github.com/lucioaraujo/antitotem/releases), com
-a mais nova no topo. Os avisos de segurança abaixo **são esperados**: o
-Antitotem é software livre, publicado sem certificado pago de assinatura
-digital. Eles não indicam defeito e só aparecem na primeira vez.
+a mais nova no topo. Os avisos de segurança abaixo **são esperados**:
+não indicam defeito nem vírus e só aparecem na primeira vez.
 
 #### Windows
 
@@ -255,9 +246,10 @@ do `.exe`.
    software malicioso**. Em francês, por exemplo: *« Antitotem ne peut pas être
    ouvert. Apple n'a pas pu confirmer que Antitotem ne contenait pas de logiciel
    malveillant. »*
-   - Isso **não indica defeito nem vírus**. O macOS faz isso com todo app
-     baixado que não passou pela notarização da Apple, que exige uma conta
-     paga.
+   Também pode aparecer uma mensagem parecida, como \"não é possível
+   verificar o desenvolvedor\" ou \"está danificado e não pode ser aberto\". Em
+   todos esses casos, faça o mesmo:
+   - Isso **não indica defeito nem vírus**.
    - Clique em **"OK"** ou **"Concluído"**. **Não** clique em "Mover para o
      Lixo".
 4. Libere o app de um destes dois jeitos. Basta fazer uma vez.
@@ -280,13 +272,6 @@ do `.exe`.
 
      O comando só retira a "marca de quarentena" que o macOS põe em todo
      arquivo baixado. Ele não altera o app.
-**"Antitotem está danificado e não pode ser aberto"** (v0.1.0): o arquivo
-não está danificado. Essa versão não tinha o pacote assinado por inteiro.
-O comando do Terminal do passo 4 resolve:
-
-```sh
-xattr -dr com.apple.quarantine "/Applications/Antitotem - Objeto Sonoro.app"
-```
 
 #### Linux
 
