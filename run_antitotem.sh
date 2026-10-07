@@ -4,7 +4,11 @@ set -euo pipefail
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 build_dir="/tmp/antitotem-simple-sequencer-app"
-juce_dir="/media/luc/4tb_21042021/VM_STUDIO_ARCHIVE/RASGO/RASGO_SYNTH/JUCE-master"
+# JUCE numa pasta neutra do workspace (RASGO/third_party), na mesma versão
+# da CI (9.0.3), e não mais dentro do Rasgo Synth: regra RASGO de
+# instrumentos autônomos (GOVERNANCA §7.0, 7 out. 2026). ANTITOTEM_JUCE_DIR
+# troca o caminho.
+juce_dir="${ANTITOTEM_JUCE_DIR:-$project_dir/../third_party/JUCE-9.0.3}"
 app_path="$build_dir/src/app/AntitotemSimpleSequencerApp_artefacts/Release/Antitotem - Objeto Sonoro"
 
 if [[ ! -f "$juce_dir/CMakeLists.txt" ]]; then
