@@ -44,7 +44,7 @@ checks that the Windows `.exe` needs no Visual C++ runtime, that every
 installer shortcut points to an installed file, that the macOS app is
 sealed, and that the Linux packages open on Debian 12, Ubuntu 24.04, Fedora
 and Arch. On real hardware it has been opened on Linux, installed on a Windows 10
-(8 GB), and installed and opened on a Mac on 7 Oct. 2026 (after allowing
+(8 GB), and installed and opened on a MacBook Air M1 (8 GB, macOS 15.2 Sequoia) on 7 Oct. 2026 (after allowing
 it — see INSTALL). See
 [`INSTALL.md`](INSTALL.md) for step-by-step installation and requirements
 (EN/PT), and [`docs/TAREFAS.md`](docs/TAREFAS.md) for the full plan and
@@ -120,7 +120,7 @@ também confere que o `.exe` do Windows não depende do runtime do Visual C++,
 que cada atalho do instalador aponta para um arquivo instalado, que o app
 do macOS está selado e que os pacotes Linux abrem em Debian 12, Ubuntu
 24.04, Fedora e Arch. Em máquina real, ele já foi aberto no Linux,
-instalado num Windows 10 (8 GB) e instalado e aberto num Mac em 7 out. 2026
+instalado num Windows 10 (8 GB) e instalado e aberto num MacBook Air M1 (8 GB, macOS 15.2 Sequoia) em 7 out. 2026
 (depois de liberado — ver INSTALL). Ver [`INSTALL.md`](INSTALL.md) para a instalação passo a passo e os
 requisitos (EN/PT), e [`docs/TAREFAS.md`](docs/TAREFAS.md) para o plano
 completo e o estado atual.
@@ -196,7 +196,7 @@ Visual C++, que chaque raccourci de l'installeur pointe vers un fichier
 installé, que l'app macOS est scellée et que les paquets Linux s'ouvrent sur
 Debian 12, Ubuntu 24.04, Fedora et Arch. Sur machine réelle, il a été ouvert
 sous Linux, installé sur un Windows 10 (8 Go), puis installé et ouvert sur
-un Mac le 7 oct. 2026 (après l'avoir autorisé — voir INSTALL). Voir [`INSTALL.md`](INSTALL.md) pour
+un MacBook Air M1 (8 Go, macOS 15.2 Sequoia) le 7 oct. 2026 (après l'avoir autorisé — voir INSTALL). Voir [`INSTALL.md`](INSTALL.md) pour
 l'installation pas à pas et les prérequis (EN/PT), et
 [`docs/TAREFAS.md`](docs/TAREFAS.md) pour le plan complet et l'état actuel.
 
@@ -271,7 +271,7 @@ además comprueba que el `.exe` de Windows no depende del runtime de Visual
 C++, que cada acceso directo del instalador apunta a un archivo instalado,
 que la app de macOS está sellada y que los paquetes Linux abren en Debian
 12, Ubuntu 24.04, Fedora y Arch. En máquina real, ya se abrió en Linux, se
-instaló en un Windows 10 (8 GB) y se instaló y abrió en un Mac el 7 oct.
+instaló en un Windows 10 (8 GB) y se instaló y abrió en un MacBook Air M1 (8 GB, macOS 15.2 Sequoia) el 7 oct.
 2026 (tras autorizarlo — ver INSTALL).
 Ver [`INSTALL.md`](INSTALL.md) para la instalación paso a paso y los
 requisitos (EN/PT), y [`docs/TAREFAS.md`](docs/TAREFAS.md) para el plan
