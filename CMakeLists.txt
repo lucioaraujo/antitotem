@@ -29,7 +29,7 @@ if (APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build a Universal 2 binary" FORCE)
 endif()
 
-project(AntitotemObjetoSonoro VERSION 0.1.2 LANGUAGES C CXX)
+project(AntitotemObjetoSonoro VERSION 0.1.3 LANGUAGES C CXX)
 
 option(ANTITOTEM_BUILD_APP "Build the JUCE standalone instrument" ON)
 option(ANTITOTEM_BUILD_TESTS "Build deterministic core tests" ON)
@@ -139,6 +139,14 @@ if (ANTITOTEM_BUILD_APP AND ANTITOTEM_JUCE_PATH)
         set(CPACK_NSIS_DISPLAY_NAME "Antitotem - Objeto Sonoro")
         set(CPACK_NSIS_CONTACT "rasgo.instruments@gmail.com")
         set(CPACK_NSIS_MODIFY_PATH OFF)
+        # Pasta e chave de registro SEM a versão. O padrão do CPack é
+        # "<nome> <versão>" nas duas: cada versão procurava a anterior pela
+        # própria chave, nunca a achava, e as duas ficavam instaladas lado a
+        # lado (visto num Windows 10 real em 7 out. 2026: "rasgo-modular
+        # 0.1.4" e "rasgo-modular 0.1.5" em C:\Program Files). Com nome fixo,
+        # o UNINSTALL_BEFORE_INSTALL abaixo encontra e remove a anterior.
+        set(CPACK_PACKAGE_INSTALL_DIRECTORY "Antitotem")
+        set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "Antitotem")
         set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
         set(CPACK_NSIS_URL_INFO_ABOUT "https://github.com/lucioaraujo/antitotem/tree/main")
         # Same bug found and fixed on Navalha 2's installer the same day

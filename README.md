@@ -37,14 +37,15 @@ On a system with CMake, a C++20 compiler, JUCE and an audio device:
 ./run_antitotem.sh
 ```
 
-Downloads: [**Antitotem v0.1.2** release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.2)
+Downloads: [**Antitotem v0.1.3** release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
 — Linux `.deb`, AppImage and `.tar.gz`; Windows installer `.exe` and
 portable `.zip`; macOS Universal 2 `.dmg`. All are built by CI, which also
 checks that the Windows `.exe` needs no Visual C++ runtime, that every
 installer shortcut points to an installed file, that the macOS app is
 sealed, and that the Linux packages open on Debian 12, Ubuntu 24.04, Fedora
-and Arch. On real hardware it has been opened on Linux and installed on a
-Windows 10 (8 GB); macOS has not been tried on a real machine yet. See
+and Arch. On real hardware it has been opened on Linux, installed on a Windows 10
+(8 GB), and installed and opened on a Mac on 7 Oct. 2026 (after allowing
+it — see INSTALL). See
 [`INSTALL.md`](INSTALL.md) for step-by-step installation and requirements
 (EN/PT), and [`docs/TAREFAS.md`](docs/TAREFAS.md) for the full plan and
 current status.
@@ -112,15 +113,15 @@ Em um sistema com CMake, compilador C++20, JUCE e dispositivo de áudio:
 ./run_antitotem.sh
 ```
 
-Downloads: [**release Antitotem v0.1.2**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.2)
+Downloads: [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
 — Linux `.deb`, AppImage e `.tar.gz`; instalador `.exe` e `.zip` portátil
 para Windows; `.dmg` Universal 2 para macOS. Tudo é gerado pela CI, que
 também confere que o `.exe` do Windows não depende do runtime do Visual C++,
 que cada atalho do instalador aponta para um arquivo instalado, que o app
 do macOS está selado e que os pacotes Linux abrem em Debian 12, Ubuntu
-24.04, Fedora e Arch. Em máquina real, ele já foi aberto no Linux e
-instalado num Windows 10 (8 GB); o macOS ainda não foi testado numa máquina
-real. Ver [`INSTALL.md`](INSTALL.md) para a instalação passo a passo e os
+24.04, Fedora e Arch. Em máquina real, ele já foi aberto no Linux,
+instalado num Windows 10 (8 GB) e instalado e aberto num Mac em 7 out. 2026
+(depois de liberado — ver INSTALL). Ver [`INSTALL.md`](INSTALL.md) para a instalação passo a passo e os
 requisitos (EN/PT), e [`docs/TAREFAS.md`](docs/TAREFAS.md) para o plano
 completo e o estado atual.
 
@@ -187,15 +188,15 @@ audio :
 ./run_antitotem.sh
 ```
 
-Téléchargements : [**release Antitotem v0.1.2**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.2)
+Téléchargements : [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
 — Linux `.deb`, AppImage et `.tar.gz` ; installeur `.exe` et `.zip`
 portable pour Windows ; `.dmg` Universal 2 pour macOS. Tout est produit par
 la CI, qui vérifie aussi que le `.exe` Windows ne dépend pas du runtime
 Visual C++, que chaque raccourci de l'installeur pointe vers un fichier
 installé, que l'app macOS est scellée et que les paquets Linux s'ouvrent sur
 Debian 12, Ubuntu 24.04, Fedora et Arch. Sur machine réelle, il a été ouvert
-sous Linux et installé sur un Windows 10 (8 Go) ; macOS n'a pas encore été
-essayé sur une vraie machine. Voir [`INSTALL.md`](INSTALL.md) pour
+sous Linux, installé sur un Windows 10 (8 Go), puis installé et ouvert sur
+un Mac le 7 oct. 2026 (après l'avoir autorisé — voir INSTALL). Voir [`INSTALL.md`](INSTALL.md) pour
 l'installation pas à pas et les prérequis (EN/PT), et
 [`docs/TAREFAS.md`](docs/TAREFAS.md) pour le plan complet et l'état actuel.
 
@@ -263,14 +264,15 @@ En un sistema con CMake, compilador C++20, JUCE y dispositivo de audio:
 ./run_antitotem.sh
 ```
 
-Descargas: [**release Antitotem v0.1.2**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.2)
+Descargas: [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
 — Linux `.deb`, AppImage y `.tar.gz`; instalador `.exe` y `.zip` portátil
 para Windows; `.dmg` Universal 2 para macOS. Todo lo genera la CI, que
 además comprueba que el `.exe` de Windows no depende del runtime de Visual
 C++, que cada acceso directo del instalador apunta a un archivo instalado,
 que la app de macOS está sellada y que los paquetes Linux abren en Debian
-12, Ubuntu 24.04, Fedora y Arch. En máquina real, ya se abrió en Linux y se
-instaló en un Windows 10 (8 GB); macOS aún no se probó en una máquina real.
+12, Ubuntu 24.04, Fedora y Arch. En máquina real, ya se abrió en Linux, se
+instaló en un Windows 10 (8 GB) y se instaló y abrió en un Mac el 7 oct.
+2026 (tras autorizarlo — ver INSTALL).
 Ver [`INSTALL.md`](INSTALL.md) para la instalación paso a paso y los
 requisitos (EN/PT), y [`docs/TAREFAS.md`](docs/TAREFAS.md) para el plan
 completo y el estado actual.
