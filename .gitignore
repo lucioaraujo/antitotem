@@ -1,5 +1,6 @@
 # Local toolchains and build products
 build/
+.local-build/
 cmake-build-*/
 CMakeFiles/
 CMakeCache.txt

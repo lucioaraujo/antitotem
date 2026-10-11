@@ -3229,7 +3229,7 @@ começar a implementação.
 
   **Custo de CPU perguntado pelo autor ("exige mais do hardware? pode
   travar?") e medido, não estimado:** ver
-  [`CPU_BASELINE.md`](../../CPU_BASELINE.md) - dobrar essas 4 cadeias
+  [`CPU_BASELINE.md`](../CPU_BASELINE.md) - dobrar essas 4 cadeias
   leves custa ~1,7-3,9 pontos percentuais de CPU conforme a taxa; pior
   caso medido (96 kHz/bloco 512, dois objetos completos patchados) ainda
   roda a 4,41× tempo real. Não deve travar em hardware comparável.

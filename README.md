@@ -1,5 +1,14 @@
 # Antitotem
 
+Localização atual (2026-10-11): `RASGO/PROJETOS_AUTORAIS/ANTITOTEM/`.
+O caminho antigo na raiz é um alias de compatibilidade, não outra fonte.
+Criação e desenvolvimento são a finalidade; autoria, licença e identidade
+permanecem próprias. Para manutenção no workspace, ler `../../AGENTS.md`,
+a continuidade local, `../../RASGO_DOCUMENTATION/architecture/MIGRACAO_PROJETOS_AUTORAIS.md`
+e `../../../PROCEDIMENTO_SEGURANCA_RECURSOS.md` antes de tarefas controladas.
+Esses caminhos são locais: a documentação do contêiner não acompanha uma
+clonagem independente. Publicação continua uma decisão separada.
+
 ![Antitotem](website/antitotem.png)
 ![Antitotem screenshot](website/antitotem_modo_principal.png)
 

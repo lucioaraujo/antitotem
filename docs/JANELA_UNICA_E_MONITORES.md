@@ -73,7 +73,7 @@ O autor quer dois modos de operação, escolhidos pelo próprio usuário:
   visível ao mesmo tempo que o PRINCIPAL.
 
 Consultado o documento-base
-[`RASGO_DOCUMENTATION/design/INTERFACES_E_LAYOUTS.md`](../../RASGO_DOCUMENTATION/design/INTERFACES_E_LAYOUTS.md)
+[`RASGO_DOCUMENTATION/design/INTERFACES_E_LAYOUTS.md`](../../../RASGO_DOCUMENTATION/design/INTERFACES_E_LAYOUTS.md)
 (seção 5.1, "Contrato responsivo comum RASGO"): a política padrão do RASGO é
 sempre um único monitor, nunca abrir no retângulo virtual que soma vários
 monitores. O modo dual monitor aqui é uma **divergência deliberada e

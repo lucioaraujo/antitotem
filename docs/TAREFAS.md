@@ -11,7 +11,7 @@ volta ao histórico (pelo título da seção — os números de linha mudaram)
 para quem quiser o contexto completo por trás de cada item.
 
 Ver também [`docs/TAREFAS_HISTORICO.md`](TAREFAS_HISTORICO.md) para o
-registro completo, e [`../RASGO_DOCUMENTATION/PAINEL_MESTRE.md`](../../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
+registro completo, e [`PAINEL_MESTRE.md`](../../../RASGO_DOCUMENTATION/PAINEL_MESTRE.md)
 para o gate de publicação vigente na família RASGO.
 
 ## Ponto de retomada — 26 ago. 2026 (fim de sessão — gate de publicação fechado)
