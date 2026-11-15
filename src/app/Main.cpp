@@ -1,4 +1,6 @@
 #include <juce_audio_utils/juce_audio_utils.h>
+#include "MaestrucLink.h"   // regente da família (maestruc.link/1)
+#include <cstdio>
 #include <juce_audio_formats/juce_audio_formats.h>
 #include <juce_data_structures/juce_data_structures.h>
 #if ANTITOTEM_HAS_LOGO
@@ -7293,7 +7295,20 @@ public:
         // do RNG dela é adiantada, para que RND16/MEM no CLONE também não
         // repitam sempre o mesmo padrão quando usados.
         {
-            auto& launchRandom = juce::Random::getSystemRandom();
+            // A abertura sorteia tudo de uma seed (Maestruc, 15/11/2026):
+            // `--seed N` repete uma abertura; sem ela, a seed é sorteada como
+            // antes e fica guardada para o estado (launchSeed).
+            const auto args = juce::JUCEApplicationBase::getCommandLineParameterArray();
+            launchSeed = juce::Random::getSystemRandom().nextInt64() & 0x7fffffffffffffffLL;
+            if (const int i = args.indexOf("--seed"); i >= 0 && i + 1 < args.size())
+            {
+                const auto t = args[i + 1].unquoted().trim();
+                if (t.isNotEmpty() && t.length() <= 18 && t.containsOnly("0123456789"))
+                    launchSeed = t.getLargeIntValue();
+                else
+                    std::fprintf(stderr, "Antitotem: --seed precisa de um inteiro de 0 a 18 algarismos\n");
+            }
+            juce::Random launchRandom(launchSeed);
             sequencer.seedRandom(static_cast<unsigned int>(launchRandom.nextInt64()));
             dualEngine.object5().seedRandom(static_cast<unsigned int>(launchRandom.nextInt64()));
             applyVariation(static_cast<Variation>(launchRandom.nextInt(5)));
@@ -7302,9 +7317,14 @@ public:
             refreshSilentHighlights();
         }
         setAudioChannels(0, 2); startTimerHz(30);
+        if (juce::JUCEApplicationBase::getCommandLineParameterArray().contains("--maestruc")
+            || juce::SystemStats::getEnvironmentVariable("ANTITOTEM_MAESTRUC", {}) == "1")
+            enableMaestrucLink();
     }
     ~MainComponent() override
     {
+        maestrucPortao.fecharEsperar();   // o áudio deixa de usar a ponte do Maestruc
+        maestrucLink.reset();   // antes de tudo: nenhum comando chega a meio desmonte
         juce::Desktop::getInstance().removeFocusChangeListener(this);
         shutdownAudio();
     }
@@ -7318,6 +7338,12 @@ public:
         sequencer.setFeedbackAmount(static_cast<float>(feedbackGain.getValue()));
         syncCV(); syncStepDynamics(); syncOscillators(); syncRatios(); syncShapes(); syncPans(); syncProximities(); syncOrbits(); syncFilter(); syncEnvelope(); syncModulation(); syncEffects(); syncDetails(); syncFeedbackConnections(); syncCore(); syncTemporal(); syncScanner(); syncMixer(); dualEngine.setRunning(true);
         loggingEnabled = true;
+        // Ponte do Maestruc: reabre na taxa nova pelo fio de mensagens (até
+        // lá, o Antitotem toca nas próprias caixas).
+        maestrucPortao.fecharEsperar();
+        juce::MessageManager::callAsync([safe = juce::Component::SafePointer<MainComponent>(this)] {
+            if (safe != nullptr) safe->openMaestrucBridge();
+        });
     }
     void getNextAudioBlock(const juce::AudioSourceChannelInfo& info) override
     {
@@ -7373,6 +7399,13 @@ public:
             const auto excitationTriggered = dualEngine.didExcitationTriggerSincePoll();
             if (excitationTriggered && !excitationMute.getToggleState())
                 midiCapture.noteOn(2, pitch01ToMidiNote(dualEngine.getExcitationLastTriggerPitch01()), 96);
+        }
+        // Maestruc: a mistura vai pela ponte (gravação, MIDI e osciloscópio
+        // acima ficam iguais); enquanto ele lê, o Antitotem cala a própria saída.
+        {
+            const float* const bridge[2] { left, right };
+            if (maestrucPortao.escrever(bridge, 2, info.numSamples))
+                info.clearActiveBufferRegion();
         }
     }
     void releaseResources() override {}
@@ -9859,6 +9892,14 @@ if (participateEnvelope.getToggleState()) {             for (std::size_t i = 0; 
     }
     void timerCallback() override
     {
+        if (maestrucLink != nullptr)
+        {
+            // o mixer mudou à mão (ou por memória): o Maestruc fica sabendo
+            const std::array<double, 7> now { principalVolume.getValue(), cloneVolume.getValue(), excitationAmount.getValue(),
+                                              master.getValue(), principalMute.getToggleState() ? 1.0 : 0.0,
+                                              cloneMute.getToggleState() ? 1.0 : 0.0, excitationMute.getToggleState() ? 1.0 : 0.0 };
+            if (now != maestrucMixerSeen) { maestrucMixerSeen = now; maestrucLink->mixerChanged(); }
+        }
         const auto active = sequencer.getCurrentStep();
         // Same step-0 edge this already used for DERIVA's own phrase-loop
         // detection, reused here to quantize REC to the PRINCIPAL
@@ -10278,6 +10319,74 @@ if (participateEnvelope.getToggleState()) {             for (std::size_t i = 0; 
     std::size_t lastRecordStep = 0;
     int recordBlinkCounter = 0;
     std::array<StepControl, antitotem::SimpleSequencer::stepCount> steps { StepControl {0}, StepControl {1}, StepControl {2}, StepControl {3}, StepControl {4}, StepControl {5}, StepControl {6}, StepControl {7}, StepControl {8}, StepControl {9}, StepControl {10}, StepControl {11}, StepControl {12}, StepControl {13}, StepControl {14}, StepControl {15} };
+
+    // Maestruc (maestruc.link/1, 15/11/2026): o regente da família pode dar
+    // PLAY e STOP (os mesmos botões, com o mesmo cuidado do REC pendente) e
+    // saber o estado. A seed só entra ao abrir (--seed); o andamento é o do
+    // PRINCIPAL e não um relógio comum, então "tempo" e "seed" respondem
+    // capacidade ausente. Desligado por padrão.
+    juce::int64 launchSeed = 0;
+    void enableMaestrucLink()
+    {
+        if (maestrucLink != nullptr) return;
+        maestrucLink = std::make_unique<rasgo::maestruc::Link>("Antitotem", JUCE_APPLICATION_VERSION_STRING);
+        auto& h = maestrucLink->handlers;
+        h.play = [this](juce::int64) { if (!sequencer.isRunning() && run.onClick) run.onClick(); };
+        h.stop = [this] { if (sequencer.isRunning() && stop.onClick) stop.onClick(); };
+        h.state = [this](bool& playing, juce::String& seed, float& bpm)
+        {
+            playing = sequencer.isRunning();
+            seed = juce::String(launchSeed);
+            bpm = static_cast<float>(computeCurrentBpm());
+        };
+        // Mixer: o mixer de objetos (PRINCIPAL, CLONE, EXCITAÇÃO: nível e M)
+        // e o MASTER (−1, nível), pelos mesmos controles da tela. Nível 0–1
+        // do app = −90…0 dB. Sem SOLO nesses canais: recusado.
+        h.mixerList = [this](std::vector<rasgo::maestruc::MixerChannel>& channels)
+        {
+            auto db = [](double g) { return g > 0.0000317 ? static_cast<float>(20.0 * std::log10(g)) : -90.0f; };
+            channels.push_back({ 0, "PRINCIPAL", db(principalVolume.getValue()), principalMute.getToggleState(), false });
+            channels.push_back({ 1, "CLONE", db(cloneVolume.getValue()), cloneMute.getToggleState(), false });
+            channels.push_back({ 2, juce::String(juce::CharPointer_UTF8("EXCITA\xc3\x87\xc3\x83O")), db(excitationAmount.getValue()),
+                                 excitationMute.getToggleState(), false });
+            channels.push_back({ -1, "MASTER", db(master.getValue()), false, false });
+        };
+        h.mixerSet = [this](int index, const juce::String& what, float value)
+        {
+            juce::Slider* level = index == 0 ? &principalVolume : index == 1 ? &cloneVolume
+                                : index == 2 ? &excitationAmount : index == -1 ? &master : nullptr;
+            juce::ToggleButton* mute = index == 0 ? &principalMute : index == 1 ? &cloneMute
+                                     : index == 2 ? &excitationMute : nullptr;
+            if (what == "nivel" && level != nullptr)
+            {
+                level->setValue(value <= -90.0f ? 0.0 : std::min(1.0, std::pow(10.0, value / 20.0)), juce::sendNotificationSync);
+                return true;
+            }
+            if (what == "mudo" && mute != nullptr)
+            {
+                if (mute->getToggleState() != (value > 0.5f))
+                {
+                    mute->setToggleState(value > 0.5f, juce::dontSendNotification);
+                    if (mute->onClick) mute->onClick();
+                }
+                return true;
+            }
+            return false;
+        };
+        if (!maestrucLink->start()) { maestrucLink.reset(); return; }
+        openMaestrucBridge();
+    }
+    // Fio de mensagens. A ponte leva a mistura (um par estéreo) na taxa da placa.
+    void openMaestrucBridge()
+    {
+        maestrucPortao.fecharEsperar();
+        if (maestrucLink == nullptr || currentSampleRate <= 0.0) return;
+        if (maestrucLink->openSoundBridge(1, currentSampleRate, { "mix" }))
+            maestrucPortao.abrir(maestrucLink.get());
+    }
+    std::array<double, 7> maestrucMixerSeen {};
+    rasgo::maestruc::PortaoDeSom maestrucPortao;
+    std::unique_ptr<rasgo::maestruc::Link> maestrucLink;
 };
 
 class PerformanceViewport final : public juce::Viewport

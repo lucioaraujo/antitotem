@@ -10,7 +10,7 @@ juce_add_gui_app(AntitotemSimpleSequencerApp
     BUNDLE_ID "org.rasgo.antitotem.simplesequencer"
     ICON_BIG "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/identity/icons/antitotem-icon-256.png"
     ICON_SMALL "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/identity/icons/antitotem-icon-32.png")
-target_sources(AntitotemSimpleSequencerApp PRIVATE Main.cpp)
+target_sources(AntitotemSimpleSequencerApp PRIVATE Main.cpp MaestrucLink.h PonteDeSom.h)
 
 # Typography is an application asset, not a dependency on whichever font a
 # particular desktop happens to provide. The same OFL family is already used
@@ -38,6 +38,7 @@ target_link_libraries(AntitotemSimpleSequencerApp PRIVATE
     juce::juce_audio_utils
     juce::juce_audio_formats
     juce::juce_data_structures
+    juce::juce_osc   # receptor do Maestruc (MaestrucLink.h), 15/11/2026
     juce::juce_recommended_config_flags
     juce::juce_recommended_warning_flags)
 target_compile_definitions(AntitotemSimpleSequencerApp PRIVATE
