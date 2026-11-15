@@ -10345,11 +10345,11 @@ if (participateEnvelope.getToggleState()) {             for (std::size_t i = 0; 
         h.mixerList = [this](std::vector<rasgo::maestruc::MixerChannel>& channels)
         {
             auto db = [](double g) { return g > 0.0000317 ? static_cast<float>(20.0 * std::log10(g)) : -90.0f; };
-            channels.push_back({ 0, "PRINCIPAL", db(principalVolume.getValue()), principalMute.getToggleState(), false });
-            channels.push_back({ 1, "CLONE", db(cloneVolume.getValue()), cloneMute.getToggleState(), false });
+            channels.push_back({ 0, "PRINCIPAL", db(principalVolume.getValue()), principalMute.getToggleState(), false, "nivel,mudo", -90.0f, 0.0f });
+            channels.push_back({ 1, "CLONE", db(cloneVolume.getValue()), cloneMute.getToggleState(), false, "nivel,mudo", -90.0f, 0.0f });
             channels.push_back({ 2, juce::String(juce::CharPointer_UTF8("EXCITA\xc3\x87\xc3\x83O")), db(excitationAmount.getValue()),
-                                 excitationMute.getToggleState(), false });
-            channels.push_back({ -1, "MASTER", db(master.getValue()), false, false });
+                                 excitationMute.getToggleState(), false, "nivel,mudo", -90.0f, 0.0f });
+            channels.push_back({ -1, "MASTER", db(master.getValue()), false, false, "nivel", -90.0f, 0.0f });
         };
         h.mixerSet = [this](int index, const juce::String& what, float value)
         {
