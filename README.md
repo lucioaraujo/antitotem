@@ -46,7 +46,7 @@ On a system with CMake, a C++20 compiler, JUCE and an audio device:
 ./run_antitotem.sh
 ```
 
-Downloads: [**Antitotem v0.1.3** release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
+Downloads: [**Antitotem v0.2.0** release](https://github.com/lucioaraujo/antitotem/releases/tag/v0.2.0)
 — Linux `.deb`, AppImage and `.tar.gz`; Windows installer `.exe` and
 portable `.zip`; macOS Universal 2 `.dmg`. All are built by CI, which also
 checks that the Windows `.exe` needs no Visual C++ runtime, that every
@@ -122,7 +122,7 @@ Em um sistema com CMake, compilador C++20, JUCE e dispositivo de áudio:
 ./run_antitotem.sh
 ```
 
-Downloads: [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
+Downloads: [**release Antitotem v0.2.0**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.2.0)
 — Linux `.deb`, AppImage e `.tar.gz`; instalador `.exe` e `.zip` portátil
 para Windows; `.dmg` Universal 2 para macOS. Tudo é gerado pela CI, que
 também confere que o `.exe` do Windows não depende do runtime do Visual C++,
@@ -197,7 +197,7 @@ audio :
 ./run_antitotem.sh
 ```
 
-Téléchargements : [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
+Téléchargements : [**release Antitotem v0.2.0**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.2.0)
 — Linux `.deb`, AppImage et `.tar.gz` ; installeur `.exe` et `.zip`
 portable pour Windows ; `.dmg` Universal 2 pour macOS. Tout est produit par
 la CI, qui vérifie aussi que le `.exe` Windows ne dépend pas du runtime
@@ -273,7 +273,7 @@ En un sistema con CMake, compilador C++20, JUCE y dispositivo de audio:
 ./run_antitotem.sh
 ```
 
-Descargas: [**release Antitotem v0.1.3**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.1.3)
+Descargas: [**release Antitotem v0.2.0**](https://github.com/lucioaraujo/antitotem/releases/tag/v0.2.0)
 — Linux `.deb`, AppImage y `.tar.gz`; instalador `.exe` y `.zip` portátil
 para Windows; `.dmg` Universal 2 para macOS. Todo lo genera la CI, que
 además comprueba que el `.exe` de Windows no depende del runtime de Visual
