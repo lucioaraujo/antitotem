@@ -7,6 +7,7 @@
 #include <BinaryData.h>
 #endif
 #include "core/Dither.h"
+#include "app/StreamingVersion.h"
 #include "core/DualObjectEngine.h"
 #include "core/ObjectVariations.h"
 #include "core/SimpleSequencer.h"
@@ -17,6 +18,7 @@
 #include <atomic>
 #include <functional>
 #include <optional>
+#include <unordered_map>
 #include <vector>
 
 namespace
@@ -751,11 +753,13 @@ private:
     float gain = 0.48f;
 };
 
+
 class WavRecorder final
 {
 public:
     WavRecorder() : writerThread("Antitotem WAV writer") { writerThread.startThread(); }
-    ~WavRecorder() { stop(); writerThread.stopThread(3000); }
+    // the streaming master of the last take may still be running: wait for it
+    ~WavRecorder() { stop(); writerThread.stopThread(3000); deliveryPool.removeAllJobs(false, 120000); }
     bool start(double sampleRate, double maximumSeconds = 300.0)
     {
         const juce::ScopedLock guard(lock);
@@ -790,7 +794,10 @@ public:
     void stop()
     {
         const juce::ScopedLock guard(lock);
-        active = nullptr; writer.reset();
+        const bool hadTake = writer != nullptr;
+        active = nullptr; writer.reset();   // closes the raw take
+        if (hadTake && file.existsAsFile())
+            deliveryPool.addJob([take = file] { writeStreamingVersion(take); });
     }
     void write(const float* left, const float* right, int samples)
     {
@@ -838,6 +845,7 @@ private:
     juce::File file;
     juce::int64 recordedSamples = 0, maxSamples = 0;
     bool reachedLimit = false;
+    juce::ThreadPool deliveryPool { juce::ThreadPoolOptions {}.withThreadName("Antitotem streaming master").withNumberOfThreads(1) };
     static constexpr std::size_t ditherChunk = 4096;
     antitotem::TpdfQuantiser dither { 24 };
     std::vector<float> ditheredLeft, ditheredRight;  // sized in start(), never on the audio thread

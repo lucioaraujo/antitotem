@@ -48,7 +48,12 @@ add_library(antitotem_simple_sequencer_core STATIC
     src/core/SimpleSequencer.cpp
     src/core/DualObjectEngine.cpp
     src/core/MelodicInterpreter.cpp
-    src/core/TruePeakDetector.cpp)
+    src/core/TruePeakDetector.cpp
+    src/core/saida/DeliveryMaster.cpp
+    src/core/saida/OutputStage.cpp
+    src/core/saida/LoudnessMeter.cpp
+    src/core/saida/TruePeakDetector.cpp
+    src/core/saida/TakeAnalysis.cpp)
 target_include_directories(antitotem_simple_sequencer_core PUBLIC src)
 target_compile_features(antitotem_simple_sequencer_core PUBLIC cxx_std_20)
 if (MSVC)
