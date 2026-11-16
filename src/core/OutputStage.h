@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core/TruePeakDetector.h"
+
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
@@ -9,6 +11,16 @@ namespace antitotem
 {
 // Technical output protection. It is intentionally separate from the voice:
 // creative saturation belongs to the patch; DC removal and peak containment do not.
+//
+// 16/11/2026 (nivelamento pela saida-ref 1.0, RASGO/REFERENCIAS/SAIDA_TECNICA,
+// auditoria de excelência sonora): the same limiter, ceiling and knee, now
+//  - detecting the TRUE peak (4x, BS.1770, TruePeakDetector from the
+//    reference) as well as the sample peak: the sample peak alone let
+//    intersample peaks over the 0.85 ceiling;
+//  - turning NaN/Inf into silence (counted) before anything else;
+//  - keeping readings for meters and tests (telemetry()); never on screen
+//    yet: what to show is the author's call.
+// Below the knee (0.72) the signal is unchanged, as before.
 class OutputStage
 {
 public:
@@ -20,6 +32,7 @@ public:
         delayLeft.assign(delaySamples, 0.0f);
         delayRight.assign(delaySamples, 0.0f);
         attack = coefficient(0.35); release = coefficient(90.0);
+        detectorLeft.prepare(sampleRate); detectorRight.prepare(sampleRate);
         reset();
     }
 
@@ -29,16 +42,36 @@ public:
         std::fill(delayRight.begin(), delayRight.end(), 0.0f);
         delayPosition = 0; previousInLeft = previousInRight = 0.0f;
         previousOutLeft = previousOutRight = 0.0f; envelope = 0.0f; gain = 1.0f;
+        detectorLeft.reset(); detectorRight.reset();
+        clearTelemetry();
     }
+
+    struct Telemetry
+    {
+        float outputPeak = 0.0f;        // sample peak after the stage
+        float detectedTruePeak = 0.0f;  // highest true peak the limiter saw (before reduction)
+        float maxReductionDb = 0.0f;    // >= 0
+        unsigned long long invalidSamples = 0;
+    };
+    [[nodiscard]] Telemetry telemetry() const noexcept { return readings; }
+    void clearTelemetry() noexcept { readings = {}; }
 
     void setMasterGain(float value) noexcept { masterGain = std::clamp(value, 0.0f, 1.0f); }
 
     void process(float inputLeft, float inputRight, float& outputLeft, float& outputRight) noexcept
     {
+        if (!std::isfinite(inputLeft)) { inputLeft = 0.0f; ++readings.invalidSamples; }
+        if (!std::isfinite(inputRight)) { inputRight = 0.0f; ++readings.invalidSamples; }
         const auto dcFreeLeft = dcBlock(inputLeft, previousInLeft, previousOutLeft) * masterGain;
         const auto dcFreeRight = dcBlock(inputRight, previousInRight, previousOutRight) * masterGain;
-        const auto peak = std::max(std::abs(dcFreeLeft), std::abs(dcFreeRight));
-        envelope += (peak - envelope) * (peak > envelope ? attack : release);
+        // the true peak answers ~8 samples late, well inside the 2 ms lookahead
+        const auto peak = std::max({ std::abs(dcFreeLeft), std::abs(dcFreeRight),
+                                     detectorLeft.processSample(dcFreeLeft), detectorRight.processSample(dcFreeRight) });
+        readings.detectedTruePeak = std::max(readings.detectedTruePeak, peak);
+        // the envelope takes a new peak at once (16/11/2026): rising smoothly
+        // it let the attack of a loud burst through the ceiling (-0.75 dBTP);
+        // the gain still moves with the 0.35 ms attack, inside the lookahead
+        envelope = peak > envelope ? peak : envelope + (peak - envelope) * release;
         const auto targetGain = envelope > ceiling ? ceiling / envelope : 1.0f;
         gain += (targetGain - gain) * (targetGain < gain ? attack : release);
 
@@ -50,6 +83,9 @@ public:
         delayLeft[delayPosition] = dcFreeLeft;
         delayRight[delayPosition] = dcFreeRight;
         delayPosition = (delayPosition + 1) % delayLeft.size();
+        readings.outputPeak = std::max({ readings.outputPeak, std::abs(outputLeft), std::abs(outputRight) });
+        if (gain < 1.0f)
+            readings.maxReductionDb = std::max(readings.maxReductionDb, -20.0f * std::log10(std::max(gain, 1.0e-6f)));
     }
 
 private:
@@ -82,5 +118,7 @@ private:
     float envelope = 0.0f, gain = 1.0f, masterGain = 0.72f;
     std::vector<float> delayLeft, delayRight;
     std::size_t delayPosition = 0;
+    TruePeakDetector detectorLeft {}, detectorRight {};
+    Telemetry readings {};
 };
 } // namespace antitotem

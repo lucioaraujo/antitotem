@@ -6,6 +6,7 @@
 #if ANTITOTEM_HAS_LOGO
 #include <BinaryData.h>
 #endif
+#include "core/Dither.h"
 #include "core/DualObjectEngine.h"
 #include "core/ObjectVariations.h"
 #include "core/SimpleSequencer.h"
@@ -771,7 +772,7 @@ public:
         juce::StringPairArray metadata;
         metadata.set("INAM", "Antitotem - Objeto Sonoro");
         metadata.set("IART", utf8("Antitotem / Lúcio Araújo"));
-        metadata.set("ICMT", utf8("Live take — 24-bit stereo WAV"));
+        metadata.set("ICMT", utf8("Live take — 24-bit stereo WAV, TPDF dither"));
         metadata.set("ICRD", juce::Time::getCurrentTime().formatted("%Y-%m-%d"));
         auto* formatWriter = wav.createWriterFor(stream.release(), sampleRate, 2, 24, metadata, 0);
         if (formatWriter == nullptr) return false;
@@ -779,6 +780,9 @@ public:
         writer->setFlushInterval(static_cast<int>(sampleRate));
         active = writer.get();
         recordedSamples = 0;
+        dither = antitotem::TpdfQuantiser(24);
+        ditheredLeft.assign(ditherChunk, 0.0f);
+        ditheredRight.assign(ditherChunk, 0.0f);
         maxSamples = static_cast<juce::int64>(sampleRate * std::clamp(maximumSeconds, 1.0, 300.0));
         reachedLimit = false;
         return true;
@@ -800,8 +804,22 @@ public:
         // silently discard that tail and always produce an exact
         // 60/120/180/300s file regardless of loop length - reported by the
         // author as "os áudios gravados sempre têm o tempo exato".
-        const float* channels[] { left, right };
-        active->write(channels, samples);
+        // TPDF dither at the 24-bit LSB, only here where the file becomes
+        // integers (16/11/2026, saida-ref 1.0; before: plain rounding by
+        // JUCE). The floats handed over are already the dithered integers
+        // (floatForJuceInt24), so JUCE's conversion keeps them exactly.
+        for (int done = 0; done < samples;)
+        {
+            const auto count = std::min(samples - done, static_cast<int>(ditherChunk));
+            for (int i = 0; i < count; ++i)
+            {
+                ditheredLeft[static_cast<std::size_t>(i)] = antitotem::floatForJuceInt24(dither.quantise(left[done + i]));
+                ditheredRight[static_cast<std::size_t>(i)] = antitotem::floatForJuceInt24(dither.quantise(right[done + i]));
+            }
+            const float* channels[] { ditheredLeft.data(), ditheredRight.data() };
+            active->write(channels, count);
+            done += count;
+        }
         recordedSamples += samples;
         if (recordedSamples >= maxSamples) reachedLimit = true;
     }
@@ -820,6 +838,9 @@ private:
     juce::File file;
     juce::int64 recordedSamples = 0, maxSamples = 0;
     bool reachedLimit = false;
+    static constexpr std::size_t ditherChunk = 4096;
+    antitotem::TpdfQuantiser dither { 24 };
+    std::vector<float> ditheredLeft, ditheredRight;  // sized in start(), never on the audio thread
 };
 
 // MidiCapture (docs/PESQUISA_COMPASSO_E_METRICA_REAL.md, seção 5 -

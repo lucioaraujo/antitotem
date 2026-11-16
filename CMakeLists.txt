@@ -47,7 +47,8 @@ set(ANTITOTEM_LOGO_PATH "${CMAKE_CURRENT_SOURCE_DIR}/assets/identity/logo_antito
 add_library(antitotem_simple_sequencer_core STATIC
     src/core/SimpleSequencer.cpp
     src/core/DualObjectEngine.cpp
-    src/core/MelodicInterpreter.cpp)
+    src/core/MelodicInterpreter.cpp
+    src/core/TruePeakDetector.cpp)
 target_include_directories(antitotem_simple_sequencer_core PUBLIC src)
 target_compile_features(antitotem_simple_sequencer_core PUBLIC cxx_std_20)
 if (MSVC)
@@ -62,6 +63,9 @@ if (ANTITOTEM_BUILD_TESTS)
     add_executable(antitotem_simple_sequencer_tests tests/SimpleSequencerTests.cpp)
     target_link_libraries(antitotem_simple_sequencer_tests PRIVATE antitotem_simple_sequencer_core)
     add_test(NAME antitotem_simple_sequencer_tests COMMAND antitotem_simple_sequencer_tests)
+    add_executable(antitotem_output_quality_tests tests/OutputQualityTests.cpp)
+    target_link_libraries(antitotem_output_quality_tests PRIVATE antitotem_simple_sequencer_core)
+    add_test(NAME antitotem_output_quality_tests COMMAND antitotem_output_quality_tests)
 endif()
 
 if (ANTITOTEM_BUILD_TOOLS)
