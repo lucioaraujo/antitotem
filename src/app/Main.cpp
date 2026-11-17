@@ -759,7 +759,16 @@ class WavRecorder final
 public:
     WavRecorder() : writerThread("Antitotem WAV writer") { writerThread.startThread(); }
     // the streaming master of the last take may still be running: wait for it
-    ~WavRecorder() { stop(); writerThread.stopThread(3000); deliveryPool.removeAllJobs(false, 120000); }
+    ~WavRecorder()
+    {
+        stop();
+        writerThread.stopThread(3000);
+        // A versão de entrega em curso (ou na fila) termina antes de sair
+        // (17/11/2026): o destrutor do juce::ThreadPool só espera 5 s e depois
+        // mata o fio à força; removeAllJobs descarta o que ainda está na fila.
+        while (deliveryPool.getNumJobs() > 0)
+            juce::Thread::sleep(20);
+    }
     bool start(double sampleRate, double maximumSeconds = 300.0)
     {
         const juce::ScopedLock guard(lock);
