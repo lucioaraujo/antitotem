@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tutorial — Antitotem</title>
+<meta name="description" content="Tutorial do Antitotem: exercícios de escuta, dois objetos se ouvindo, rotas, camadas de tempo, deriva, matéria e caos." />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
+<link rel="stylesheet" href="styles.css" />
+<!-- SEO:INICIO — gerado por seo.py; editar lá, não aqui -->
+<link rel="canonical" href="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html">
+<link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html">
+<link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html">
+<link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Antitotem">
+<meta property="og:title" content="Tutorial — Antitotem">
+<meta property="og:description" content="Tutorial do Antitotem: exercícios de escuta, dois objetos se ouvindo, rotas, camadas de tempo, deriva, matéria e caos.">
+<meta property="og:url" content="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<meta property="og:image" content="https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Antitotem — Objeto Sonoro em modo PRINCIPAL: osciladores, VCF/ADSR, modulação e mixer.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Antitotem",
+  "alternateName": "Antitotem — Objeto Sonoro",
+  "description": "Tutorial do Antitotem: exercícios de escuta, dois objetos se ouvindo, rotas, camadas de tempo, deriva, matéria e caos.",
+  "url": "https://lucioaraujo.github.io/antitotem/",
+  "inLanguage": "pt-BR",
+  "image": "https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Synthesizer",
+  "operatingSystem": "Linux, Windows, macOS",
+  "softwareVersion": "0.3.1",
+  "downloadUrl": "https://github.com/lucioaraujo/antitotem/releases/tag/v0.3.1",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "Lúcio Araújo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RASGO",
+    "url": "https://rasgoinstruments.arquiviagem.net/"
+  },
+  "sameAs": [
+    "https://github.com/lucioaraujo/antitotem"
+  ]
+}
+</script>
+<script>(function(){var K='rasgo-lingua',M={pt:'index.html',en:'en.html',fr:'fr.html',es:'es.html'};function g(){try{return localStorage.getItem(K)}catch(e){return null}}function s(v){try{localStorage.setItem(K,v)}catch(e){}}var l=(document.documentElement.lang||'').slice(0,2).toLowerCase(),p=location.pathname,base=location.origin+p.replace(/[^/]*$/,''),r=document.referrer||'';if(/\/(index\.html)?$/.test(p)&&l==='pt'&&r.indexOf(base)!==0&&!/[?&]lang=pt/.test(location.search)&&!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){var c=g();if(!c){var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];c='en';for(var i=0;i<L.length;i++){var x=String(L[i]).slice(0,2).toLowerCase();if(M[x]){c=x;break}}}if(c!=='pt'&&M[c]){location.replace(M[c]+location.hash);return}}if(M[l])s(l);})();</script>
+<!-- SEO:FIM -->
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgoinstruments.arquiviagem.net/">RASGO — família de instrumentos e pesquisa sonora</a></div>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="site-header">
+  <a class="brand" href="#top" aria-label="Antitotem">
+    <img src="assets/identity/logo_antitotem_novo.svg" alt="" />
+    <span>ANTI<em>TOTEM</em></span>
+  </a>
+  <div class="header-nav">
+    <nav class="page-nav" aria-label="Seções">
+      <a href="index.html">Conceito</a>
+      <a href="tutorial.html" aria-current="page">Tutorial</a>
+      <a href="aprender.html">Aprender</a>
+      <a href="install.html">Instalação</a>
+      <a href="install.html#baixar">Baixar</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Idioma">
+      <a href="tutorial.html" aria-current="true">PT</a>
+      <a href="tutorial-en.html">EN</a>
+      <a href="tutorial-fr.html">FR</a>
+      <a href="tutorial-es.html">ES</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+<section class="hero" id="top">
+  <h1>Tutorial</h1>
+  <p class="lead">Gestos e escutas para tocar o Antitotem: os exercícios do nível INTERMEDIÁRIO e as relações do nível AVANÇADO do tutorial que o app traz no botão TUTORIAL.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>Sumário</h2>
+  <p class="tut-group">Intermediário: gestos e escutas</p>
+  <ol class="tut-toc" start="1">
+    <li><a href="#cap-1">PRIMEIRO PULSO</a></li>
+    <li><a href="#cap-2">DEGRAU QUE RETÉM</a></li>
+    <li><a href="#cap-3">ESPAÇO POR ETAPA</a></li>
+    <li><a href="#cap-4">PORTAS DE INFILTRAÇÃO</a></li>
+    <li><a href="#cap-5">VARIAÇÕES INICIAIS</a></li>
+    <li><a href="#cap-6">DOIS OBJETOS SE OUVINDO</a></li>
+    <li><a href="#cap-7">COMPARAR MEMÓRIA</a></li>
+    <li><a href="#cap-8">ROTA QUE DERIVA</a></li>
+  </ol>
+  <p class="tut-group">Avançado: as relações entre as partes</p>
+  <ol class="tut-toc" start="9">
+    <li><a href="#cap-9">FLUXO DE ÁUDIO</a></li>
+    <li><a href="#cap-10">ROTAS ENTRE OBJETOS</a></li>
+    <li><a href="#cap-11">CAMADAS DE TEMPO</a></li>
+    <li><a href="#cap-12">PRESETS DE VARIAÇÃO</a></li>
+    <li><a href="#cap-13">O QUE A DERIVA CAPTURA</a></li>
+    <li><a href="#cap-14">A DUPLA VIDA DO RING</a></li>
+    <li><a href="#cap-15">MATÉRIA</a></li>
+    <li><a href="#cap-16">CAOS / VAGA</a></li>
+  </ol>
+</section>
+
+<section class="section" id="cap-1">
+  <h2>1 · PRIMEIRO PULSO</h2>
+  <p>As PORTAS DE FEEDBACK não só repetem uma amostra - cada uma a remodela de um jeito diferente antes de devolvê-la, e PULSE é a mais crua das seis, reduzindo tudo a um quadrado puro.</p>
+  <p>Escolha 40106 e mantenha PULSE aberto nas PORTAS. Ajuste as quatro primeiras CVs e o retorno nos passos 3, 5 e 8. Grave uma tomada curta, depois escute de volta e compare com o que você lembra de ter ouvido ao vivo.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Quando o retorno deixa de ser repetição e vira forma? Preste atenção no momento em que um padrão que parecia só repetir começa a soar como se estivesse construindo pra algum lugar.</p>
+</section>
+
+<section class="section section-dark" id="cap-2">
+  <h2>2 · DEGRAU QUE RETÉM</h2>
+  <p>O S&amp;H transforma um sinal de NOISE em deriva contínua numa escada de valores mantidos - cada um só muda quando o clock de amostragem bate, não continuamente.</p>
+  <p>Abra NOISE em volume baixo - o S&amp;H (Sample &amp; Hold) o converte em valores mantidos. Abra CAP e REFLUX; deixe FX alto só em duas etapas. Diminua CLOCK e atravesse as duas bancas de oito passos, prestando atenção em onde os valores mantidos coincidem com as bordas dos passos e onde eles derivam por cima.</p>
+  <p class="tut-tip"><strong>Dica:</strong> A memória segura o som ou altera aquilo que retorna? Repare se o mesmo valor mantido volta exatamente igual alguma vez, ou se CAP e REFLUX ficam empurrando ele pra outro lugar.</p>
+</section>
+
+<section class="section" id="cap-3">
+  <h2>3 · ESPAÇO POR ETAPA</h2>
+  <p>REVERB/PHASER/FLANGER são controlados por passo via FX, não aplicados globalmente - então um efeito pode viver inteiro nos espaços quietos entre passos altos, em vez de nos próprios passos.</p>
+  <p>Faça uma etapa forte por AMP e outras quase silenciosas. Deixe FX alto nos passos silenciosos. Abra REVERB, PHASER e FLANGER gradualmente, prestando atenção se o efeito colore o passo alto ou floresce só no silêncio ao redor.</p>
+  <p class="tut-tip"><strong>Dica:</strong> O efeito pertence à voz ou às lacunas entre vozes? Tente silenciar o passo alto por completo e veja se o efeito sozinho ainda soa como música.</p>
+</section>
+
+<section class="section section-dark" id="cap-4">
+  <h2>4 · PORTAS DE INFILTRAÇÃO</h2>
+  <p>As seis PORTAS DE FEEDBACK podem rodar juntas, mas elas se combinam por MÉDIA, não se empilham em volume - então abrir uma de cada vez é o único jeito de ouvir o caráter próprio de cada uma antes de se misturarem.</p>
+  <p>Abra FB, DIODE, CAP, TRANS, PULSE e REFLUX, uma de cada vez. Espere alguns ciclos entre cada gesto, deixando a anterior se assentar por completo antes da próxima entrar.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Qual das seis muda mais o timbre - e qual você quase não escuta sozinha? Repare se a mais quieta ainda muda alguma coisa mesmo quando você não consegue nomear bem o quê.</p>
+</section>
+
+<section class="section" id="cap-5">
+  <h2>5 · VARIAÇÕES INICIAIS</h2>
+  <p>RND 16 perturba CV/AMP/FX nos 16 passos dentro de limites seguros - um tipo de acaso estreito e controlado, não um reembaralhamento completo do patch.</p>
+  <p>Construa um loop curto de que goste. Aperte RND 16 uma vez e escute antes de tocar em mais nada. Aperte mais três vezes, escutando depois de cada uma, e tente nomear o que ficou igual cada vez e o que realmente se moveu.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Onde fica a linha entre o mesmo patch e um novo? Em algum ponto entre os quatro apertos, decida por si mesmo qual deles cruzou essa linha - e tente dizer por quê.</p>
+</section>
+
+<section class="section section-dark" id="cap-6">
+  <h2>6 · DOIS OBJETOS SE OUVINDO</h2>
+  <p>Silenciar a saída própria de um objeto e sua influência sobre o irmão são dois controles separados - um silencia o que você ouve, o outro não toca no que está sendo enviado.</p>
+  <p>Abra CLONE. Silencie a saída própria de PRINCIPAL em MIXER OBJETOS. Suba AUX→CLONE devagar enquanto CLONE toca sozinho, e escute o caráter próprio de PRINCIPAL vazando no som de CLONE mesmo com PRINCIPAL em silêncio.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Dá pra ouvir PRINCIPAL se você não consegue ouvir PRINCIPAL? Tente responder antes de ler o capítulo do AVANÇADO que explica exatamente por quê.</p>
+</section>
+
+<section class="section" id="cap-7">
+  <h2>7 · COMPARAR MEMÓRIA</h2>
+  <p>MEMÓRIA MIX não recupera só um valor de ganho - ela troca o estado inteiro do mixer de uma vez: o ganho, pan e RET de cada canal, num clique só.</p>
+  <p>Molde uma mixagem de que goste em FILTRO/RING/RUÍDO/ESPAÇO. Aperte CAPTURAR e depois M1. Mude a mixagem por completo, capture em M2. Alterne M1/M2 com o loop tocando, prestando atenção se o salto parece instantâneo ou como se a mixagem se movesse fisicamente até lá.</p>
+  <p class="tut-tip"><strong>Dica:</strong> O salto entre elas soa como duas mixagens, ou uma mixagem com dois humores? Tente alternar cada vez mais rápido até as duas começarem a parecer uma terceira coisa instável só.</p>
+</section>
+
+<section class="section section-dark" id="cap-8">
+  <h2>8 · ROTA QUE DERIVA</h2>
+  <p>A DERIVA pode derivar as próprias rotas de CONEXÃO ENTRE OBJETOS, não só valores de CV/AMP/FX - a topologia entre PRINCIPAL e CLONE pode mudar sozinha enquanto ela está armada.</p>
+  <p>Abra CONEXÃO ENTRE OBJETOS e anote onde PRINCIPAL→CLONE está. Arme a DERIVA com PROFUNDIDADE na metade. Confira o mesmo knob de novo depois de alguns minutos, sem tocá-lo, e veja se ele ainda está se movendo ou se assentou em outro lugar.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Se ninguém mexeu no knob, o que o moveu? Tente descrever, com suas próprias palavras, que tipo de 'ninguém' está de fato fazendo esse movimento.</p>
+</section>
+
+<section class="section" id="cap-9">
+  <h2>9 · FLUXO DE ÁUDIO</h2>
+  <p>Ordem fixa em todo step: os 5 osciladores somam primeiro, depois o ADSR escala essa soma de uma vez (o próprio VCA do instrumento).</p>
+  <p>O NOISE é injetado em seguida, depois o RING (usando o LFO como portadora), depois VCF/MAT, depois PHASER/FLANGER/REVERB/RESONATOR dentro de ESPAÇO.</p>
+  <p>Cada um desses quatro efeitos dentro de ESPAÇO é controlado pelo valor de FX do step atual, não por um liga/desliga fixo - um step com FX perto de 0 passa quase intocado mesmo com todos os outros passos encharcados nele, então FX funciona mais como uma porta por passo do que um interruptor geral.</p>
+  <p>Só no fim o ganho/pan/RET de cada canal do MIXER decide o equilíbrio final - os canais do MIXER são pontos de escuta ao longo da cadeia, não fontes separadas.</p>
+  <p>Por isso silenciar RING ainda pode deixar passar caráter modulado em anel pelo FILTRO, e a mesma lógica vai um passo além: desligar FILTRO com ESPAÇO ligado ainda deixa passar o sinal já filtrado, porque REVERB/PHASER/FLANGER/RESONATOR leem direto o que chegou até eles, não o que o MIXER decidiu manter.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Silencie todos os canais do MIXER exceto FILTRO - ainda dá pra ouvir caráter de RING ou NOISE se estavam ativos, porque o mute só remove a contribuição PRÓPRIA de cada canal, não o que já passou por ele adiante.</p>
+</section>
+
+<section class="section section-dark" id="cap-10">
+  <h2>10 · ROTAS ENTRE OBJETOS</h2>
+  <p>PRINCIPAL e CLONE não são cópias paralelas - a saída de cada um alimenta a entrada de retorno do outro, com um sample de atraso, pela CONEXÃO ENTRE OBJETOS (DIRETO/DIODO/CAP/PULSO, mesmo vocabulário das PORTAS DE FEEDBACK, agora entre objetos).</p>
+  <p>A mesma lógica de moldagem se aplica aqui como dentro do retorno interno de um só objeto: DIRETO passa a amostra crua, DIODO a retifica, CAP usa a média lenta do capacitor, PULSO a reduz a um quadrado puro. Nada impede que as PORTAS DE FEEDBACK internas de um objeto e sua rota de CONEXÃO ENTRE OBJETOS rodem ao mesmo tempo - uma molda a voz por dentro, a outra reintroduz a voz do irmão por fora, e as duas se somam no mesmo sinal.</p>
+  <p>AUX→PRINCIPAL e AUX→CLONE somam um caminho mais discreto por cima: dois osciladores escondidos, cada um derivando com o volume do outro objeto, enviados em vez do sinal direto.</p>
+  <p>Silenciar a saída de um objeto (MIXER OBJETOS) NÃO silencia sua influência por essas rotas - são controles separados, então um objeto pode continuar moldando o irmão mesmo enquanto você não o escuta diretamente.</p>
+  <p>A DERIVA, quando armada, também pode derivar as próprias rotas, não só CV/AMP/FX - a própria topologia pode mudar sozinha.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Abra CLONE, silencie a saída própria de PRINCIPAL em MIXER OBJETOS, e suba PRINCIPAL→CLONE - você ainda vai ouvir a influência de PRINCIPAL no som de CLONE, prova de que a rota e o mute respondem a duas perguntas diferentes.</p>
+</section>
+
+<section class="section" id="cap-11">
+  <h2>11 · CAMADAS DE TEMPO</h2>
+  <p>SUBDIVISÃO e PERCURSO são eixos independentes, não um único ajuste.</p>
+  <p>SUBDIVISÃO molda como o próprio clock soa (reto, tuplets, swing, ou glitch) - a textura do pulso.</p>
+  <p>GROOVE aplica sua própria alternância longo-curto por cima de qualquer sabor de SUBDIVISÃO ativo - até o shuffle fixo de SWG fica mais fundo com ele, já que os dois se somam em vez de se substituir.</p>
+  <p>PERCURSO decide a ordem dos passos (FWD/REV/ALT/MEM) - o endereço, não a forma do pulso. O mesmo percurso MEM soa diferente sob um clock reto e sob um clock glitch.</p>
+  <p>Uma terceira camada fica acima das duas: o próprio ritmo do CLOCK mestre, que só acelera ou desacelera tudo que já foi descrito sem tocar em nenhum dos eixos - o mesmo sabor de SUBDIVISÃO e o mesmo percurso, só que tocados mais rápido ou mais devagar.</p>
+  <p>FIM DO LOOP fica fora dos três: só decide quantos dos 16 passos são visitados antes de tudo dar a volta, seja qual for o eixo e o ritmo em jogo no momento.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Deixe PERCURSO em MEM e cicle só SUBDIVISÃO - a ordem dos passos nunca muda, só o sabor. Depois tente o inverso: congele SUBDIVISÃO e cicle PERCURSO, e note que o pulso em si nunca vacila.</p>
+</section>
+
+<section class="section section-dark" id="cap-12">
+  <h2>12 · PRESETS DE VARIAÇÃO</h2>
+  <p>PULSO, POROSA, HETERÓDINA, ÓRBITA e PÊNDULO ajustam de uma vez um conjunto coerente de parâmetros - não um knob só.</p>
+  <p>RND 16 só cutuca CV/AMP/FX por passo; os cinco presets vão além, tocando roteamento, S&amp;H, retornos capacitivos, EIXO Y/Z ou o próprio PERCURSO.</p>
+  <p>PÊNDULO é o exemplo mais claro de um preset alcançando uma camada totalmente diferente: não só sobe RES MIX/ALTURA/CORPO, também força PERCURSO pro modo pêndulo, sobrepondo qualquer ordem de passos já ajustada. ÓRBITA alcança tão longe quanto, só que numa direção diferente, ligando EIXO Y/Z nos 5 osciladores de uma vez - uma relação entre osciladores que RND 16 nunca toca.</p>
+  <p>Por isso RND 16 mantém a identidade do patch enquanto um preset pode mudá-la por completo - camadas diferentes do mesmo instrumento.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Tente RND 16 quatro vezes, depois um preset uma vez - compare o quanto cada um realmente moveu o patch. Depois tente PÊNDULO especificamente e observe PERCURSO mudar sozinho - prova de que um preset pode alcançar além do som, até a estrutura.</p>
+</section>
+
+<section class="section" id="cap-13">
+  <h2>13 · O QUE A DERIVA CAPTURA</h2>
+  <p>A memória capturada pela DERIVA guarda quatro coisas de uma vez: o CV/AMP/FX dos 16 passos, os envios de efeito, as rotas de CONEXÃO ENTRE OBJETOS, e as relações entre osciladores (EIXO Y/Z).</p>
+  <p>PROFUNDIDADE não sorteia nada disso - ela interpola a memória capturada inteira em direção a um alvo que se desloca devagar, amostra por amostra.</p>
+  <p>As quatro também não derivam independentes umas das outras - são capturadas e interpoladas juntas, como uma memória só, não quatro cronômetros separados. Uma frase em que as rotas derivam bastante enquanto os passos quase não se movem só significa que o alvo calhou de ficar perto dos passos atuais e longe das rotas atuais, não que algumas partes sejam mais 'soltas' que outras.</p>
+  <p>Por isso a mesma captura sempre deriva do mesmo jeito determinístico se replayada a partir do mesmo início.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Capture a mesma frase duas vezes seguidas sem mudar nada - as duas capturas vão derivar de forma idêntica, já que a aleatoriedade que as pessoas ouvem na DERIVA mora inteira no momento em que você escolhe capturar, não na deriva em si.</p>
+</section>
+
+<section class="section section-dark" id="cap-14">
+  <h2>14 · A DUPLA VIDA DO RING</h2>
+  <p>Dois caminhos diferentes de ring modulation existem no mesmo instrumento.</p>
+  <p>OSC 5 (4046 . LM13600) multiplica sua própria onda pela onda crua do OSC A, direto no estágio do oscilador - um caráter heteródino embutido na própria voz.</p>
+  <p>O RING, em MODULAÇÃO, multiplica toda a soma já formada pelo LFO, mais adiante na cadeia, depois que ADSR e NOISE já entraram. Os dois são ring modulation - só o lugar na cadeia muda.</p>
+  <p>O próprio FREQ do OSC 5 decide seu sabor sozinho: perto de 1x bate devagar contra o OSC A, afastando abre um espectro mais inarmônico - independente de o RING de MODULAÇÃO estar ligado ou não. Ligue os dois ao mesmo tempo e as duas multiplicações se empilham: o OSC 5 já remodela a voz antes mesmo de chegar ao ADSR, depois o RING remodela a soma inteira de novo - um sinal já modulado em anel sendo modulado em anel de novo, não a mesma modulação dobrada.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Silencie o OSC 5 e só então ligue o RING - o caráter que você ouve agora vem de um ponto diferente da cadeia. Depois traga o OSC 5 de volta por cima e escute o empilhamento, não só uma versão mais alta da mesma coisa.</p>
+</section>
+
+<section class="section" id="cap-15">
+  <h2>15 · MATÉRIA</h2>
+  <p>MATÉRIA (CUTOFF/RESONANCE/DRIVE/ASYMMETRY, mais seu próprio MIX) é um segundo filtro, separado do VCF - não uma duplicata.</p>
+  <p>Enquanto o VCF é um filtro limpo, MATÉRIA põe um saturador assimétrico direto dentro do próprio caminho de realimentação da ressonância: oscilações positivas e negativas recebem drive diferente, então RESONANCE/DRIVE colorem e desestabilizam o som como um estágio analógico carregado faria.</p>
+  <p>CUTOFF funciona igual ao FREQ do VCF - define onde a resposta se centra - mas aqui também decide onde essa ressonância saturada mora no espectro, então movê-lo muda não só o tom, mas onde a instabilidade fica.</p>
+  <p>ASYMMETRY define o quão desigual é essa saturação - 0 satura os dois lados igual; 1 dirige o lado negativo visivelmente menos, o caráter desigual próprio da MATÉRIA. MIX mistura, igual todo outro efeito.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Suba RESONANCE e DRIVE juntos com ASYMMETRY em 1 - essa borda desigual e instável é a assinatura própria da MATÉRIA, algo que o VCF não alcança. Depois varra CUTOFF devagar e escute a própria instabilidade viajar, não só o tom.</p>
+</section>
+
+<section class="section section-dark" id="cap-16">
+  <h2>16 · CAOS / VAGA</h2>
+  <p>CAOS e VAGA são duas das seis formas de FORMA LFO, mas não são ondas periódicas como SEN/TRI/PUL - cada uma é seu próprio gerador.</p>
+  <p>CAOS é um oscilador caótico que se assenta entre dois estados: DRIVE define a força de atração para eles e o tamanho do seu chute aleatório periódico; DAMPING define quanta energia ele perde a cada passo. DAMPING baixo com DRIVE alto oscila de forma imprevisível entre os dois; DAMPING alto o assenta em um só.</p>
+  <p>VAGA é uma caminhada aleatória suavizada: DEPTH define até onde um novo alvo pode cair do centro, RATE define com que frequência ele mira de novo. FRZ segura qualquer um dos dois exatamente parado no valor atual - sem efeito em SEN/TRI/PUL/STEP.</p>
+  <p>Como CAOS e VAGA entram no mesmo lugar do LFO que SEN/TRI/PUL, o que consumir esse LFO adiante - o próprio RING como portadora é o exemplo mais claro - herda também esse comportamento não periódico. Um sinal modulado em anel carregado por CAOS não ganha só uma amplitude caótica por cima, ganha um espectro genuinamente não repetitivo, já que a própria portadora nunca completa um ciclo pra repetir.</p>
+  <p class="tut-tip"><strong>Dica:</strong> Selecione CAOS, deixe DAMPING baixo e DRIVE alto, depois aperte FRZ no meio de uma oscilação - o valor segura exatamente onde estava, prova de que FRZ congela a trajetória, não só silencia. Solte o FRZ e ele retoma exatamente daquele ponto congelado, não de um chute novo.</p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>Antitotem — Objeto Sonoro · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Créditos</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licença AGPLv3</a>
+  </nav>
+</footer>
+</body>
+</html>

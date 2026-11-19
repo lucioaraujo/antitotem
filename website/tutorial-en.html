@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tutorial — Antitotem</title>
+<meta name="description" content="Antitotem tutorial: listening exercises, two objects hearing each other, routes, time layers, drift, matter and chaos." />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
+<link rel="stylesheet" href="styles.css" />
+<!-- SEO:INICIO — gerado por seo.py; editar lá, não aqui -->
+<link rel="canonical" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html">
+<link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html">
+<link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html">
+<link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Antitotem">
+<meta property="og:title" content="Tutorial — Antitotem">
+<meta property="og:description" content="Antitotem tutorial: listening exercises, two objects hearing each other, routes, time layers, drift, matter and chaos.">
+<meta property="og:url" content="https://lucioaraujo.github.io/antitotem/tutorial-en.html">
+<meta property="og:image" content="https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Antitotem — Sound Object in PRINCIPAL mode: oscillators, VCF/ADSR, modulation and mixer.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Antitotem",
+  "alternateName": "Antitotem — Objeto Sonoro",
+  "description": "Antitotem tutorial: listening exercises, two objects hearing each other, routes, time layers, drift, matter and chaos.",
+  "url": "https://lucioaraujo.github.io/antitotem/",
+  "inLanguage": "en",
+  "image": "https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Synthesizer",
+  "operatingSystem": "Linux, Windows, macOS",
+  "softwareVersion": "0.3.1",
+  "downloadUrl": "https://github.com/lucioaraujo/antitotem/releases/tag/v0.3.1",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "Lúcio Araújo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RASGO",
+    "url": "https://rasgoinstruments.arquiviagem.net/"
+  },
+  "sameAs": [
+    "https://github.com/lucioaraujo/antitotem"
+  ]
+}
+</script>
+<script>(function(){var K='rasgo-lingua',M={pt:'index.html',en:'en.html',fr:'fr.html',es:'es.html'};function g(){try{return localStorage.getItem(K)}catch(e){return null}}function s(v){try{localStorage.setItem(K,v)}catch(e){}}var l=(document.documentElement.lang||'').slice(0,2).toLowerCase(),p=location.pathname,base=location.origin+p.replace(/[^/]*$/,''),r=document.referrer||'';if(/\/(index\.html)?$/.test(p)&&l==='pt'&&r.indexOf(base)!==0&&!/[?&]lang=pt/.test(location.search)&&!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){var c=g();if(!c){var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];c='en';for(var i=0;i<L.length;i++){var x=String(L[i]).slice(0,2).toLowerCase();if(M[x]){c=x;break}}}if(c!=='pt'&&M[c]){location.replace(M[c]+location.hash);return}}if(M[l])s(l);})();</script>
+<!-- SEO:FIM -->
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgoinstruments.arquiviagem.net/">RASGO — family of instruments and sound research</a></div>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="site-header">
+  <a class="brand" href="#top" aria-label="Antitotem">
+    <img src="assets/identity/logo_antitotem_novo.svg" alt="" />
+    <span>ANTI<em>TOTEM</em></span>
+  </a>
+  <div class="header-nav">
+    <nav class="page-nav" aria-label="Sections">
+      <a href="en.html">Concept</a>
+      <a href="tutorial-en.html" aria-current="page">Tutorial</a>
+      <a href="aprender-en.html">Learn</a>
+      <a href="install-en.html">Installation</a>
+      <a href="install-en.html#baixar">Download</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      <a href="tutorial.html">PT</a>
+      <a href="tutorial-en.html" aria-current="true">EN</a>
+      <a href="tutorial-fr.html">FR</a>
+      <a href="tutorial-es.html">ES</a>
+    </nav>
+  </div>
+</div>
+
+<main id="content">
+<section class="hero" id="top">
+  <h1>Tutorial</h1>
+  <p class="lead">Gestures and listenings to play Antitotem: the INTERMEDIATE exercises and the ADVANCED relationships of the tutorial the app carries under its TUTORIAL button.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>Contents</h2>
+  <p class="tut-group">Intermediate: gestures and listenings</p>
+  <ol class="tut-toc" start="1">
+    <li><a href="#cap-1">FIRST PULSE</a></li>
+    <li><a href="#cap-2">STEP THAT HOLDS</a></li>
+    <li><a href="#cap-3">SPACE PER STEP</a></li>
+    <li><a href="#cap-4">INFILTRATION PORTS</a></li>
+    <li><a href="#cap-5">INITIAL VARIATIONS</a></li>
+    <li><a href="#cap-6">TWO OBJECTS LISTENING</a></li>
+    <li><a href="#cap-7">MEMORY COMPARE</a></li>
+    <li><a href="#cap-8">DRIFTING ROUTE</a></li>
+  </ol>
+  <p class="tut-group">Advanced: how the parts relate</p>
+  <ol class="tut-toc" start="9">
+    <li><a href="#cap-9">AUDIO FLOW</a></li>
+    <li><a href="#cap-10">OBJECT ROUTING</a></li>
+    <li><a href="#cap-11">TIMING LAYERS</a></li>
+    <li><a href="#cap-12">VARIATION PRESETS</a></li>
+    <li><a href="#cap-13">WHAT DERIVA CAPTURES</a></li>
+    <li><a href="#cap-14">RING'S DOUBLE LIFE</a></li>
+    <li><a href="#cap-15">MATÉRIA</a></li>
+    <li><a href="#cap-16">CAOS / VAGA</a></li>
+  </ol>
+</section>
+
+<section class="section" id="cap-1">
+  <h2>1 · FIRST PULSE</h2>
+  <p>PORTAS DE FEEDBACK don't just repeat a sample - each one reshapes it differently before sending it back, and PULSE is the starkest of the six, collapsing everything to a bare square.</p>
+  <p>Choose 40106 and keep PULSE open among the PORTAS. Adjust the first four CVs and set RETORNO's own return routes on steps 3, 5 and 8. Record a short take, then play it back and compare it to what you remember hearing live.</p>
+  <p class="tut-tip"><strong>Tip:</strong> When does the return stop being repetition and become form? Listen for the moment a pattern you expected to just repeat starts sounding like it's building toward something.</p>
+</section>
+
+<section class="section section-dark" id="cap-2">
+  <h2>2 · STEP THAT HOLDS</h2>
+  <p>S&amp;H turns a continuously wandering NOISE signal into a staircase of held values - each one only changes when the sample clock ticks, not continuously.</p>
+  <p>Open NOISE at low volume - S&amp;H (Sample &amp; Hold) turns it into held values. Open CAP and REFLUX; keep FX high on only two steps. Slow CLOCK down and let it cross both eight-step banks, listening for where the held values line up with step boundaries and where they drift across them.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Does the memory hold the sound, or change what returns? Pay attention to whether the same held value ever comes back exactly, or whether CAP and REFLUX keep nudging it somewhere new.</p>
+</section>
+
+<section class="section" id="cap-3">
+  <h2>3 · SPACE PER STEP</h2>
+  <p>REVERB/PHASER/FLANGER are gated per step by FX, not applied globally - so an effect can live entirely in the quiet spaces between loud steps rather than on the steps themselves.</p>
+  <p>Make one step loud via AMP and others nearly silent. Keep FX high on the silent steps. Open REVERB, PHASER and FLANGER gradually, listening for whether the effect colours the loud step or blooms only in the silence around it.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Does the effect belong to the voice, or to the gaps between voices? Try muting the loud step entirely and see if the effect alone still reads as music.</p>
+</section>
+
+<section class="section section-dark" id="cap-4">
+  <h2>4 · INFILTRATION PORTS</h2>
+  <p>All six PORTAS DE FEEDBACK can run at once, but they average together rather than stack in volume - so opening one at a time is the only way to hear each one's own character before they blend.</p>
+  <p>Open FB, DIODE, CAP, TRANS, PULSE and REFLUX, one at a time. Wait a few cycles between each gesture, letting the previous one fully settle before the next one joins.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Which of the six changes the timbre the most - and which one you almost cannot hear alone? Notice whether the quiet one still changes something even when you can't quite name what.</p>
+</section>
+
+<section class="section" id="cap-5">
+  <h2>5 · INITIAL VARIATIONS</h2>
+  <p>RND 16 perturbs CV/AMP/FX across the 16 steps within safe bounds - a narrow, controlled kind of chance, not a full reshuffle of the patch.</p>
+  <p>Build a short loop you like. Press RND 16 once and listen before touching anything else. Press it three more times, listening after each one, and try to name what stayed the same each time versus what actually moved.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Where is the line between the same patch and a new one? At some point across the four presses, decide for yourself which one crossed it - and try to say why.</p>
+</section>
+
+<section class="section section-dark" id="cap-6">
+  <h2>6 · TWO OBJECTS LISTENING</h2>
+  <p>Muting an object's own output and its influence on its sibling are two separate controls - one silences what you hear, the other doesn't touch what it's sending.</p>
+  <p>Open CLONE. Mute PRINCIPAL's own output in MIXER OBJETOS. Raise AUX→CLONE slowly while CLONE plays alone, and listen for PRINCIPAL's own character bleeding into CLONE's sound even though PRINCIPAL itself is silent.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Can you hear PRINCIPAL if you cannot hear PRINCIPAL? Try answering before reading the AVANÇADO chapter that explains exactly why.</p>
+</section>
+
+<section class="section" id="cap-7">
+  <h2>7 · MEMORY COMPARE</h2>
+  <p>MEMÓRIA MIX doesn't just recall a single gain value - it swaps the whole mixer state at once: every channel's gain, pan and RET, in one click.</p>
+  <p>Shape a mix you like on FILTRO/RING/RUÍDO/ESPAÇO. Press CAPTURAR then M1. Change the mix completely, capture it into M2. Alternate M1/M2 while the loop keeps playing, paying attention to whether the jump feels instant or like the mix physically moves there.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Does the jump between them sound like two mixes, or one mix with two moods? Try alternating faster and faster until the two start to feel like a single, unstable third thing.</p>
+</section>
+
+<section class="section section-dark" id="cap-8">
+  <h2>8 · DRIFTING ROUTE</h2>
+  <p>DERIVA can drift the CONEXÃO ENTRE OBJETOS routes themselves, not just CV/AMP/FX values - the topology between PRINCIPAL and CLONE can shift on its own while it's armed.</p>
+  <p>Open CONEXÃO ENTRE OBJETOS and note where PRINCIPAL→CLONE sits. Arm DERIVA with PROFUNDIDADE around the middle. Check the same knob again after a few minutes, without touching it, and watch whether it's still animating or has settled somewhere new.</p>
+  <p class="tut-tip"><strong>Tip:</strong> If nobody moved the knob, what moved it? Try to describe, in your own words, what kind of 'nobody' is actually doing the moving.</p>
+</section>
+
+<section class="section" id="cap-9">
+  <h2>9 · AUDIO FLOW</h2>
+  <p>Fixed order every step: the 5 oscillators sum first, then ADSR scales that sum at once (the instrument's own VCA).</p>
+  <p>NOISE is injected next, then RING (using the LFO as carrier), then VCF/MAT, then PHASER/FLANGER/REVERB/RESONATOR inside ESPAÇO.</p>
+  <p>Each of those four effects inside ESPAÇO is gated by the current step's own FX value, not by a fixed on/off - a step with FX near 0 passes through almost untouched even while every other step is drenched in it, so FX behaves like a per-step door rather than a global switch.</p>
+  <p>Only at the end does each MIXER channel's gain/pan/RET set the final balance - the MIXER's channels are listening points along this chain, not separate sources.</p>
+  <p>That's why muting RING can still leave a ring-modulated character audible through FILTRO, and the same logic goes one step further: turning FILTRO off with ESPAÇO on still lets the already-filtered signal through, because REVERB/PHASER/FLANGER/RESONATOR read directly from what reached them, not from what the MIXER decided to keep.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Mute every MIXER channel except FILTRO - you can still hear character from RING or NOISE if they were active, because mute only removes each channel's OWN direct contribution, not what already passed through it downstream.</p>
+</section>
+
+<section class="section section-dark" id="cap-10">
+  <h2>10 · OBJECT ROUTING</h2>
+  <p>PRINCIPAL and CLONE aren't parallel copies - each one's output feeds the other's feedback input, one sample later, through CONEXÃO ENTRE OBJETOS (DIRETO/DIODO/CAP/PULSO, same vocabulary as PORTAS DE FEEDBACK, now running between objects).</p>
+  <p>The same shaping logic applies here as inside a single object's own feedback: DIRETO passes the raw sample, DIODO rectifies it, CAP uses the slow capacitor average, PULSO collapses it to a bare square. Nothing stops an object's own internal PORTAS DE FEEDBACK and its CONEXÃO ENTRE OBJETOS route from running at the same time - one shapes the voice from within, the other reintroduces its sibling's voice from outside, and both compound in the same signal.</p>
+  <p>AUX→PRINCIPAL and AUX→CLONE add a quieter path on top: two hidden oscillators each drifting with the other object's loudness, sent in instead of the direct signal.</p>
+  <p>Muting an object's own output (MIXER OBJETOS) does NOT silence its influence through these routes - they're separate controls, so an object can keep shaping its sibling even while you can't hear it directly.</p>
+  <p>DERIVA, when armed, can drift the routes themselves too, not just CV/AMP/FX - the topology itself can change on its own.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Open CLONE, mute PRINCIPAL's own output in MIXER OBJETOS, and raise PRINCIPAL→CLONE - you will still hear PRINCIPAL's influence in CLONE's sound, proof the route and the mute answer two different questions.</p>
+</section>
+
+<section class="section" id="cap-11">
+  <h2>11 · TIMING LAYERS</h2>
+  <p>SUBDIVISÃO and PERCURSO are independent axes, not one setting.</p>
+  <p>SUBDIVISÃO shapes how the clock itself feels (straight, tuplets, swing, or glitch) - the pulse's texture.</p>
+  <p>GROOVE layers its own small long-short alternation on top of whichever SUBDIVISÃO feel is active - even SWG's own fixed shuffle gets deepened by it, since the two stack rather than replace each other.</p>
+  <p>PERCURSO decides step order (FWD/REV/ALT/MEM) - the address, not the pulse's shape. The same MEM path sounds different under a straight clock than under a glitch one.</p>
+  <p>A third layer sits above both: the master CLOCK rate itself, which simply speeds up or slows down everything already described without touching either axis - the same SUBDIVISÃO feel and the same PERCURSO path, just replayed faster or slower.</p>
+  <p>FIM DO LOOP sits outside all three: it only decides how many of the 16 steps get visited before the whole thing wraps, whichever axis and whichever rate are currently in play.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Keep PERCURSO on MEM and cycle only through SUBDIVISÃO - the step order never changes, only its feel. Then try the reverse: freeze SUBDIVISÃO and cycle PERCURSO instead, and notice the pulse itself never wavers.</p>
+</section>
+
+<section class="section section-dark" id="cap-12">
+  <h2>12 · VARIATION PRESETS</h2>
+  <p>PULSO, POROSA, HETERÓDINA, ÓRBITA and PÊNDULO each set a coherent bundle of parameters at once - not a single knob.</p>
+  <p>RND 16 only nudges CV/AMP/FX per step; the five presets go further, touching routing, S&amp;H, capacitive returns, AXIS Y/Z or PERCURSO itself.</p>
+  <p>PÊNDULO is the clearest example of a preset reaching into a different layer entirely: it doesn't just raise RES MIX/ALTURA/CORPO, it also forces PERCURSO to pendulum, overriding whatever step order was already set. ÓRBITA reaches just as far in a different direction, turning on AXIS Y/Z on all 5 oscillators at once - a relation between oscillators that RND 16 never touches.</p>
+  <p>That's why RND 16 keeps a patch's identity while a preset can change it entirely - different layers of the same instrument.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Try RND 16 four times, then one preset once - compare how far each one actually moved the patch. Then try PÊNDULO specifically and watch PERCURSO switch on its own - proof a preset can reach past sound into structure.</p>
+</section>
+
+<section class="section" id="cap-13">
+  <h2>13 · WHAT DERIVA CAPTURES</h2>
+  <p>DERIVA's captured memory holds four things at once: the 16 steps' own CV/AMP/FX, the effect sends, the CONEXÃO ENTRE OBJETOS routes, and the relations between oscillators (AXIS Y/Z).</p>
+  <p>PROFUNDIDADE doesn't randomize any of these - it interpolates the whole captured memory toward a slowly-shifting target, sample by sample.</p>
+  <p>The four don't drift independently of each other either - they're captured and interpolated together, as one memory, not four separate timers. A phrase where the routes drift noticeably while the steps barely move just means the target happened to sit close to the current steps and far from the current routes, not that some parts are more 'droppable' than others.</p>
+  <p>That's why the same capture always drifts the same deterministic way if replayed from the same start.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Capture the same phrase twice in a row without changing anything - both captures will drift identically, since the randomness people hear in DERIVA lives entirely in when you choose to capture, not in the drift itself.</p>
+</section>
+
+<section class="section section-dark" id="cap-14">
+  <h2>14 · RING'S DOUBLE LIFE</h2>
+  <p>Two different ring-modulation paths exist in the same instrument.</p>
+  <p>OSC 5 (4046 . LM13600) multiplies its own wave by OSC A's raw waveform, right at the oscillator stage - a heterodyne character baked into the voice itself.</p>
+  <p>RING, in MODULAÇÃO, multiplies the whole downstream sum by the LFO, further along the chain, after ADSR and NOISE already joined in. Both are ring modulation - only their place in the chain differs.</p>
+  <p>OSC 5's own FREQ decides its flavour on its own: near 1x it beats slowly against OSC A, moving away opens a more inharmonic spectrum - independent of whether MODULAÇÃO's RING is on at all. Engage both at once and the two multiplications stack: OSC 5 already reshapes the voice before it even reaches ADSR, then RING reshapes the whole downstream sum again - a ring-modulated signal getting ring-modulated a second time, not the same modulation doubled.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Mute OSC 5 and only then engage RING - the character you hear now comes from a different point in the chain. Then bring OSC 5 back in on top of it and listen for the stack, not just a louder version of the same thing.</p>
+</section>
+
+<section class="section" id="cap-15">
+  <h2>15 · MATÉRIA</h2>
+  <p>MATÉRIA (CUTOFF/RESONANCE/DRIVE/ASYMMETRY, plus its own MIX) is a second, separate filter from VCF - not a duplicate.</p>
+  <p>Where VCF is a clean filter, MATÉRIA puts an asymmetric saturator right inside its own resonance feedback path: positive and negative swings get different drive, so RESONANCE/DRIVE colour and destabilise the sound the way a loaded analogue stage would.</p>
+  <p>CUTOFF works the same way as VCF's FREQ - it sets where the response centres - but here it also decides where that saturating resonance itself lives in the spectrum, so moving it changes not just tone but where the instability sits.</p>
+  <p>ASYMMETRY sets how lopsided that saturation is - 0 clips both directions the same; 1 drives the negative side noticeably less, MATÉRIA's own uneven character. MIX blends it in, same as every other effect.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Push RESONANCE and DRIVE up together with ASYMMETRY at 1 - that lopsided, unstable edge is MATÉRIA's own signature, something VCF can't reach. Then sweep CUTOFF slowly and listen to the instability itself travel, not just the tone.</p>
+</section>
+
+<section class="section section-dark" id="cap-16">
+  <h2>16 · CAOS / VAGA</h2>
+  <p>CAOS and VAGA are two of the six FORMA LFO shapes, but they aren't periodic waveforms like SEN/TRI/PUL - each is its own generator.</p>
+  <p>CAOS is a chaotic oscillator settling between two states: DRIVE sets how hard it's pulled toward them and the size of its periodic random kick; DAMPING sets how much energy it loses per step. Low DAMPING with high DRIVE swings unpredictably between the two; high DAMPING settles it into one.</p>
+  <p>VAGA is a smoothed random walk instead: DEPTH sets how far a fresh target can land from centre, RATE sets how often it retargets. FRZ holds either one exactly still at its current value - no effect on SEN/TRI/PUL/STEP.</p>
+  <p>Because CAOS and VAGA feed into the same LFO slot as SEN/TRI/PUL, whatever consumes that LFO downstream - RING's own carrier being the clearest example - inherits their non-periodic behaviour too. A ring-modulated signal carried by CAOS doesn't just get a chaotic amplitude on top, it gets a genuinely non-repeating spectrum, since the carrier itself never completes a cycle to repeat from.</p>
+  <p class="tut-tip"><strong>Tip:</strong> Select CAOS, set DAMPING low and DRIVE high, then press FRZ mid-swing - the value holds exactly where it was, proof FRZ freezes the trajectory, not just the sound. Release FRZ and it resumes exactly from that frozen point, not from a fresh kick.</p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>Antitotem — Sound Object · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Credits</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">AGPLv3 License</a>
+  </nav>
+</footer>
+</body>
+</html>

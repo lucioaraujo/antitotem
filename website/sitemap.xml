@@ -65,4 +65,68 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/install-es.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/install.html"/>
   </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/tutorial.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/tutorial-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/tutorial-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/tutorial-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/aprender.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/aprender-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/aprender-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/antitotem/aprender-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/aprender.html"/>
+  </url>
 </urlset>

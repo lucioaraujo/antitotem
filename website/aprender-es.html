@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aprender — Antitotem</title>
+<meta name="description" content="Aprender Antitotem: navegación, osciladores, secuencia, VCF y ADSR, retorno, mezclador, deriva y grabación." />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/logo_antitotem_favicon.png" type="image/png" />
+<link rel="stylesheet" href="styles.css" />
+<!-- SEO:INICIO — gerado por seo.py; editar lá, não aqui -->
+<link rel="canonical" href="https://lucioaraujo.github.io/antitotem/aprender-es.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/antitotem/aprender.html">
+<link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/antitotem/aprender-en.html">
+<link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/antitotem/aprender-fr.html">
+<link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/antitotem/aprender-es.html">
+<link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/antitotem/aprender.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Antitotem">
+<meta property="og:title" content="Aprender — Antitotem">
+<meta property="og:description" content="Aprender Antitotem: navegación, osciladores, secuencia, VCF y ADSR, retorno, mezclador, deriva y grabación.">
+<meta property="og:url" content="https://lucioaraujo.github.io/antitotem/aprender-es.html">
+<meta property="og:image" content="https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Antitotem — Objeto Sonoro en modo PRINCIPAL: osciladores, VCF/ADSR, modulación y mezclador.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Antitotem",
+  "alternateName": "Antitotem — Objeto Sonoro",
+  "description": "Aprender Antitotem: navegación, osciladores, secuencia, VCF y ADSR, retorno, mezclador, deriva y grabación.",
+  "url": "https://lucioaraujo.github.io/antitotem/",
+  "inLanguage": "es",
+  "image": "https://lucioaraujo.github.io/antitotem/assets/og-antitotem.jpg",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Synthesizer",
+  "operatingSystem": "Linux, Windows, macOS",
+  "softwareVersion": "0.3.1",
+  "downloadUrl": "https://github.com/lucioaraujo/antitotem/releases/tag/v0.3.1",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "Lúcio Araújo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RASGO",
+    "url": "https://rasgoinstruments.arquiviagem.net/"
+  },
+  "sameAs": [
+    "https://github.com/lucioaraujo/antitotem"
+  ]
+}
+</script>
+<script>(function(){var K='rasgo-lingua',M={pt:'index.html',en:'en.html',fr:'fr.html',es:'es.html'};function g(){try{return localStorage.getItem(K)}catch(e){return null}}function s(v){try{localStorage.setItem(K,v)}catch(e){}}var l=(document.documentElement.lang||'').slice(0,2).toLowerCase(),p=location.pathname,base=location.origin+p.replace(/[^/]*$/,''),r=document.referrer||'';if(/\/(index\.html)?$/.test(p)&&l==='pt'&&r.indexOf(base)!==0&&!/[?&]lang=pt/.test(location.search)&&!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){var c=g();if(!c){var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];c='en';for(var i=0;i<L.length;i++){var x=String(L[i]).slice(0,2).toLowerCase();if(M[x]){c=x;break}}}if(c!=='pt'&&M[c]){location.replace(M[c]+location.hash);return}}if(M[l])s(l);})();</script>
+<!-- SEO:FIM -->
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgoinstruments.arquiviagem.net/">RASGO — familia de instrumentos e investigación sonora</a></div>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<div class="site-header">
+  <a class="brand" href="#top" aria-label="Antitotem">
+    <img src="assets/identity/logo_antitotem_novo.svg" alt="" />
+    <span>ANTI<em>TOTEM</em></span>
+  </a>
+  <div class="header-nav">
+    <nav class="page-nav" aria-label="Secciones">
+      <a href="es.html">Concepto</a>
+      <a href="tutorial-es.html">Tutorial</a>
+      <a href="aprender-es.html" aria-current="page">Aprender</a>
+      <a href="install-es.html">Instalación</a>
+      <a href="install-es.html#baixar">Descargar</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Idioma">
+      <a href="aprender.html">PT</a>
+      <a href="aprender-en.html">EN</a>
+      <a href="aprender-fr.html">FR</a>
+      <a href="aprender-es.html" aria-current="true">ES</a>
+    </nav>
+  </div>
+</div>
+
+<main id="contenido">
+<section class="hero" id="top">
+  <h1>Aprender</h1>
+  <p class="lead">Cada parte del panel de Antitotem y lo que hace: el nivel BÁSICO del tutorial que la app lleva en su botón TUTORIAL.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>Sumario</h2>
+  <ol class="tut-toc" start="1">
+    <li><a href="#cap-1">NAVEGACIÓN</a></li>
+    <li><a href="#cap-2">EMPEZAR</a></li>
+    <li><a href="#cap-3">OSCILADORES</a></li>
+    <li><a href="#cap-4">SECUENCIA</a></li>
+    <li><a href="#cap-5">VCF / ADSR</a></li>
+    <li><a href="#cap-6">RETORNO</a></li>
+    <li><a href="#cap-7">MEZCLADOR</a></li>
+    <li><a href="#cap-8">DERIVA</a></li>
+    <li><a href="#cap-9">GRABACIÓN</a></li>
+  </ol>
+</section>
+
+<section class="section" id="cap-1">
+  <h2>1 · NAVEGACIÓN</h2>
+  <p>CLONE (encabezado, arriba) alterna el cuerpo visible entre dos objetos de voz independientes que comparten el mismo instrumento - transporte, reloj y encabezado siguen siendo los mismos, pero PRINCIPAL y CLONE guardan patches separados. Shift+C hace el mismo cambio desde el teclado.</p>
+  <p>Con un segundo monitor conectado, el botón 2 MONITORES activa el modo dos monitores - desde entonces CLONE se abre como ventana propia en vez de alternar el cuerpo, y PRINCIPAL y CLONE pasan a correr lado a lado, todavía compartiendo el mismo motor por debajo.</p>
+  <p>SONIDO / SECUENCIA / MIX (encabezado, arriba) dividen el panel en tres grupos enfocados en ventanas más angostas: SONIDO reúne los osciladores y el ADSR/VCF; SECUENCIA reúne el reloj, los pasos, el loop, el retorno y la deriva; MIX reúne MATÉRIA y los controles de efectos/enrutamiento. En el tamaño de referencia del instrumento, 1920x1080, los tres aparecen juntos y este alternador queda oculto - solo importa por debajo de ese ancho.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Empieza con CLONE muteado y PRINCIPAL solo - aprende cómo se comporta una voz antes de traer la segunda. Desmutear CLONE demasiado pronto dificulta saber qué objeto está haciendo qué.</p>
+</section>
+
+<section class="section section-dark" id="cap-2">
+  <h2>2 · EMPEZAR</h2>
+  <p>PLAY inicia el flujo temporal; STOP aplica una caída corta y segura (nunca corta el sonido de golpe); RESET reinicia el scanner.</p>
+  <p>ENERGIA sube la tensión interna de todo el motor (más brillo y volumen); MASTER es la ganancia final.</p>
+  <p>Cualquier knob o control deslizante con el cursor ámbar es un módulo que todavía no contribuye en nada al sonido - empieza en cero y permanece silencioso hasta que se sube. Súbelo para escuchar ese módulo entrar; el destaque desaparece en cuanto eso ocurre.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Presiona PLAY, luego sube ENERGIA y MASTER juntos, despacio - eso solo ya es la forma más rápida de escuchar todo el motor despertar, en vez de buscar cuál knob con destaque ámbar está mudo.</p>
+</section>
+
+<section class="section" id="cap-3">
+  <h2>3 · OSCILADORES</h2>
+  <p>Cinco columnas - OSC A, OSC B, OSC C, OSC 4, OSC 5 - cada una con los mismos 6 controles (FREQ, MIX, FORMA, EJE X, EJE Y, EJE Z), pero con comportamiento distinto detrás.</p>
+  <p>OSC A/B/C son voces continuas (seno/triángulo/sierra/cuadrada vía FORMA); FREQ va de 0.125x a 4x. El selector 40106/8038/4069UB encima de las columnas cambia el carácter de coloración compartido de esas tres juntas.</p>
+  <p>OSC 4 (4093 . 4020, sub-reloj) es una fuente de relajación dividida en profundidad. FREQ va de 0.03125x a 4x - en las razones bajas suena como un pulso de reloj dividido, no una nota; FORMA controla la asimetría del pulso. Empieza en MIX 0 (mudo).</p>
+  <p>OSC 5 (4046 . LM13600, heterodino) no suma - multiplica su propia onda por la onda cruda de OSC A (ring modulation real). FREQ cerca de 1x da un batido lento contra OSC A; alejarse de 1x abre un espectro más inarmónico y heterodino. También empieza en MIX 0 (mudo).</p>
+  <p>EJE Y (proximidad) mezcla cada oscilador con una versión más apagada y filtrada de sí mismo - 0 es seco, subirlo mueve esa voz más adentro de la materia. EJE Z (órbita) deja que un oscilador derive levemente en afinación y circule su propia posición de panorama a lo largo de varios segundos, en vez de quedarse quieto - 0 lo deja exactamente donde EIXO X lo pone. Ambos empiezan en 0 (sin cambio respecto a antes de que estos controles existieran).</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Empieza solo con OSC A activo (el resto en MIX 0) y aprende su propio FREQ/FORMA de oído antes de traer OSC 4 u OSC 5 uno a la vez - apilar los cinco desde el inicio dificulta saber qué oscilador estás escuchando en realidad.</p>
+</section>
+
+<section class="section section-dark" id="cap-4">
+  <h2>4 · SECUENCIA</h2>
+  <p>16 pasos, cada uno con CV (altura/tensión), AMP (nivel), FX (envío a los efectos) y MUTE.</p>
+  <p>FIM DO LOOP define cuántos de los 16 pasos suenan antes de repetir.</p>
+  <p>PERCURSO elige la dirección del scanner: FWD (siempre hacia adelante), REV (siempre hacia atrás), ALT (alterna en cada vuelta) o MEM (direcciones elegidas por memoria interna, sin repetir el paso anterior - determinístico, no es ruido de audio).</p>
+  <p>SUBDIVISÃO cambia la sensación rítmica del reloj (recto, tresillos, swing, o glitch).</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Pon primero FIM DO LOOP en un número pequeño (4 u 8) para oír todo el loop repetirse rápido, luego cambia PERCURSO de FWD a MEM - la diferencia entre un ciclo predecible y un recorrido determinístico que nunca repite el paso anterior queda mucho más clara cuando ya conoces el loop recto.</p>
+</section>
+
+<section class="section" id="cap-5">
+  <h2>5 · VCF / ADSR</h2>
+  <p>VCF: FREQ define el corte, RES añade énfasis resonante justo en ese corte, y CV define cuán profundo llega al filtro la modulación del scanner, paso a paso - con CV en 0 el corte queda quieto, un CV más alto deja que cada paso lo empuje hacia arriba o hacia abajo.</p>
+  <p>El botón de modo recorre cuatro respuestas clásicas: LPF corta todo por encima de FREQ, HPF corta todo por debajo, BPF mantiene solo una banda alrededor de FREQ, y NOTCH elimina una banda estrecha alrededor de FREQ en vez de conservarla. VCF es el filtro limpio del instrumento - un segundo filtro, saturador (MATÉRIA), está más adelante en la cadena, cubierto en AVANÇADO.</p>
+  <p>ADSR: ATT/DEC/SUS/REL moldean la envolvente de amplitud de cada paso - ATT es cuánto tarda en alcanzar el nivel máximo apenas empieza un paso, DEC cuánto tarda después en caer hasta el nivel de SUS, SUS el nivel que mantiene mientras el paso sigue activo, y REL cuánto tarda en apagarse cuando el paso termina. Esa envolvente es el propio VCA del instrumento: la suma de todos los osciladores pasa por ella antes de que cualquier otra cosa toque la señal.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Sube RES con CV en 0 primero para oír el carácter del filtro solo, luego sube CV para oír la modulación del scanner alcanzarlo - recorrer LPF/BPF/HPF/NOTCH sobre el mismo sonido exacto es la forma más rápida de aprender qué quita realmente cada modo.</p>
+</section>
+
+<section class="section section-dark" id="cap-6">
+  <h2>6 · RETORNO</h2>
+  <p>Hasta 6 puertos de retorno (FB/DIODE/CAP/PULSE/TRANS/REFLUX) pueden estar activos a la vez - cada uno moldea de forma distinta la última muestra de salida de la voz (o su carga lenta interna, el capacitor) antes de reintroducirla. FB es la muestra cruda - sostiene/refuerza el timbre actual. DIODE la rectifica en media onda - duplica la altura percibida, armónicos más ásperos. CAP reintroduce el promedio lento del capacitor en vez de la muestra instantánea - sustain más suave, tipo memoria. PULSE la reduce a un +/-1 cuadrado puro - retorno tipo reloj/gate, más rítmico que tonal. TRANS mezcla la muestra instantánea con el capacitor y satura suave la mezcla - más cálido, comprimido. REFLUX resta el capacitor de la muestra instantánea, aislando solo la parte rápida/transitoria - realza los ataques, lo opuesto de CAP. Con más de un puerto activo, se promedian, no se suman - dos puertos mezclan carácter, no duplican volumen. FB GAIN dosifica ese retorno combinado (más cualquier señal del otro objeto) en la afinación del OSC A y un toque de color estéreo - funciona incluso sin ninguna ruta PRINCIPAL/CLONE, mientras un puerto esté activo.</p>
+  <p>NOISE tiene 6 colores (blanco, rosa, marrón, azul, violeta, bit-reducido) y su propio MIX. S&amp;H (sample &amp; hold) crea escalones de tensión inestables - RATE define la velocidad de muestreo, MIX su presencia en la señal.</p>
+  <p>La fila MODULAÇÃO trae el LFO (RATE, FORMA seno/triángulo/pulso) y el RING (ring modulation).</p>
+  <p>ESPAÇO/FASE trae REVERB, PHASER y FLANGER (cada uno con MIX, y RATE/DEPTH cuando aplica), además de RES MIX, RES ALTURA (altura de la resonancia) y RES CORPO (cuánto tiempo suena) del comb/resonador - una resonancia con altura propia, distinta de más ambiencia.</p>
+  <p>PRINCIPAL y CLONE (OBJETO 5) reintroducen la salida en vivo uno del otro en su propia entrada de retorno externo, moldeada por el mismo vocabulario DIRETO/DIODO/CAP/PULSO de PORTAS DE FEEDBACK arriba - PRINCIPAL→CLONE y CLONE→PRINCIPAL dosifican esa intensidad. AUX→PRINCIPAL y AUX→CLONE suman un segundo canal, más discreto: dos osciladores escondidos, cada uno escuchando el volumen del otro objeto y derivando junto con él, enviados en lugar de la señal directa. Los cuatro controles y las dos filas de ruta solo aparecen en la propia sección CONEXÃO ENTRE OBJETOS de la ventana CLONE, aunque afecta a ambos objetos por igual. Abra CLONE al menos una vez para ver cómo está configurada esa ruta.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Empieza solo con FB activo y FB GAIN bajo, para oír el retorno crudo antes de sumar DIODE o TRANS encima - activar los seis de una vez solo suena a ruido.</p>
+</section>
+
+<section class="section" id="cap-7">
+  <h2>7 · MEZCLADOR</h2>
+  <p>La página MIX tiene 4 canales - FILTRO, RING, RUÍDO, ESPAÇO - cada uno con ganancia, pan, RET (retorno) y los botones ON/M(ute)/S(olo).</p>
+  <p>MEMÓRIA MIX guarda hasta 4 fotografías completas del mezclador: haz clic en CAPTURAR y luego en un slot M1-M4 para grabar el estado actual en él; haz clic en un slot sin CAPTURAR armado para recuperarlo. PRINCIPAL y CLONE tienen cada uno su propio mezclador separado y sus propios 4 slots de memoria - capturar en uno nunca toca el del otro.</p>
+  <p>Estos 4 canales son puntos de escucha a lo largo de una única cadena, no 4 fuentes independientes: RING alimenta FILTRO, y FILTRO alimenta ESPAÇO. Apagar el ON/ganancia de un canal solo quita su propia contribución a la mezcla - no impide que la señal llegue al siguiente canal. RING apagado con FILTRO activo todavía deja oír la modulación en anillo (FILTRO procesa la señal ya modulada); FILTRO apagado con ESPAÇO activo todavía deja pasar la señal filtrada (REVERB/PHASER/FLANGER/RESONATOR la leen directamente). RUÍDO es el único interruptor verdadero entre los cuatro - su propio knob NOISE SEND queda totalmente silenciado siempre que este canal está apagado.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Apaga RING y deja FILTRO encendido para oír la cadena, no los interruptores: seguirás oyendo la modulación en anillo, porque FILTRO está después de RING en la cadena y solo quita su PROPIA contribución, no lo que ya llegó hasta ahí - la misma prueba con FILTRO apagado y ESPAÇO encendido muestra lo mismo un paso más adelante.</p>
+</section>
+
+<section class="section section-dark" id="cap-8">
+  <h2>8 · DERIVA</h2>
+  <p>DERIVA captura una memoria de frase (pasos, efectos, rutas y relaciones entre osciladores) y desplaza esa memoria lentamente con el tiempo - PROFUNDIDADE controla la intensidad de ese desplazamiento. No es aleatoriedad de audio: es determinístico y se puede volver a escuchar. Verde significa armado y listo; rojo significa que está desviando el sonido activamente ahora mismo.</p>
+  <p>El trazo L/R en el centro del encabezado es la salida real, no una animación. El control vertical al lado (GANHO Y) amplía o reduce el dibujo de la onda para que quepa bien en la caja - el propio nivelado automático del motor ya mantiene la salida típica usando buena parte del margen disponible por sí solo, así que GANHO Y sirve principalmente para ajustar el tamaño del dibujo en sí, no para compensar una señal naturalmente débil.</p>
+  <p>El trazo más lento y plano debajo de él es un resumen de volumen de ~5 segundos, no la forma de onda en sí - muestra cosas que el trazo rápido no deja ver: LFO, dinámica por step, la respiración lenta del retorno. GANHO Y también escala este trazo.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Captura una frase con DERIVA en un sonido que ya conoces bien, luego solo observa el trazo L/R y escucha mientras deriva - el trazo lento de resumen (~5s) facilita seguir el desplazamiento más que el rápido, porque filtra el vaivén instantáneo de la onda y muestra solo la forma más grande que realmente está derivando.</p>
+</section>
+
+<section class="section" id="cap-9">
+  <h2>9 · GRABACIÓN</h2>
+  <p>Elige una duración (1, 2, 3 o 5 min) - REC se dispara solo al hacer clic en una duración, con cuenta regresiva en vivo. REC también funciona como botón manual (inicia/detiene la misma grabación); su color solo se pone rojo mientras graba de verdad. El archivo sale en WAV estéreo de 24 bits.</p>
+  <p>PULSO, POROSA y HETERÓDINA aplican de una vez un conjunto coherente de parámetros (gates/pulsos secos; memoria porosa con S&amp;H y retornos capacitivos; batidos y ring modulation).</p>
+  <p>RND 16 perturba CV/AMP/FX de los 16 pasos dentro de límites seguros, sin tocar el resto del patch.</p>
+  <p>ÓRBITA es la primera en realmente activar EJE Y/Z en los 5 osciladores - lenta, espacial, respirante, lo opuesto de PULSO. PÊNDULO pone el comb/resonador (RES MIX/ALTURA/CORPO) en el centro en vez de accesorio, con PERCURSO forzado en péndulo - un cuerpo golpeado y resonante, alternando paso a paso en vez de sostener.</p>
+  <p class="tut-tip"><strong>Consejo:</strong> Prueba RND 16 varias veces seguidas en el mismo patch antes de recurrir a un preset de variación entero (PULSO/POROSA/HETERÓDINA/ÓRBITA/PÊNDULO) - solo perturba CV/AMP/FX dentro de límites seguros, así que puedes oír hasta dónde ya lleva el sonido un pequeño empujón antes de comprometerte con un cambio más grande y coherente.</p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>Antitotem — Objeto Sonoro · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/antitotem/tree/main">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/CREDITS_AND_SOURCES.md">Créditos</a> ·
+    <a href="https://github.com/lucioaraujo/antitotem/blob/main/LICENSE">Licencia AGPLv3</a>
+  </nav>
+</footer>
+</body>
+</html>
